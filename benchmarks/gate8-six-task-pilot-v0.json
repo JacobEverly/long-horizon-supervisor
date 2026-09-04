@@ -1,0 +1,70 @@
+{
+  "schema_version": "gate8-six-task-pilot.v0",
+  "frozen_at": "2026-08-26",
+  "purpose": "Directional task-model scorer pilot before the full 18-task development wave",
+  "source_panel": "data/supervisor/terminal-bench-pro-panel-v0.jsonl",
+  "source_panel_sha256": "988ddc596418d404f142ea1575ef6ae40710025a884a8dd05351f76f2db984ea",
+  "selection_contract": {
+    "retained_completed_tasks": [
+      "implement-gmm-em-cli",
+      "secure-django-runserver-input-validation"
+    ],
+    "difficulty_constraint": "Exactly 2 hard and 4 medium tasks, matching the 1:2 wave-one ratio",
+    "category_objective": "Among eligible six-task subsets retaining completed tasks, minimize L1 distance from wave-one category proportions, then maximize category coverage",
+    "tie_break": "Lowest source-panel selection_rank within each selected category",
+    "selection_was_outcome_blind_for_new_tasks": true
+  },
+  "task_count": 6,
+  "trial_count": 24,
+  "difficulty_counts": {
+    "hard": 2,
+    "medium": 4
+  },
+  "category_counts": {
+    "debugging": 1,
+    "machine-learning": 1,
+    "scientific-computing": 1,
+    "security": 1,
+    "software-engineering": 1,
+    "system-administration": 1
+  },
+  "tasks": [
+    {
+      "source_task_name": "implement-gmm-em-cli",
+      "task_id": "227cec3fb26bda3aa09a002bd7f2db7784600d10b81e4ee78c5d427248699a46",
+      "difficulty": "hard",
+      "category": "machine-learning"
+    },
+    {
+      "source_task_name": "secure-django-runserver-input-validation",
+      "task_id": "5e28fbf19104d3fcbeb4a197fb3a7d27923d60b20061980b5ab494cb7c78ccbc",
+      "difficulty": "hard",
+      "category": "security"
+    },
+    {
+      "source_task_name": "fix-jni-unsatisfiedlinkerror-path",
+      "task_id": "65de8534a73314e201f60cd37b98061f498619585b3d4a457a3976a2b0736a80",
+      "difficulty": "medium",
+      "category": "debugging"
+    },
+    {
+      "source_task_name": "solve-chemical-equilibrium-system",
+      "task_id": "cae109172c897a11f5f3bf7411b4098cc852d563360fd5f8e7b5f11305d135e1",
+      "difficulty": "medium",
+      "category": "scientific-computing"
+    },
+    {
+      "source_task_name": "cube-grid-cross-expansion",
+      "task_id": "5c63636263ebed19b0a911531cda65e4a7ae6c062d811e57c76cc1d5147d079c",
+      "difficulty": "medium",
+      "category": "software-engineering"
+    },
+    {
+      "source_task_name": "reverse-engineer-physics-simulator",
+      "task_id": "3f094c5622204033eeb85fb79b156daf1c240dbb3080adf8d7bccd8e9d7bb900",
+      "difficulty": "medium",
+      "category": "system-administration"
+    }
+  ],
+  "interpretation_guard": "This subset is a directional calibration pilot. It can validate data plumbing and expose a preliminary frontier, but it cannot establish general model rankings or replace the frozen final benchmark."
+}

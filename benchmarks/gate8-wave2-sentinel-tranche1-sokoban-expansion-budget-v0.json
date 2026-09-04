@@ -1,0 +1,55 @@
+{
+  "schema_version": "gate8-sentinel-expansion-budget.v0",
+  "wave": 2,
+  "frozen_at": "2026-08-27",
+  "scope": "Run Flash and Kimi on the hash-selected agreement audit from Wave 2 sentinel tranche 1",
+  "trial_count": 2,
+  "no_harbor_retries": true,
+  "execution_contract": {
+    "route_ids": [
+      "gate7/fixed-flash",
+      "gate7/fixed-kimi"
+    ],
+    "selected_task_names": [
+      "sokoban-bfs-move-with-fallback"
+    ],
+    "run_controls": {
+      "n_concurrent": 2,
+      "max_turns": 12,
+      "max_output_tokens": 8192,
+      "reasoning_effort": "high",
+      "request_timeout_seconds": 1200,
+      "request_retry_attempts": 1,
+      "output_length_retry_attempts": 1,
+      "wall_timeout_seconds": 2400
+    }
+  },
+  "effective_limits": {
+    "switchyard_target_timeout_seconds": 600,
+    "interpretation": "The agent allows 1200 seconds, while the frozen Switchyard target layer enforces the same 600-second effective call limit used by the sentinel rows."
+  },
+  "model_budget": {
+    "total_key_spend_at_freeze_usd": 10.52361398,
+    "expansion_incremental_planning_estimate_usd": 1.0,
+    "dedicated_openrouter_key_remaining_at_freeze_usd": 39.47638602,
+    "dedicated_openrouter_key_hard_cap_usd": 50.0
+  },
+  "sandbox_budget": {
+    "pricing_basis": "same Daytona linear resource rates frozen for Gate 8 Wave 1",
+    "execution_policy": "one two-route audit batch; all sandboxes must be Harbor-managed and cleaned after the batch",
+    "stale_sandbox_preflight_required": true
+  },
+  "user_authorized_project_ceiling_usd": 200.0,
+  "screen_analysis": "artifacts/official/gate8-wave2-sentinel-tranche1/sentinel-analysis-v0.json",
+  "selection_proof": {
+    "rule": "smallest SHA-256 of agreement seed, task id, and task name",
+    "selected_task": "sokoban-bfs-move-with-fallback",
+    "selection_hash": "39c393876fce7387e5a3cc17ee616a8d9d4ef737efdca372d913fe9352687b6e"
+  },
+  "frozen_inputs": {
+    "panel_sha256": "988ddc596418d404f142ea1575ef6ae40710025a884a8dd05351f76f2db984ea",
+    "tasks_tree_sha256": "9e6e28567e546735aa5ea5ce514d1e8cb911170e83b4fe4993328722ab58a582",
+    "switchyard_config_sha256": "72ed4b85ed485787279361c31abebf75a911f59c0ff68724c1e33ab91f09343b"
+  },
+  "interpretation_guard": "This is a predeclared agreement audit, not an outcome-selected disagreement. Keep its missed-contrast evidence separate from contrast-enriched training rows."
+}

@@ -1,0 +1,51 @@
+schema_version = 1
+
+[llm_clients.openrouter]
+format = "openai_chat"
+base_url = "https://openrouter.ai/api/v1"
+api_key_env = "OPENROUTER_API_KEY"
+
+[targets.qwen]
+id = "qwen/qwen3.8-27b"
+llm_client = "openrouter"
+
+[targets.flash]
+id = "deepseek/deepseek-v4-flash-0731"
+llm_client = "openrouter"
+
+[targets.glm]
+id = "z-ai/glm-5.3"
+llm_client = "openrouter"
+
+[targets.kimi]
+id = "moonshotai/kimi-k3"
+llm_client = "openrouter"
+
+[targets.qwen35_9b]
+id = "qwen/qwen3.5-9b"
+llm_client = "openrouter"
+
+[routes.fixed_qwen]
+id = "gate7/fixed-qwen"
+type = "passthrough"
+target = "qwen"
+
+[routes.fixed_flash]
+id = "gate7/fixed-flash"
+type = "passthrough"
+target = "flash"
+
+[routes.fixed_glm]
+id = "gate7/fixed-glm"
+type = "passthrough"
+target = "glm"
+
+[routes.fixed_kimi]
+id = "gate7/fixed-kimi"
+type = "passthrough"
+target = "kimi"
+
+[routes.fixed_qwen35_9b]
+id = "swiss/fixed-qwen35-9b"
+type = "passthrough"
+target = "qwen35_9b"

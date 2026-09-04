@@ -1,0 +1,46 @@
+{
+  "schema_version": "gate8-sentinel-recovery-budget.v0",
+  "wave": 2,
+  "frozen_at": "2026-08-27",
+  "scope": "Replace the infrastructure-invalid Qwen Sokoban cell from Wave 2 sentinel tranche 1",
+  "trial_count": 1,
+  "no_harbor_retries": true,
+  "execution_contract": {
+    "route_ids": [
+      "gate7/fixed-qwen"
+    ],
+    "selected_task_names": [
+      "sokoban-bfs-move-with-fallback"
+    ],
+    "run_controls": {
+      "n_concurrent": 1,
+      "max_turns": 12,
+      "max_output_tokens": 8192,
+      "reasoning_effort": "high",
+      "request_timeout_seconds": 1200,
+      "request_retry_attempts": 1,
+      "output_length_retry_attempts": 1,
+      "wall_timeout_seconds": 2400
+    }
+  },
+  "model_budget": {
+    "total_key_spend_at_freeze_usd": 10.24244282,
+    "recovery_incremental_planning_estimate_usd": 0.4,
+    "dedicated_openrouter_key_remaining_at_freeze_usd": 39.75755718,
+    "dedicated_openrouter_key_hard_cap_usd": 50.0
+  },
+  "sandbox_budget": {
+    "pricing_basis": "same Daytona linear resource rates frozen for Gate 8 Wave 1",
+    "execution_policy": "one isolated route; all sandboxes must be Harbor-managed and cleaned after the trial",
+    "stale_sandbox_preflight_required": true
+  },
+  "user_authorized_project_ceiling_usd": 200.0,
+  "parent_contract": "benchmarks/gate8-wave2-sentinel-tranche1-sokoban-recovery-budget-v0.json",
+  "recovery_reason": "The two-route recovery produced a learning-valid GLM outcome, while Qwen never reached a model call and ended with a Daytona InternalServerError. Concurrency is reduced only to isolate environment provisioning; the task, route, and agent controls are unchanged.",
+  "frozen_inputs": {
+    "panel_sha256": "988ddc596418d404f142ea1575ef6ae40710025a884a8dd05351f76f2db984ea",
+    "tasks_tree_sha256": "9e6e28567e546735aa5ea5ce514d1e8cb911170e83b4fe4993328722ab58a582",
+    "switchyard_config_sha256": "72ed4b85ed485787279361c31abebf75a911f59c0ff68724c1e33ab91f09343b"
+  },
+  "interpretation_guard": "This trial may replace only the infrastructure-invalid Qwen Sokoban cell. The learning-valid GLM outcome is retained from the parent recovery."
+}

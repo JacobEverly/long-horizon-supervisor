@@ -1,0 +1,31 @@
+{
+  "schema_version": "stage-data-acceptance.v1",
+  "frozen_at": "2026-08-25",
+  "objective": "Decide whether public checkpoint diversity is sufficient for completion-stage pretraining before collecting matched model-switch outcomes.",
+  "dataset": "data/supervisor/supervisor-checkpoints-v1.jsonl",
+  "split_contract": {
+    "group": "normalized task-description SHA-256 across sources",
+    "train_buckets": "00-74",
+    "validation_buckets": "75-84",
+    "development_test_buckets": "85-94",
+    "sealed_test_buckets": "95-99"
+  },
+  "frozen_recipe": {
+    "model": "TF-IDF terminal tail plus structured online features; logistic regression",
+    "target_source": "nemotron-terminal-pivot-v1",
+    "target_source_weight_share": 0.7,
+    "openthoughts_source_weight_share": 0.3,
+    "threshold_selection": "maximize source-weighted F1 on validation only",
+    "sealed_test_used_for_selection": false
+  },
+  "sealed_acceptance": {
+    "overall_average_precision_min": 0.75,
+    "overall_roc_auc_min": 0.9,
+    "nemotron_average_precision_min": 0.35,
+    "nemotron_roc_auc_min": 0.82,
+    "openthoughts_average_precision_min": 0.75,
+    "openthoughts_roc_auc_min": 0.93,
+    "full_model_average_precision_gain_over_structured_min": 0.25
+  },
+  "decision_rule": "If every threshold passes, stop collecting generic successful stage data and move to matched multi-model and failed-run outcomes. If any threshold fails, diagnose that source or feature gap before paid routing collection."
+}

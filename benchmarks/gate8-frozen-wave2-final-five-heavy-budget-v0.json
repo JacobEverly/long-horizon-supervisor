@@ -1,0 +1,65 @@
+{
+  "schema_version": "gate8-proportional-closure-budget.v0",
+  "wave": 2,
+  "frozen_at": "2026-08-28",
+  "scope": "Outcome-blind sequential execution of the resource-heavy task remaining in the compatible frozen Wave 1 and Wave 2 panel",
+  "trial_count": 4,
+  "no_harbor_retries": true,
+  "checkpoint_design": {
+    "prior_clean_matched_tasks": 30,
+    "joint_checkpoint_target_tasks": 35,
+    "joint_checkpoint_difficulty_counts": {
+      "hard": 11,
+      "medium": 24
+    },
+    "selection_rule": "Run every remaining frozen Wave 1 and Wave 2 task except the preregistered infrastructure-incompatible MCTS task; split execution only by declared sandbox resources.",
+    "outcome_blind": true,
+    "selected_task_outcomes_observed": false,
+    "revision_reason": "This build task declares 4 CPUs and 8 GiB, matching the resource shape that provisions reliably one sandbox at a time."
+  },
+  "execution_contract": {
+    "route_ids": [
+      "gate7/fixed-qwen",
+      "gate7/fixed-flash",
+      "gate7/fixed-glm",
+      "gate7/fixed-kimi"
+    ],
+    "selected_task_names": [
+      "build-graphicsmagick-1-3-45"
+    ],
+    "run_controls": {
+      "n_concurrent": 1,
+      "max_turns": 12,
+      "max_output_tokens": 8192,
+      "reasoning_effort": "high",
+      "request_timeout_seconds": 1200,
+      "request_retry_attempts": 1,
+      "output_length_retry_attempts": 1,
+      "wall_timeout_seconds": 7200
+    }
+  },
+  "effective_limits": {
+    "switchyard_target_timeout_seconds": 600,
+    "wall_timeout_clock": "absolute Unix wall time; includes laptop sleep"
+  },
+  "model_budget": {
+    "total_key_spend_at_freeze_usd": 16.247578448,
+    "incremental_planning_estimate_usd": 2.0,
+    "dedicated_openrouter_key_remaining_at_freeze_usd": 33.752421552,
+    "dedicated_openrouter_key_hard_cap_usd": 50.0
+  },
+  "sandbox_budget": {
+    "pricing_basis": "same Daytona linear resource rates frozen for Gate 8 Wave 1",
+    "declared_resources_per_trial": "4 CPUs, 8 GiB memory, 10 GiB storage",
+    "execution_policy": "four sequential Harbor trials followed by a zero-sandbox cleanup check",
+    "stale_sandbox_preflight_required": true,
+    "stale_sandbox_count_at_freeze": 0
+  },
+  "user_authorized_project_ceiling_usd": 200.0,
+  "frozen_inputs": {
+    "panel_sha256": "988ddc596418d404f142ea1575ef6ae40710025a884a8dd05351f76f2db984ea",
+    "tasks_tree_sha256": "9e6e28567e546735aa5ea5ce514d1e8cb911170e83b4fe4993328722ab58a582",
+    "switchyard_config_sha256": "72ed4b85ed485787279361c31abebf75a911f59c0ff68724c1e33ab91f09343b"
+  },
+  "interpretation_guard": "Complete the task before changing the router or selecting follow-on data. Infrastructure failures remain excluded and are recovered route-for-route."
+}

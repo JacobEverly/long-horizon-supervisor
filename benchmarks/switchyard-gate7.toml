@@ -1,0 +1,79 @@
+schema_version = 1
+
+[llm_clients.openrouter]
+format = "openai_chat"
+base_url = "https://openrouter.ai/api/v1"
+api_key_env = "OPENROUTER_API_KEY"
+
+[targets.qwen]
+id = "qwen/qwen3.8-27b"
+llm_client = "openrouter"
+
+[targets.flash]
+id = "deepseek/deepseek-v4-flash-0731"
+llm_client = "openrouter"
+
+[targets.pro]
+id = "deepseek/deepseek-v4-pro-0813"
+llm_client = "openrouter"
+
+[targets.glm]
+id = "z-ai/glm-5.3"
+llm_client = "openrouter"
+
+[targets.kimi]
+id = "moonshotai/kimi-k3"
+llm_client = "openrouter"
+
+[routes.fixed_qwen]
+id = "gate7/fixed-qwen"
+type = "passthrough"
+target = "qwen"
+
+[routes.fixed_flash]
+id = "gate7/fixed-flash"
+type = "passthrough"
+target = "flash"
+
+[routes.fixed_pro]
+id = "gate7/fixed-pro"
+type = "passthrough"
+target = "pro"
+
+[routes.fixed_glm]
+id = "gate7/fixed-glm"
+type = "passthrough"
+target = "glm"
+
+[routes.fixed_kimi]
+id = "gate7/fixed-kimi"
+type = "passthrough"
+target = "kimi"
+
+[routes.stage_quality]
+id = "gate7/stage-quality"
+type = "stage_router"
+capable_target = "kimi"
+efficient_target = "qwen"
+picker = "capable_first"
+confidence_threshold = 0.5
+recent_turn_window = 3
+
+[routes.stage_quality.handoff_notes]
+escalation_note = "[supervisor] Recent tool evidence indicates errors, stalling, or unresolved exploration. Re-examine the current external state before choosing the next action."
+deescalation_note = "[supervisor] Recent tool evidence indicates settled implementation progress. Continue efficiently, but verify the current state before declaring completion."
+only_on_wrong_signal_escalation = true
+
+[routes.stage_cost]
+id = "gate7/stage-cost"
+type = "stage_router"
+capable_target = "kimi"
+efficient_target = "qwen"
+picker = "efficient_first"
+confidence_threshold = 0.5
+recent_turn_window = 3
+
+[routes.stage_cost.handoff_notes]
+escalation_note = "[supervisor] Recent tool evidence indicates errors, stalling, or unresolved exploration. Re-examine the current external state before choosing the next action."
+deescalation_note = "[supervisor] Recent tool evidence indicates settled implementation progress. Continue efficiently, but verify the current state before declaring completion."
+only_on_wrong_signal_escalation = true

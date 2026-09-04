@@ -1,0 +1,67 @@
+{
+  "schema_version": "gate8-infrastructure-recovery-budget.v0",
+  "wave": 1,
+  "frozen_at": "2026-08-28",
+  "scope": "Recover the two infrastructure-invalid Nginx routes without rerunning the valid GLM and Kimi failures",
+  "trial_count": 2,
+  "no_harbor_retries": true,
+  "recovery_design": {
+    "source_run": "artifacts/official/gate8-pilot-20260828T134840441543Z",
+    "task": "build-nginx-1-24-production-server",
+    "preserved_routes": [
+      "gate7/fixed-glm",
+      "gate7/fixed-kimi"
+    ],
+    "preserved_outcomes": "two verified failures",
+    "recovered_routes": [
+      "gate7/fixed-qwen",
+      "gate7/fixed-flash"
+    ],
+    "trigger": "Qwen and Flash hit EnvironmentStartTimeoutError while the custom Nginx image was being provisioned concurrently; GLM and Kimi subsequently ran cleanly.",
+    "outcome_selection_guard": "Every infrastructure-invalid route is recovered and no verified route is rerun.",
+    "concurrency_correction": "Provision and execute one Nginx sandbox at a time because the first run demonstrated same-image build contention.",
+    "wall_timeout_correction": "Use 4800 seconds for the two sequential trials; the bound protects infrastructure validity and does not define task success."
+  },
+  "execution_contract": {
+    "route_ids": [
+      "gate7/fixed-qwen",
+      "gate7/fixed-flash"
+    ],
+    "selected_task_names": [
+      "build-nginx-1-24-production-server"
+    ],
+    "run_controls": {
+      "n_concurrent": 1,
+      "max_turns": 12,
+      "max_output_tokens": 8192,
+      "reasoning_effort": "high",
+      "request_timeout_seconds": 1200,
+      "request_retry_attempts": 1,
+      "output_length_retry_attempts": 1,
+      "wall_timeout_seconds": 4800
+    }
+  },
+  "effective_limits": {
+    "switchyard_target_timeout_seconds": 600,
+    "wall_timeout_clock": "absolute Unix wall time; includes laptop sleep"
+  },
+  "model_budget": {
+    "total_key_spend_at_freeze_usd": 14.137228738,
+    "incremental_planning_estimate_usd": 1.0,
+    "dedicated_openrouter_key_remaining_at_freeze_usd": 35.862771262,
+    "dedicated_openrouter_key_hard_cap_usd": 50.0
+  },
+  "sandbox_budget": {
+    "pricing_basis": "same Daytona linear resource rates frozen for Gate 8 Wave 1",
+    "execution_policy": "two sequential Harbor trials followed by a zero-sandbox cleanup check",
+    "stale_sandbox_preflight_required": true,
+    "stale_sandbox_count_at_freeze": 0
+  },
+  "user_authorized_project_ceiling_usd": 200.0,
+  "frozen_inputs": {
+    "panel_sha256": "988ddc596418d404f142ea1575ef6ae40710025a884a8dd05351f76f2db984ea",
+    "tasks_tree_sha256": "8ca069d0e3b77e2c96de1301b4282052206e5c1a48ca80fbfcc545a2d55456dd",
+    "switchyard_config_sha256": "72ed4b85ed485787279361c31abebf75a911f59c0ff68724c1e33ab91f09343b"
+  },
+  "interpretation_guard": "Merge only learning-valid recovery rows with the two preserved verified rows; infrastructure failures remain excluded from training."
+}

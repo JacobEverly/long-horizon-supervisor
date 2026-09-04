@@ -1,0 +1,33 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python and tooling
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Local execution and downloaded data
+artifacts/
+data/
+*.log
+*.jsonl
+*.joblib
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Temporary files
+*.tmp
+*.bak

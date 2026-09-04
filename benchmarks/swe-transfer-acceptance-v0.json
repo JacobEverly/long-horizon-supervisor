@@ -1,0 +1,24 @@
+{
+  "schema_version": "swe-transfer-acceptance.v0",
+  "frozen_at": "2026-08-25",
+  "objective": "Test completion-stage recognition without retraining on an untouched OpenHands SWE pivot source.",
+  "dataset": "data/supervisor/swe-pivot-transfer-checkpoints-v0.jsonl",
+  "model": {
+    "path": "artifacts/training/completion-baseline-v2-sealed.joblib",
+    "sha256": "eea0b974b25923cd365f68b663ce7762690c3d2ba9b3dd560c40589ff3b663ee"
+  },
+  "evaluation": {
+    "positive_label": "expected action is finish",
+    "high_confidence_pass_rate_min": 0.625,
+    "threshold_source": "stored validation-only threshold",
+    "training_on_this_source": false
+  },
+  "acceptance": {
+    "all_rows_average_precision_min": 0.08,
+    "all_rows_roc_auc_min": 0.75,
+    "all_rows_average_precision_multiple_over_prevalence_min": 3.0,
+    "high_confidence_average_precision_min": 0.1,
+    "high_confidence_roc_auc_min": 0.75
+  },
+  "decision_rule": "If all criteria pass, treat successful-stage data as sufficient for v0 and collect matched model outcomes next. Any failure keeps stage-data diagnosis open."
+}

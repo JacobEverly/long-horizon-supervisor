@@ -1,0 +1,48 @@
+{
+  "schema_version": "gate8-budget.v0",
+  "frozen_at": "2026-08-25",
+  "scope": "Four fixed models on the 18-task Terminal-Bench Pro wave-one panel",
+  "trial_count": 72,
+  "no_retries": true,
+  "run_controls": {
+    "max_turns": 12,
+    "max_output_tokens": 8192,
+    "reasoning_effort": "high",
+    "n_concurrent": 2,
+    "batching": "one task across four fixed models",
+    "cost_attribution": "exact provider spend per task, allocated across models in proportion to cache-aware list-price estimates"
+  },
+  "model_budget": {
+    "prior_evidence": "artifacts/official/gate4-20260820T200223Z/gate4-report.json",
+    "scaled_prior_mean_usd": 1.935578,
+    "uncertainty_multiplier_for_planning": 10.0,
+    "planning_estimate_usd": 19.35578,
+    "four-arm_smoke_actual_usd": 0.464903066,
+    "smoke_scaled_to_18_tasks_usd": 8.368255188,
+    "dedicated_openrouter_key_hard_cap_usd": 50.0
+  },
+  "sandbox_budget": {
+    "pricing_source": "https://www.daytona.io/",
+    "pricing_captured_at": "2026-08-25",
+    "vcpu_usd_per_hour": 0.0504,
+    "memory_gib_usd_per_hour": 0.0162,
+    "storage_gib_usd_per_hour": 0.000108,
+    "calculation": "Sum each task's configured build, agent, and verifier timeouts multiplied by its reserved CPU, RAM, and disk rates, then multiply by four models.",
+    "full_timeout_upper_estimate_usd": 10.764288,
+    "does_not_assume_free_credits": true
+  },
+  "combined_planning_estimate_usd": 30.120068,
+  "combined_cap_or_timeout_upper_usd": 60.764288,
+  "user_authorized_project_ceiling_usd": 200.0,
+  "execution_order": [
+    "one task across all four fixed models",
+    "inspect image availability, verifier completion, usage, and cost",
+    "run the remaining 17 tasks only if the smoke is valid"
+  ],
+  "frozen_inputs": {
+    "panel_sha256": "988ddc596418d404f142ea1575ef6ae40710025a884a8dd05351f76f2db984ea",
+    "tasks_tree_sha256": "8ca069d0e3b77e2c96de1301b4282052206e5c1a48ca80fbfcc545a2d55456dd",
+    "switchyard_config_sha256": "72ed4b85ed485787279361c31abebf75a911f59c0ff68724c1e33ab91f09343b"
+  },
+  "interpretation_guard": "The model cap is provider-enforced. The sandbox number is a conservative timeout-based estimate from published linear resource rates, not a provider-side hard cap."
+}

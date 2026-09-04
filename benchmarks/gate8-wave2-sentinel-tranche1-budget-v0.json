@@ -1,0 +1,51 @@
+{
+  "schema_version": "gate8-sentinel-budget.v0",
+  "wave": 2,
+  "frozen_at": "2026-08-27",
+  "scope": "Qwen-GLM sentinel screen on the first frozen five-task proportional Wave 2 tranche",
+  "trial_count": 10,
+  "no_harbor_retries": true,
+  "execution_contract": {
+    "route_ids": [
+      "gate7/fixed-qwen",
+      "gate7/fixed-glm"
+    ],
+    "selected_task_names": [
+      "create-valid-message-enc-file",
+      "mcts-solver-for-15-puzzle",
+      "bash-ddos-traffic-analyzer",
+      "decode-go-ctf-credentials",
+      "sokoban-bfs-move-with-fallback"
+    ],
+    "run_controls": {
+      "n_concurrent": 2,
+      "max_turns": 12,
+      "max_output_tokens": 8192,
+      "reasoning_effort": "high",
+      "request_timeout_seconds": 1200,
+      "request_retry_attempts": 1,
+      "output_length_retry_attempts": 1,
+      "wall_timeout_seconds": 2400
+    }
+  },
+  "model_budget": {
+    "total_key_spend_at_freeze_usd": 8.86964061,
+    "tranche_incremental_planning_estimate_usd": 2.0,
+    "dedicated_openrouter_key_remaining_at_freeze_usd": 41.13035939,
+    "dedicated_openrouter_key_hard_cap_usd": 50.0
+  },
+  "sandbox_budget": {
+    "pricing_basis": "same Daytona linear resource rates frozen for Gate 8 Wave 1",
+    "execution_policy": "one two-route task batch at a time; all sandboxes must be Harbor-managed and cleaned after each batch",
+    "stale_sandbox_preflight_required": true
+  },
+  "user_authorized_project_ceiling_usd": 200.0,
+  "screen_manifest": "benchmarks/gate8-wave2-sentinel-screen-v0.json",
+  "screen_manifest_sha256": "ab12cd7314d5a557ef59a404b4efb8cf5454d96770dfe359722e337969870049",
+  "frozen_inputs": {
+    "panel_sha256": "988ddc596418d404f142ea1575ef6ae40710025a884a8dd05351f76f2db984ea",
+    "tasks_tree_sha256": "9e6e28567e546735aa5ea5ce514d1e8cb911170e83b4fe4993328722ab58a582",
+    "switchyard_config_sha256": "72ed4b85ed485787279361c31abebf75a911f59c0ff68724c1e33ab91f09343b"
+  },
+  "interpretation_guard": "This is an outcome-blind proportional sentinel screen, not a four-route representative matrix. Expand every disagreement and the predeclared agreement audit before using rows for four-route training."
+}

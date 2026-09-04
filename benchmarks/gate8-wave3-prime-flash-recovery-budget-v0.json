@@ -1,0 +1,87 @@
+{
+  "schema_version": "gate8-held-out-wave-evaluation-budget.v0",
+  "wave": 3,
+  "frozen_at": "2026-08-31",
+  "scope": "Infrastructure-only recovery of the invalid Flash trial for the resource-heavy task in frozen Terminal-Bench Pro Wave 3",
+  "trial_count": 1,
+  "no_harbor_retries": true,
+  "checkpoint_design": {
+    "prior_compatible_matched_tasks": 35,
+    "joint_target_compatible_tasks": 53,
+    "joint_target_difficulty_counts": {
+      "hard": 17,
+      "medium": 36
+    },
+    "selection_rule": "Recover only the infrastructure-invalid Flash trial; do not repeat learning-valid task-model pairs.",
+    "outcome_blind": true,
+    "selected_task_outcomes_observed": false,
+    "evaluation_role": "Infrastructure-only continuation of the sealed later-wave evaluation",
+    "revision_reason": "The shared four-route wall clock expired after Qwen completed and while Flash was starting. This contract preserves every frozen control and recovers Flash alone."
+  },
+  "frozen_policy": {
+    "best_single_route": "gate7/fixed-kimi",
+    "two_route_order": [
+      "gate7/fixed-flash",
+      "gate7/fixed-qwen"
+    ],
+    "three_route_order": [
+      "gate7/fixed-flash",
+      "gate7/fixed-qwen",
+      "gate7/fixed-glm"
+    ],
+    "four_route_order": [
+      "gate7/fixed-flash",
+      "gate7/fixed-qwen",
+      "gate7/fixed-glm",
+      "gate7/fixed-kimi"
+    ],
+    "route_baseline_code_sha256": "d7adbe3b5abf07f759078465a8c0d9897650ad99e12531272ae0a36bd5b4754a",
+    "development_report_sha256": "97b8411bfdd9ec946a4f20e9e33a98227e99b47f5c680478e0a10f7bb105550c",
+    "policy_change_rule": "Do not change routes, ordering, features, margins, or evaluation logic until all Wave 3 outcomes are finalized."
+  },
+  "execution_contract": {
+    "route_ids": [
+      "gate7/fixed-flash"
+    ],
+    "selected_task_names": [
+      "python-prime-http-server"
+    ],
+    "run_controls": {
+      "n_concurrent": 1,
+      "max_turns": 12,
+      "max_output_tokens": 8192,
+      "reasoning_effort": "high",
+      "request_timeout_seconds": 1200,
+      "request_retry_attempts": 1,
+      "output_length_retry_attempts": 1,
+      "wall_timeout_seconds": 7200
+    }
+  },
+  "effective_limits": {
+    "switchyard_target_timeout_seconds": 600,
+    "wall_timeout_clock": "absolute Unix wall time; includes laptop sleep"
+  },
+  "model_budget": {
+    "total_key_spend_at_freeze_usd": 23.552935902,
+    "incremental_planning_estimate_usd": 2.0,
+    "checkpoint_incremental_spend_cap_usd": 10.0,
+    "dedicated_key_usage_ceiling_usd": 33.552935902,
+    "minimum_next_task_reserve_usd": 2.0,
+    "dedicated_openrouter_key_remaining_at_freeze_usd": 26.447064098,
+    "dedicated_openrouter_key_hard_cap_usd": 50.0
+  },
+  "sandbox_budget": {
+    "pricing_basis": "same Daytona linear resource rates frozen for Gate 8 Wave 1",
+    "declared_resources_per_trial": "4 CPUs, 8 GiB memory, 10 GiB storage",
+    "execution_policy": "one Harbor trial followed by a zero-sandbox cleanup check",
+    "stale_sandbox_preflight_required": true,
+    "stale_sandbox_count_at_freeze": 0
+  },
+  "user_authorized_project_ceiling_usd": 200.0,
+  "frozen_inputs": {
+    "panel_sha256": "988ddc596418d404f142ea1575ef6ae40710025a884a8dd05351f76f2db984ea",
+    "tasks_tree_sha256": "7e2ae8788848f55cb299bfcce2d8295d3ed865c47941d942468b74a6a012bafe",
+    "switchyard_config_sha256": "72ed4b85ed485787279361c31abebf75a911f59c0ff68724c1e33ab91f09343b"
+  },
+  "interpretation_guard": "Evaluate all 18 Wave 3 tasks before changing the frozen policies. Recover only non-learning-valid execution failures route-for-route. Report Wave 3 separately before pooling with development data."
+}

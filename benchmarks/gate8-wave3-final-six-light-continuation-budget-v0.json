@@ -1,0 +1,94 @@
+{
+  "schema_version": "gate8-held-out-wave-continuation-budget.v0",
+  "wave": 3,
+  "frozen_at": "2026-08-30",
+  "scope": "Collect the final six preselected lightweight Wave 3 tasks that remained unstarted at the sealed 11-task checkpoint",
+  "trial_count": 24,
+  "no_harbor_retries": true,
+  "continuation_design": {
+    "parent_contract": "benchmarks/gate8-wave3-full-light-evaluation-budget-v0.json",
+    "sealed_checkpoint": "artifacts/official/gate8-wave3-11-task-checkpoint/frozen-policy-scorecard-11-task-v0.json",
+    "completed_task_count": 11,
+    "selected_original_positions": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "selection_rule": "Every unstarted lightweight task from the original frozen contract, in its original order; no held-out outcome influenced inclusion.",
+    "outcome_blind": true,
+    "policy_change": "none"
+  },
+  "frozen_policy": {
+    "best_single_route": "gate7/fixed-kimi",
+    "two_route_order": [
+      "gate7/fixed-flash",
+      "gate7/fixed-qwen"
+    ],
+    "three_route_order": [
+      "gate7/fixed-flash",
+      "gate7/fixed-qwen",
+      "gate7/fixed-glm"
+    ],
+    "four_route_order": [
+      "gate7/fixed-flash",
+      "gate7/fixed-qwen",
+      "gate7/fixed-glm",
+      "gate7/fixed-kimi"
+    ],
+    "route_baseline_code_sha256": "d7adbe3b5abf07f759078465a8c0d9897650ad99e12531272ae0a36bd5b4754a",
+    "development_report_sha256": "97b8411bfdd9ec946a4f20e9e33a98227e99b47f5c680478e0a10f7bb105550c",
+    "policy_change_rule": "Do not change routes, ordering, features, margins, or evaluation logic until all Wave 3 outcomes are finalized."
+  },
+  "execution_contract": {
+    "route_ids": [
+      "gate7/fixed-qwen",
+      "gate7/fixed-flash",
+      "gate7/fixed-glm",
+      "gate7/fixed-kimi"
+    ],
+    "selected_task_names": [
+      "recover-and-sanitize-postgres-wal-secret",
+      "recover-prod-db-password-from-git-history",
+      "repair-broken-shell-data-pipeline",
+      "secure-db-migration-and-wipe",
+      "train-loan-default-logreg-model",
+      "xrd-two-peak-fitting"
+    ],
+    "run_controls": {
+      "n_concurrent": 3,
+      "max_turns": 12,
+      "max_output_tokens": 8192,
+      "reasoning_effort": "high",
+      "request_timeout_seconds": 1200,
+      "request_retry_attempts": 1,
+      "output_length_retry_attempts": 1,
+      "wall_timeout_seconds": 3600
+    }
+  },
+  "model_budget": {
+    "total_key_spend_at_freeze_usd": 23.552935902,
+    "incremental_planning_estimate_usd": 6.0,
+    "checkpoint_incremental_spend_cap_usd": 10.0,
+    "dedicated_key_usage_ceiling_usd": 33.552935902,
+    "minimum_next_task_reserve_usd": 2.0,
+    "dedicated_openrouter_key_remaining_at_freeze_usd": 26.447064098,
+    "dedicated_openrouter_key_hard_cap_usd": 50.0
+  },
+  "sandbox_budget": {
+    "pricing_basis": "same Daytona linear resource rates frozen for Gate 8 Wave 1",
+    "declared_resources_per_trial": "1 CPU, 2 GiB memory, 10 GiB storage",
+    "execution_policy": "one four-route task batch at a time, at most three concurrent trials, followed by a zero-sandbox cleanup check",
+    "stale_sandbox_preflight_required": true,
+    "stale_sandbox_count_at_freeze": 0
+  },
+  "user_authorized_project_ceiling_usd": 200.0,
+  "frozen_inputs": {
+    "panel_sha256": "988ddc596418d404f142ea1575ef6ae40710025a884a8dd05351f76f2db984ea",
+    "tasks_tree_sha256": "7e2ae8788848f55cb299bfcce2d8295d3ed865c47941d942468b74a6a012bafe",
+    "switchyard_config_sha256": "72ed4b85ed485787279361c31abebf75a911f59c0ff68724c1e33ab91f09343b"
+  },
+  "interpretation_guard": "This is execution continuation for every unstarted lightweight task in the original sealed 18-task evaluation. Report Wave 3 separately before pooling and leave all frozen policies unchanged."
+}

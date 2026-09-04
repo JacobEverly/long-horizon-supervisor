@@ -1,0 +1,60 @@
+{
+  "schema_version": "gate8-held-out-wave-recovery-budget.v0",
+  "wave": 3,
+  "frozen_at": "2026-08-29",
+  "scope": "Recover only the Qwen, Flash, and Kimi task-6 cells cancelled after the valid GLM success",
+  "trial_count": 3,
+  "no_harbor_retries": true,
+  "recovery_design": {
+    "source_run": "artifacts/official/gate8-pilot-20260829T135605645508Z",
+    "task": "improve-code-similarity-feature-extraction",
+    "preserved_route": "gate7/fixed-glm",
+    "preserved_outcome": "learning-valid verifier success",
+    "recovered_routes": ["gate7/fixed-qwen", "gate7/fixed-flash", "gate7/fixed-kimi"],
+    "trigger": "The task wall clock cancelled the three unfinished routes after GLM had finalized successfully.",
+    "outcome_selection_guard": "Every and only the infrastructure-invalid source cell is recovered; GLM is not rerun.",
+    "policy_change": "none"
+  },
+  "frozen_policy": {
+    "best_single_route": "gate7/fixed-kimi",
+    "two_route_order": ["gate7/fixed-flash", "gate7/fixed-qwen"],
+    "three_route_order": ["gate7/fixed-flash", "gate7/fixed-qwen", "gate7/fixed-glm"],
+    "four_route_order": ["gate7/fixed-flash", "gate7/fixed-qwen", "gate7/fixed-glm", "gate7/fixed-kimi"],
+    "route_baseline_code_sha256": "d7adbe3b5abf07f759078465a8c0d9897650ad99e12531272ae0a36bd5b4754a",
+    "development_report_sha256": "97b8411bfdd9ec946a4f20e9e33a98227e99b47f5c680478e0a10f7bb105550c"
+  },
+  "execution_contract": {
+    "route_ids": ["gate7/fixed-qwen", "gate7/fixed-flash", "gate7/fixed-kimi"],
+    "selected_task_names": ["improve-code-similarity-feature-extraction"],
+    "run_controls": {
+      "n_concurrent": 3,
+      "max_turns": 12,
+      "max_output_tokens": 8192,
+      "reasoning_effort": "high",
+      "request_timeout_seconds": 1200,
+      "request_retry_attempts": 1,
+      "output_length_retry_attempts": 1,
+      "wall_timeout_seconds": 3600
+    }
+  },
+  "model_budget": {
+    "total_key_spend_at_freeze_usd": 21.778036104,
+    "incremental_planning_estimate_usd": 1.2,
+    "dedicated_openrouter_key_remaining_at_freeze_usd": 28.221963896,
+    "dedicated_openrouter_key_hard_cap_usd": 50.0
+  },
+  "sandbox_budget": {
+    "pricing_basis": "same Daytona linear resource rates frozen for Gate 8 Wave 1",
+    "execution_policy": "three concurrent Harbor-managed recovery trials followed by a zero-sandbox cleanup check",
+    "stale_sandbox_preflight_required": true,
+    "stale_sandbox_count_at_freeze": 0
+  },
+  "user_authorized_project_ceiling_usd": 200.0,
+  "parent_contract": "benchmarks/gate8-wave3-task6-recovery-budget-v0.json",
+  "frozen_inputs": {
+    "panel_sha256": "988ddc596418d404f142ea1575ef6ae40710025a884a8dd05351f76f2db984ea",
+    "tasks_tree_sha256": "7e2ae8788848f55cb299bfcce2d8295d3ed865c47941d942468b74a6a012bafe",
+    "switchyard_config_sha256": "72ed4b85ed485787279361c31abebf75a911f59c0ff68724c1e33ab91f09343b"
+  },
+  "interpretation_guard": "Merge these three learning-valid replacements with the preserved GLM success. Do not rerun GLM or alter frozen policies."
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "swiss-cheese-clean-start-replication-budget.v0",
+  "wave": 3,
+  "frozen_at": "2026-09-01",
+  "scope": "Infrastructure-only recovery for the single invalid Qwen3.5-9B python-prime-http-server replication-1 trial; all learning-valid outcomes are excluded",
+  "trial_count": 1,
+  "no_harbor_retries": true,
+  "replication_design": {
+    "experiment": "swiss-cheese-replication-v0",
+    "replication_index": 1,
+    "run_label": "recovery-qwen35-9b-prime-rep1",
+    "source_run_label": "small-all-rep1",
+    "source_record_count": 10,
+    "record_split": "development",
+    "evaluation_role": "posthoc_clean_start_replication",
+    "outcome_blind": true,
+    "policy_tuning_during_collection": false,
+    "clean_start_only": true,
+    "infrastructure_recovery_only": true,
+    "replaces_outcome_id": "434c76015b95632d49f7cd2e03ec22f4765523958c096822a992fe1c2a2ce34f"
+  },
+  "execution_contract": {
+    "route_ids": [
+      "swiss/fixed-qwen35-9b"
+    ],
+    "selected_task_names": [
+      "python-prime-http-server"
+    ],
+    "run_controls": {
+      "n_concurrent": 1,
+      "max_turns": 12,
+      "max_output_tokens": 8192,
+      "reasoning_effort": "high",
+      "request_timeout_seconds": 1200,
+      "request_retry_attempts": 1,
+      "output_length_retry_attempts": 1,
+      "wall_timeout_seconds": 7200,
+      "model_roster": "swiss_cheese"
+    }
+  },
+  "model_budget": {
+    "total_key_spend_at_freeze_usd": 27.653569393,
+    "checkpoint_incremental_spend_cap_usd": 20.0,
+    "dedicated_key_usage_ceiling_usd": 47.653569393,
+    "minimum_next_task_reserve_usd": 1.5,
+    "dedicated_openrouter_key_remaining_at_freeze_usd": 22.346430607,
+    "dedicated_openrouter_key_hard_cap_usd": 50.0
+  },
+  "sandbox_budget": {
+    "environment": "daytona",
+    "heavy_task_isolated": true,
+    "stale_sandbox_preflight_required": true,
+    "stale_sandbox_count_at_freeze": 0
+  },
+  "frozen_inputs": {
+    "panel_sha256": "988ddc596418d404f142ea1575ef6ae40710025a884a8dd05351f76f2db984ea",
+    "tasks_tree_sha256": "7e2ae8788848f55cb299bfcce2d8295d3ed865c47941d942468b74a6a012bafe",
+    "switchyard_config_sha256": "7e0b4369db3e7cf1b26257f7d4b94a1bc4dfb5f7ad3ee92b6c8dd7e8df7e1021"
+  },
+  "interpretation_guard": "This contract may replace only the infrastructure-invalid Qwen3.5-9B replication-1 outcome for python-prime-http-server. No learning-valid task-route-replication pair may be rerun."
+}

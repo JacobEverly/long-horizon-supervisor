@@ -1,0 +1,68 @@
+{
+  "schema_version": "gate8-proportional-closure-budget.v0",
+  "wave": 2,
+  "frozen_at": "2026-08-28",
+  "scope": "Outcome-blind completion of the four unobserved tasks in frozen Wave 2 sentinel tranche 2 for the 30-task proportional checkpoint",
+  "trial_count": 16,
+  "no_harbor_retries": true,
+  "checkpoint_design": {
+    "prior_clean_matched_tasks": 24,
+    "joint_checkpoint_target_tasks": 30,
+    "joint_checkpoint_difficulty_counts": {
+      "hard": 10,
+      "medium": 20
+    },
+    "selection_rule": "Complete every still-missing Wave 1 task and the four not-yet-run tasks in frozen Wave 2 sentinel tranche 2.",
+    "outcome_blind": true,
+    "prior_selected_task_outcomes_observed": false,
+    "supersedes": "benchmarks/gate8-proportional-30-task-wave2-tranche2-budget-v0.json",
+    "revision_reason": "Reduce concurrency from four to the observed safe Daytona ceiling of three before any selected Wave 2 task was run."
+  },
+  "execution_contract": {
+    "route_ids": [
+      "gate7/fixed-qwen",
+      "gate7/fixed-flash",
+      "gate7/fixed-glm",
+      "gate7/fixed-kimi"
+    ],
+    "selected_task_names": [
+      "diagnose-and-repair-broken-pip-installation",
+      "tabular-q-learning-mountaincar-agent",
+      "optimize-urdf-robot-for-pybullet",
+      "secure-model-pipeline-deployment"
+    ],
+    "run_controls": {
+      "n_concurrent": 3,
+      "max_turns": 12,
+      "max_output_tokens": 8192,
+      "reasoning_effort": "high",
+      "request_timeout_seconds": 1200,
+      "request_retry_attempts": 1,
+      "output_length_retry_attempts": 1,
+      "wall_timeout_seconds": 3600
+    }
+  },
+  "effective_limits": {
+    "switchyard_target_timeout_seconds": 600,
+    "wall_timeout_clock": "absolute Unix wall time; includes laptop sleep"
+  },
+  "model_budget": {
+    "total_key_spend_at_freeze_usd": 13.431991078,
+    "incremental_planning_estimate_usd": 4.0,
+    "dedicated_openrouter_key_remaining_at_freeze_usd": 36.568008922,
+    "dedicated_openrouter_key_hard_cap_usd": 50.0
+  },
+  "sandbox_budget": {
+    "pricing_basis": "same Daytona linear resource rates frozen for Gate 8 Wave 1",
+    "execution_policy": "one four-route task at a time, at most three concurrent Harbor trials, followed by a zero-sandbox cleanup check",
+    "stale_sandbox_preflight_required": true,
+    "stale_sandbox_count_at_freeze": 0
+  },
+  "user_authorized_project_ceiling_usd": 200.0,
+  "frozen_inputs": {
+    "panel_sha256": "988ddc596418d404f142ea1575ef6ae40710025a884a8dd05351f76f2db984ea",
+    "tasks_tree_sha256": "9e6e28567e546735aa5ea5ce514d1e8cb911170e83b4fe4993328722ab58a582",
+    "switchyard_config_sha256": "72ed4b85ed485787279361c31abebf75a911f59c0ff68724c1e33ab91f09343b"
+  },
+  "interpretation_guard": "Complete all four tasks before using their outcomes to choose any follow-on task. Infrastructure failures remain excluded and are recovered route-for-route."
+}
