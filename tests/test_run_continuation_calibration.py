@@ -58,7 +58,14 @@ def test_key_budget_requires_a_tight_hard_limit() -> None:
 
 
 def test_continuation_command_uses_v2_agent_and_never_stops(tmp_path: Path) -> None:
-    task = freezer.select_task_pool(official_root=tmp_path)[0][0]
+    task_root = tmp_path / "tasks" / "sample-task"
+    task_root.mkdir(parents=True)
+    (task_root / "task.toml").write_text("version = '1.0'\n", encoding="utf-8")
+    task = {
+        "task_id": "sample-task",
+        "task_category": "debugging",
+        "task_root": str(task_root),
+    }
     command = _continuation_command(
         manifest={"execution": {"max_turns": 12}},
         server=SimpleNamespace(base_url="http://127.0.0.1:9999"),

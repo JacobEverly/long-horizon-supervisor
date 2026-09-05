@@ -14,6 +14,7 @@ EXPERIMENT_DATA_SUITES = {
     "test_completion_transfer.py",
     "test_freeze_stuck_confirmatory.py",
     "test_freeze_stuck_pilot.py",
+    "test_freeze_continuation_calibration.py",
     "test_gate8.py",
     "test_matched_outcomes.py",
     "test_openthoughts_data.py",
@@ -46,5 +47,10 @@ def pytest_collection_modifyitems(items: list[pytest.Item]) -> None:
             filename == "test_supervisor_policy_dataset.py"
             and item.name
             == "test_authoritative_development_build_is_rectangular_and_leakage_safe"
+        ):
+            item.add_marker(unavailable)
+        elif (
+            filename == "test_run_continuation_calibration.py"
+            and item.name == "test_frozen_manifest_reloads_with_all_hashes"
         ):
             item.add_marker(unavailable)
