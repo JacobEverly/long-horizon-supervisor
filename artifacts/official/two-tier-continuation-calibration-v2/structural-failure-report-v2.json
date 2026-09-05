@@ -1,0 +1,38 @@
+{
+  "schema_version": "continuation-calibration-structural-failure.v2",
+  "decision": "NOT EVALUABLE — terminal-service tail process contaminated the action-delta reproducibility check",
+  "manifest_sha256": "0ad0576bcde8abc6ae372f187c19202d8cc889cb21ea1fabe2ef5d4661d04fef",
+  "runner_commit": "cf191a8353561ed58a11f50fd91a436e48cb909b",
+  "attempted_trajectory_count": 1,
+  "terminal_outcome_count": 0,
+  "checkpoint_count": 0,
+  "first_observation": {
+    "turn": 1,
+    "status": "STRUCTURAL_FAILURE",
+    "rule": "structural_failure:snapshot_not_reproducible,external_state_not_reproducible",
+    "active_unmanaged_process_names": [
+      "tail"
+    ]
+  },
+  "diagnosis": {
+    "decision_time_only": true,
+    "process_delta_logic_executed": true,
+    "root_cause": "A Daytona terminal-service tail process was created after the pre-action inventory and was omitted from the frozen harness-only process allowlist.",
+    "model_stuck_evidence": false,
+    "model_outcome_observed": false,
+    "minimal_revision": "Add only tail to the harness-only process-name allowlist; preserve all detector thresholds, models, analysis gates, execution limits, and task strata."
+  },
+  "spend": {
+    "dedicated_key_usage_before_usd": 0.050561389,
+    "dedicated_key_usage_after_usd": 0.050800695,
+    "incremental_openrouter_usd": 0.000239306,
+    "project_spend_before_usd": 49.308541986,
+    "project_spend_after_usd": 49.308781292
+  },
+  "private_provenance": {
+    "raw_record_sha256": "e1f33d983e6e74c112313be9200f34f753854a70f3819107fd96dc6304c38483",
+    "execution_state_sha256": "a24200e38c561fdcddf9ea08c9d96caa4efcf7b33ab09b3de005b9f70a04fb22",
+    "execution_ledger_sha256": "c025f479532899632f97fa40ab5dd10b100d12504c7b2f926a15ad40dc05e075"
+  },
+  "preservation_rule": "The v2 manifest, record, state, thresholds, and ledger are immutable. This attempt is ineligible for model-stuck labels, checkpoint analysis, threshold tuning, or training."
+}
