@@ -1,0 +1,35 @@
+{
+  "schema_version": "continuation-calibration-execution-failure.v1",
+  "decision": "NOT EVALUABLE — checkpoint fidelity replay crashed after the second model trial",
+  "manifest_sha256": "a5a915b6ea6b988ce73ae7b4e9ccf1da5b9c751f1450f1df39772b7b5ad08f15",
+  "runner_commit": "0dd20396a9608fa2450028baa39f2dd012f40571",
+  "attempted_task_count": 1,
+  "attempted_trajectory_count": 2,
+  "persisted_outcome_count": 1,
+  "valid_evaluation_outcome_count": 0,
+  "checkpoint_fidelity_result_count": 0,
+  "diagnosis": {
+    "process_delta_repair_worked": true,
+    "structural_process_false_positive_count": 0,
+    "flash_trial": "Excluded: the model repeatedly exceeded its output limit before a verifier outcome existed.",
+    "qwen_trial": "A verifier outcome and detector checkpoints existed, but the runner crashed before checkpoint fidelity replay or atomic persistence.",
+    "root_cause": "The v1 runner called the shared checkpoint validator after its command helper had acquired a required environment argument.",
+    "model_comparison_allowed": false,
+    "detector_threshold_tuning_allowed": false,
+    "minimal_revision": "Freeze a v2 runner with an explicit credential-free checkpoint-replay environment and replace the exposed task outcome-blind within the same frozen stratum."
+  },
+  "spend": {
+    "dedicated_key_usage_before_usd": 0.001024781,
+    "dedicated_key_usage_after_usd": 0.050561389,
+    "incremental_openrouter_usd": 0.049536608,
+    "project_spend_before_usd": 49.259005378,
+    "project_spend_after_usd": 49.308541986
+  },
+  "private_provenance": {
+    "flash_record_sha256": "97371d145f956e13be0ec0adc80dc7a2637268bb5266940b4e4544bc1f35ae26",
+    "qwen_record_sha256": "b3cff305923be62954060ddafa59b46ea9f802c5394a9c29b2132e0408dc3475",
+    "qwen_trial_result_sha256": "38cb0bfdf26381c44bb94770c7ad03c3b0eea0bb072f617b50024197eea8baf6",
+    "interrupted_execution_state_sha256": "5cbf03d643e2348d67ed3c081f8f41ba76e2625a7400a0c03398b842cb8debb8"
+  },
+  "preservation_rule": "The v1 records and execution state are immutable. The exposed task is ineligible for v2, and no v1 label may enter calibration or training."
+}

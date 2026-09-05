@@ -1,0 +1,22 @@
+{
+  "schema_version": "continuation-calibration-replacement-lock.v2",
+  "selection_seed": "continuation-calibration-v2|2026-09-05",
+  "outcome_blind_rank": "901861bda27ca49250b186bcda6eee5959e0a6dbb8569b89eebd6b9e4efd6188",
+  "source": {
+    "dataset_id": "alibabagroup/terminal-bench-pro",
+    "file": "Terminal_Bench_Pro_Public-200.parquet",
+    "license": "apache-2.0",
+    "revision": "b79dec3e67acd466f90127cde0d24516d9132e74",
+    "source_id": "terminal-bench-pro-public"
+  },
+  "task_id": "parse-bitcoin-tx-to-json",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "instruction_sha256": "8bb00d40e185317eb9deb4be056c4929e0606b6728002436926d99b50a86cd6e",
+  "config_sha256": "7eaf0229a258a3645eee3407399800b0c6a74dd942eba27e5c337d88f4a93b3b",
+  "archive_sha256": "d58c01c88d4cd9452fffa314e71448b71d02a7ff650ba9e69d6bedbc17142ea3",
+  "task_tree_sha256": "56b20f5af1cdc56dc5d0afce7bf155de007c744bd923b48c8d58059fca3a5036",
+  "task_root": "data/supervisor/terminal-bench-pro-continuation-v2/tasks/parse-bitcoin-tx-to-json",
+  "prior_72_task_panel_overlap": false,
+  "prior_continuation_exposure": false
+}
