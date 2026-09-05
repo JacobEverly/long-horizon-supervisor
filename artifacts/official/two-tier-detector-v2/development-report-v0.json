@@ -1,0 +1,723 @@
+{
+  "decision": "NOT READY \u2014 two-tier detector gate failed",
+  "development_data": {
+    "flash_qwen_trajectories": 70,
+    "natural_verified_trajectories": 58,
+    "structural_excluded_from_recovery_labels": true,
+    "structural_or_protocol_trajectories": 12,
+    "task_count": 35
+  },
+  "final_development_candidate": {
+    "config": {
+      "confirmation_failure_turns": 2,
+      "confirmation_minimum_turn": 6,
+      "confirmation_productive_turns": 1,
+      "confirmation_window": 2,
+      "minimum_remaining_turns": 2,
+      "name": "review-t5-confirm-t6-w2-e2",
+      "review_minimum_turn": 5,
+      "review_signal_threshold": 2
+    },
+    "full_observation_84_scout_replay": {
+      "planned_schedule_items": 84,
+      "records_available": 79,
+      "scope": "84 frozen prior scout slots; v2 replayed on full pre-outcome observations",
+      "structural_schedule_items": 22,
+      "task_and_model_rows": {
+        "confirmed_stuck": [],
+        "healthy": [
+          {
+            "action_mode": "productive",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-flash",
+            "task_category": "data-processing",
+            "task_id": "bash-ddos-traffic-analyzer",
+            "turn": 4
+          },
+          {
+            "action_mode": "inspection",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-flash",
+            "task_category": "data-processing",
+            "task_id": "bash-ddos-traffic-analyzer",
+            "turn": 4
+          },
+          {
+            "action_mode": "productive",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-qwen",
+            "task_category": "data-processing",
+            "task_id": "bash-ddos-traffic-analyzer",
+            "turn": 4
+          },
+          {
+            "action_mode": "inspection",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-flash",
+            "task_category": "debugging",
+            "task_id": "decode-go-ctf-credentials",
+            "turn": 4
+          },
+          {
+            "action_mode": "none",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-flash",
+            "task_category": "debugging",
+            "task_id": "decode-go-ctf-credentials",
+            "turn": 4
+          },
+          {
+            "action_mode": "inspection",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-qwen",
+            "task_category": "debugging",
+            "task_id": "decode-go-ctf-credentials",
+            "turn": 4
+          },
+          {
+            "action_mode": "none",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-qwen",
+            "task_category": "games",
+            "task_id": "compute-best-chess-move-san",
+            "turn": 4
+          },
+          {
+            "action_mode": "productive",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-flash",
+            "task_category": "machine-learning",
+            "task_id": "linear-sem-causal-discovery-intervention",
+            "turn": 4
+          },
+          {
+            "action_mode": "inspection",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-qwen",
+            "task_category": "scientific-computing",
+            "task_id": "optimize-urdf-robot-for-pybullet",
+            "turn": 4
+          },
+          {
+            "action_mode": "productive",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-qwen",
+            "task_category": "system-administration",
+            "task_id": "reproducible-latex-pdf-build-script",
+            "turn": 4
+          },
+          {
+            "action_mode": "productive",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-qwen",
+            "task_category": "machine-learning",
+            "task_id": "tabular-q-learning-mountaincar-agent",
+            "turn": 4
+          },
+          {
+            "action_mode": "productive",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-qwen",
+            "task_category": "machine-learning",
+            "task_id": "tabular-q-learning-mountaincar-agent",
+            "turn": 4
+          },
+          {
+            "action_mode": "none",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-qwen",
+            "task_category": "scientific-computing",
+            "task_id": "solve-chemical-equilibrium-system",
+            "turn": 4
+          },
+          {
+            "action_mode": "productive",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-qwen",
+            "task_category": "security",
+            "task_id": "consolidate-valid-prod-credentials",
+            "turn": 4
+          },
+          {
+            "action_mode": "productive",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-qwen",
+            "task_category": "system-administration",
+            "task_id": "reverse-engineer-physics-simulator",
+            "turn": 4
+          },
+          {
+            "action_mode": "productive",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-flash",
+            "task_category": "security",
+            "task_id": "secure-model-pipeline-deployment",
+            "turn": 4
+          },
+          {
+            "action_mode": "productive",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-qwen",
+            "task_category": "security",
+            "task_id": "secure-model-pipeline-deployment",
+            "turn": 4
+          },
+          {
+            "action_mode": "inspection",
+            "remaining_turns": 8,
+            "route_id": "gate7/fixed-flash",
+            "task_category": "software-engineering",
+            "task_id": "cube-grid-cross-expansion",
+            "turn": 4
+          }
+        ],
+        "needs_review": [
+          {
+            "action_mode": "none",
+            "remaining_turns": 7,
+            "route_id": "gate7/fixed-flash",
+            "task_category": "debugging",
+            "task_id": "decode-go-ctf-credentials",
+            "turn": 5
+          },
+          {
+            "action_mode": "productive",
+            "remaining_turns": 7,
+            "route_id": "gate7/fixed-qwen",
+            "task_category": "debugging",
+            "task_id": "decode-go-ctf-credentials",
+            "turn": 5
+          },
+          {
+            "action_mode": "productive",
+            "remaining_turns": 5,
+            "route_id": "gate7/fixed-flash",
+            "task_category": "machine-learning",
+            "task_id": "linear-sem-causal-discovery-intervention",
+            "turn": 7
+          },
+          {
+            "action_mode": "inspection",
+            "remaining_turns": 5,
+            "route_id": "gate7/fixed-qwen",
+            "task_category": "scientific-computing",
+            "task_id": "optimize-urdf-robot-for-pybullet",
+            "turn": 7
+          },
+          {
+            "action_mode": "productive",
+            "remaining_turns": 2,
+            "route_id": "gate7/fixed-flash",
+            "task_category": "system-administration",
+            "task_id": "reproducible-latex-pdf-build-script",
+            "turn": 10
+          },
+          {
+            "action_mode": "none",
+            "remaining_turns": 7,
+            "route_id": "gate7/fixed-qwen",
+            "task_category": "scientific-computing",
+            "task_id": "solve-chemical-equilibrium-system",
+            "turn": 5
+          },
+          {
+            "action_mode": "none",
+            "remaining_turns": 4,
+            "route_id": "gate7/fixed-flash",
+            "task_category": "software-engineering",
+            "task_id": "cube-grid-cross-expansion",
+            "turn": 8
+          }
+        ]
+      },
+      "tiers": {
+        "confirmed_stuck": {
+          "by_action_mode": {},
+          "by_route": {},
+          "checkpoint_count": 0,
+          "minimum_remaining_turns": null,
+          "task_count": 0,
+          "turn_distribution": {}
+        },
+        "healthy": {
+          "by_action_mode": {
+            "inspection": 5,
+            "none": 3,
+            "productive": 10
+          },
+          "by_route": {
+            "gate7/fixed-flash": 7,
+            "gate7/fixed-qwen": 11
+          },
+          "checkpoint_count": 18,
+          "minimum_remaining_turns": 8,
+          "task_count": 12,
+          "turn_distribution": {
+            "4": 18
+          }
+        },
+        "needs_review": {
+          "by_action_mode": {
+            "inspection": 1,
+            "none": 3,
+            "productive": 3
+          },
+          "by_route": {
+            "gate7/fixed-flash": 4,
+            "gate7/fixed-qwen": 3
+          },
+          "checkpoint_count": 7,
+          "minimum_remaining_turns": 2,
+          "task_count": 6,
+          "turn_distribution": {
+            "10": 1,
+            "5": 3,
+            "7": 2,
+            "8": 1
+          }
+        }
+      }
+    },
+    "projected_tiers_in_sample_not_used_for_gate": {
+      "confirmed_stuck": {
+        "by_base_route": {
+          "gate7/fixed-flash": {
+            "checkpoint_count": 9,
+            "completed": 3,
+            "continuation_recovery_rate": 0.3333333333333333,
+            "task_count": 9
+          },
+          "gate7/fixed-qwen": {
+            "checkpoint_count": 7,
+            "completed": 1,
+            "continuation_recovery_rate": 0.14285714285714285,
+            "task_count": 7
+          }
+        },
+        "checkpoint_count": 16,
+        "completed": 4,
+        "continuation_recovery_rate": 0.25,
+        "minimum_remaining_turns": 2,
+        "task_count": 13,
+        "turn_distribution": {
+          "10": 1,
+          "6": 10,
+          "7": 1,
+          "8": 3,
+          "9": 1
+        }
+      },
+      "healthy": {
+        "by_base_route": {
+          "gate7/fixed-flash": {
+            "checkpoint_count": 28,
+            "completed": 14,
+            "continuation_recovery_rate": 0.5,
+            "task_count": 28
+          },
+          "gate7/fixed-qwen": {
+            "checkpoint_count": 30,
+            "completed": 12,
+            "continuation_recovery_rate": 0.4,
+            "task_count": 30
+          }
+        },
+        "checkpoint_count": 58,
+        "completed": 26,
+        "continuation_recovery_rate": 0.4482758620689655,
+        "minimum_remaining_turns": 8,
+        "task_count": 32,
+        "turn_distribution": {
+          "4": 58
+        }
+      },
+      "needs_review": {
+        "by_base_route": {
+          "gate7/fixed-flash": {
+            "checkpoint_count": 18,
+            "completed": 8,
+            "continuation_recovery_rate": 0.4444444444444444,
+            "task_count": 18
+          },
+          "gate7/fixed-qwen": {
+            "checkpoint_count": 21,
+            "completed": 9,
+            "continuation_recovery_rate": 0.42857142857142855,
+            "task_count": 21
+          }
+        },
+        "checkpoint_count": 39,
+        "completed": 17,
+        "continuation_recovery_rate": 0.4358974358974359,
+        "minimum_remaining_turns": 3,
+        "task_count": 23,
+        "turn_distribution": {
+          "5": 22,
+          "6": 6,
+          "7": 6,
+          "8": 2,
+          "9": 3
+        }
+      }
+    }
+  },
+  "frozen_contract": {
+    "bootstrap_samples": 10000,
+    "candidate_family": [
+      {
+        "confirmation_failure_turns": 2,
+        "confirmation_minimum_turn": 6,
+        "confirmation_productive_turns": 1,
+        "confirmation_window": 2,
+        "minimum_remaining_turns": 2,
+        "name": "review-t5-confirm-t6-w2-e2",
+        "review_minimum_turn": 5,
+        "review_signal_threshold": 2
+      },
+      {
+        "confirmation_failure_turns": 2,
+        "confirmation_minimum_turn": 6,
+        "confirmation_productive_turns": 1,
+        "confirmation_window": 3,
+        "minimum_remaining_turns": 2,
+        "name": "review-t5-confirm-t6-w3-e2",
+        "review_minimum_turn": 5,
+        "review_signal_threshold": 2
+      },
+      {
+        "confirmation_failure_turns": 2,
+        "confirmation_minimum_turn": 7,
+        "confirmation_productive_turns": 1,
+        "confirmation_window": 3,
+        "minimum_remaining_turns": 2,
+        "name": "review-t5-confirm-t7-w3-e2",
+        "review_minimum_turn": 5,
+        "review_signal_threshold": 2
+      },
+      {
+        "confirmation_failure_turns": 2,
+        "confirmation_minimum_turn": 7,
+        "confirmation_productive_turns": 1,
+        "confirmation_window": 3,
+        "minimum_remaining_turns": 2,
+        "name": "review-t6-confirm-t7-w3-e2",
+        "review_minimum_turn": 6,
+        "review_signal_threshold": 2
+      }
+    ],
+    "candidate_selection": "Within each development fold, maximize healthy-minus-confirmed continuation recovery among candidates meeting minimum tier, task, base-model, and remaining-turn coverage.",
+    "fold_count": 5,
+    "gate_thresholds": {
+      "confirmed_replay_checkpoints": 6,
+      "confirmed_replay_tasks": 4,
+      "healthy_replay_checkpoints": 12,
+      "minimum_remaining_turns": 2,
+      "needs_review_replay_checkpoints": 12,
+      "needs_review_replay_tasks": 8,
+      "recovery_difference": 0.2
+    },
+    "seed": 23
+  },
+  "gate_passed": false,
+  "integrity": {
+    "development_checkpoints_sha256": "5e085e4c3bfa9f3b72adde90778a53af5a9daa38fa1e138e209fdc4a0b49b7b5",
+    "evaluator_source_sha256": "e76e08c58da8ebfaef4eddf08fefbed283eee67f30b67c17fb4431dcabaeaaca",
+    "prior_manifest_sha256": "1617ad8e827caa33348749d16cbf7c1eedd6895c91cb14cb59aa9368c5c1700c",
+    "prior_outcomes_sha256": "b42d0e7be03f3a42e52899be0adfd87e1e8c907d2b28e876690f2da0595883a1",
+    "prior_state_sha256": "8513c720f45ce46b7bcd2da100fc622e300176334d026fa44fb093beb48c6292",
+    "v0_source_sha256": "c3319c93d823455076fd294ac16e28748a2b2ebcab10e1b81760d174088f4ffe",
+    "v1_source_sha256": "220f5faade081cd22d283ee68c23647b37e843458afb72dec3a2833ab8b0475c",
+    "v2_source_sha256": "9adeed04a87cced6850e26de8168d1cfc93082814464717994599198e2c420ea"
+  },
+  "limitations": [
+    "Natural continuation trajectories expose an online-safe summary, not the complete live v2 observation, so tier recovery is a projection.",
+    "The exact 84-scout replay has full observations but most scouts were stopped at checkpoints and cannot supply unbiased recovery labels.",
+    "No intervention action is labeled or evaluated in this milestone."
+  ],
+  "next_phase": {
+    "fresh_task_source": "not_run",
+    "intervention_outcomes": "forbidden",
+    "intervention_training": "forbidden",
+    "paid_shadow_pilot": "not_run",
+    "reason": "offline_gate_failed"
+  },
+  "offline_gate": {
+    "confirmed_checkpoints_have_two_remaining_turns": {
+      "minimum_remaining_turns": null,
+      "passed": false
+    },
+    "confirmed_stuck_replay_coverage": {
+      "by_action_mode": {},
+      "by_route": {},
+      "checkpoint_count": 0,
+      "checkpoint_threshold": 6,
+      "minimum_remaining_turns": null,
+      "passed": false,
+      "task_count": 0,
+      "task_threshold": 4,
+      "turn_distribution": {}
+    },
+    "directionally_consistent_both_models": {
+      "by_base_route": {
+        "gate7/fixed-flash": {
+          "confirmed_stuck_rate": 0.3333333333333333,
+          "difference": 0.16666666666666669,
+          "healthy_rate": 0.5
+        },
+        "gate7/fixed-qwen": {
+          "confirmed_stuck_rate": 0.14285714285714285,
+          "difference": 0.2571428571428572,
+          "healthy_rate": 0.4
+        }
+      },
+      "passed": true
+    },
+    "healthy_minus_confirmed_at_least_20_points": {
+      "observed_difference": 0.19827586206896552,
+      "passed": false,
+      "threshold": 0.2
+    },
+    "healthy_replay_coverage": {
+      "by_action_mode": {
+        "inspection": 5,
+        "none": 3,
+        "productive": 10
+      },
+      "by_route": {
+        "gate7/fixed-flash": 7,
+        "gate7/fixed-qwen": 11
+      },
+      "checkpoint_count": 18,
+      "checkpoint_threshold": 12,
+      "minimum_remaining_turns": 8,
+      "passed": true,
+      "task_count": 12,
+      "turn_distribution": {
+        "4": 18
+      }
+    },
+    "leakage_controls": {
+      "controls": [
+        "development rows only",
+        "task-grouped candidate selection and evaluation",
+        "online-safe shared-feature projection",
+        "full replay uses only pre-outcome observations",
+        "task identity used for grouping and aggregate diversity only",
+        "structural outcomes excluded from recovery labels",
+        "no intervention outcome used"
+      ],
+      "passed": true
+    },
+    "needs_review_replay_coverage": {
+      "by_action_mode": {
+        "inspection": 1,
+        "none": 3,
+        "productive": 3
+      },
+      "by_route": {
+        "gate7/fixed-flash": 4,
+        "gate7/fixed-qwen": 3
+      },
+      "checkpoint_count": 7,
+      "checkpoint_threshold": 12,
+      "minimum_remaining_turns": 2,
+      "passed": false,
+      "task_count": 6,
+      "task_threshold": 8,
+      "turn_distribution": {
+        "10": 1,
+        "5": 3,
+        "7": 2,
+        "8": 1
+      }
+    },
+    "not_driven_by_one_task": {
+      "leave_one_task_out_min_difference": 0.17857142857142855,
+      "maximum_single_task_share": 0.125,
+      "passed": true
+    },
+    "structural_failures_separate": {
+      "passed": true,
+      "rule": "structural status overrides all detector tiers",
+      "structural_schedule_items": 22
+    },
+    "task_clustered_interval_excludes_zero": {
+      "interval_95": [
+        -0.007518796992481203,
+        0.373015873015873
+      ],
+      "passed": false
+    }
+  },
+  "schema_version": "two-tier-detector-development-report.v0",
+  "task_grouped_evaluation": {
+    "folds": [
+      {
+        "development_task_count": 28,
+        "evaluation_task_count": 7,
+        "fold": 0,
+        "selected_candidate": "review-t5-confirm-t6-w2-e2",
+        "task_overlap": false,
+        "tier_counts": {
+          "confirmed_stuck": 2,
+          "healthy": 11,
+          "needs_review": 7
+        }
+      },
+      {
+        "development_task_count": 28,
+        "evaluation_task_count": 7,
+        "fold": 1,
+        "selected_candidate": "review-t5-confirm-t6-w2-e2",
+        "task_overlap": false,
+        "tier_counts": {
+          "confirmed_stuck": 5,
+          "healthy": 11,
+          "needs_review": 6
+        }
+      },
+      {
+        "development_task_count": 28,
+        "evaluation_task_count": 7,
+        "fold": 2,
+        "selected_candidate": "review-t5-confirm-t6-w2-e2",
+        "task_overlap": false,
+        "tier_counts": {
+          "confirmed_stuck": 2,
+          "healthy": 11,
+          "needs_review": 5
+        }
+      },
+      {
+        "development_task_count": 28,
+        "evaluation_task_count": 7,
+        "fold": 3,
+        "selected_candidate": "review-t5-confirm-t6-w2-e2",
+        "task_overlap": false,
+        "tier_counts": {
+          "confirmed_stuck": 3,
+          "healthy": 12,
+          "needs_review": 8
+        }
+      },
+      {
+        "development_task_count": 28,
+        "evaluation_task_count": 7,
+        "fold": 4,
+        "selected_candidate": "review-t5-confirm-t6-w2-e2",
+        "task_overlap": false,
+        "tier_counts": {
+          "confirmed_stuck": 4,
+          "healthy": 13,
+          "needs_review": 13
+        }
+      }
+    ],
+    "healthy_minus_confirmed_difference": 0.19827586206896552,
+    "interpretation": "Development evidence only; candidate design and evaluation reuse the same development corpus and are not independent confirmation.",
+    "robustness": {
+      "by_base_route": {
+        "gate7/fixed-flash": {
+          "confirmed_stuck_rate": 0.3333333333333333,
+          "difference": 0.16666666666666669,
+          "healthy_rate": 0.5
+        },
+        "gate7/fixed-qwen": {
+          "confirmed_stuck_rate": 0.14285714285714285,
+          "difference": 0.2571428571428572,
+          "healthy_rate": 0.4
+        }
+      },
+      "leave_one_task_out_max_difference": 0.22857142857142854,
+      "leave_one_task_out_min_difference": 0.17857142857142855,
+      "maximum_single_task_share": 0.125,
+      "not_driven_by_one_task_or_base": true
+    },
+    "task_clustered_interval_95": [
+      -0.007518796992481203,
+      0.373015873015873
+    ],
+    "tiers": {
+      "confirmed_stuck": {
+        "by_base_route": {
+          "gate7/fixed-flash": {
+            "checkpoint_count": 9,
+            "completed": 3,
+            "continuation_recovery_rate": 0.3333333333333333,
+            "task_count": 9
+          },
+          "gate7/fixed-qwen": {
+            "checkpoint_count": 7,
+            "completed": 1,
+            "continuation_recovery_rate": 0.14285714285714285,
+            "task_count": 7
+          }
+        },
+        "checkpoint_count": 16,
+        "completed": 4,
+        "continuation_recovery_rate": 0.25,
+        "minimum_remaining_turns": 2,
+        "task_count": 13,
+        "turn_distribution": {
+          "10": 1,
+          "6": 10,
+          "7": 1,
+          "8": 3,
+          "9": 1
+        }
+      },
+      "healthy": {
+        "by_base_route": {
+          "gate7/fixed-flash": {
+            "checkpoint_count": 28,
+            "completed": 14,
+            "continuation_recovery_rate": 0.5,
+            "task_count": 28
+          },
+          "gate7/fixed-qwen": {
+            "checkpoint_count": 30,
+            "completed": 12,
+            "continuation_recovery_rate": 0.4,
+            "task_count": 30
+          }
+        },
+        "checkpoint_count": 58,
+        "completed": 26,
+        "continuation_recovery_rate": 0.4482758620689655,
+        "minimum_remaining_turns": 8,
+        "task_count": 32,
+        "turn_distribution": {
+          "4": 58
+        }
+      },
+      "needs_review": {
+        "by_base_route": {
+          "gate7/fixed-flash": {
+            "checkpoint_count": 18,
+            "completed": 8,
+            "continuation_recovery_rate": 0.4444444444444444,
+            "task_count": 18
+          },
+          "gate7/fixed-qwen": {
+            "checkpoint_count": 21,
+            "completed": 9,
+            "continuation_recovery_rate": 0.42857142857142855,
+            "task_count": 21
+          }
+        },
+        "checkpoint_count": 39,
+        "completed": 17,
+        "continuation_recovery_rate": 0.4358974358974359,
+        "minimum_remaining_turns": 3,
+        "task_count": 23,
+        "turn_distribution": {
+          "5": 22,
+          "6": 6,
+          "7": 6,
+          "8": 2,
+          "9": 3
+        }
+      }
+    }
+  }
+}

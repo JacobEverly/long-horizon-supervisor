@@ -18,9 +18,9 @@ optimized among policies with comparable completion, rather than traded against
 success through an arbitrary hidden score.
 
 > **Research status:** model portfolios work; learned live intervention is not
-> yet proven. A stricter detector separated low-recovery states offline, but
-> reduced checkpoint yield and failed the frozen feasibility gate. No new paid
-> collection or intervention training was launched.
+> yet proven. Two frozen detector-development gates found promising recovery
+> separation but insufficient checkpoint coverage. No new paid collection or
+> intervention training was launched.
 
 ## Why this exists
 
@@ -113,7 +113,7 @@ learned intervention policy is justified.
 See [`docs/stuck-confirmatory-v1-final.md`](docs/stuck-confirmatory-v1-final.md)
 and [`docs/stuck-intervention-pilot-v0-final.md`](docs/stuck-intervention-pilot-v0-final.md).
 
-### 4. A more precise detector still failed the coverage gate
+### 4. Detector precision and checkpoint recall remain unresolved
 
 Detector v1 stopped treating unchanged workspaces during normal inspection as
 stuck. Across task-grouped development folds, its projected stuck checkpoints
@@ -126,6 +126,16 @@ gate required both better discrimination and better checkpoint yield, the
 result is **NOT READY**. Task sourcing and paid collection were skipped.
 
 See [`docs/checkpoint-coverage-v1-final.md`](docs/checkpoint-coverage-v1-final.md).
+
+A subsequent two-tier detector separated broad `NEEDS_REVIEW` states from
+stricter `CONFIRMED_STUCK` states. The confirmed projection recovered 25.0%
+versus 44.8% for healthy checkpoints, but missed the frozen 20-point threshold
+by 0.2 points and its uncertainty interval included zero. Exact replay produced
+7 review checkpoints and no later confirmations because many historical scouts
+stopped before a second-tier decision could occur. The gate again stopped at
+$0.
+
+See [`docs/two-tier-detector-v2-final.md`](docs/two-tier-detector-v2-final.md).
 
 ### 5. The first learned baselines did not beat simple rules
 
@@ -152,6 +162,7 @@ See [`docs/initial-supervisor-policy-v0.md`](docs/initial-supervisor-policy-v0.m
 | A small learned task-start router beats fixed order | **Not supported** |
 | Repeated failures identify lower-recovery states | **Supported in development** |
 | The current detector can populate a balanced checkpoint bank | **Not supported** |
+| Historical stopped scouts can evaluate a two-tier transition | **Rejected** |
 | Kimi should always replace a stuck model | **Not supported** |
 | A learned live supervisor is ready to deploy | **Not yet** |
 
@@ -215,6 +226,8 @@ Start here:
    — learned baselines and why they are not deployed.
 8. [`docs/checkpoint-coverage-v1-final.md`](docs/checkpoint-coverage-v1-final.md)
    — detector v1's offline separation, coverage failure, and zero-spend stop.
+9. [`docs/two-tier-detector-v2-final.md`](docs/two-tier-detector-v2-final.md)
+   — frozen two-tier detector result and the missing continuation evidence.
 
 Large downloaded datasets, third-party benchmark fixtures, raw model
 trajectories, paid-run artifacts, and credentials are intentionally excluded
@@ -226,11 +239,11 @@ publishing provider data or hidden benchmark material.
 
 ## Next milestone
 
-The next iteration should recover checkpoint recall without giving up v1's
-useful recovery separation. The leading design is a two-tier detector: a broad
-“needs review” state followed by a stricter stuck confirmation. It must be
-evaluated on full pre-outcome observations and pass the same frozen coverage
-gate before any fresh paid scouting. Intervention training still waits for a
+The next experiment should collect a small continuation-only calibration set.
+Scouts should save a `NEEDS_REVIEW` snapshot without stopping, continue the same
+model, save any later `CONFIRMED_STUCK` snapshot, and run to a verifier outcome.
+That is the missing evidence required to measure the two-tier transition on one
+complete observation schema. Intervention training still waits for a
 reproducible checkpoint bank and matched continuation-versus-intervention
 labels.
 

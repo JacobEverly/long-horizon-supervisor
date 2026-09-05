@@ -1,0 +1,11 @@
+{
+  "schema_version": "two-tier-detector-task-eligibility.v0",
+  "status": "not_run",
+  "reason": "two_tier_detector_development_gate_failed",
+  "fresh_task_source_selected": false,
+  "tasks_inspected": 0,
+  "tasks_frozen": 0,
+  "model_outcomes_inspected": false,
+  "paid_calls_made": false,
+  "note": "The frozen sequential protocol stops before fresh task sourcing when any offline detector gate fails."
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "two-tier-detector-final-manifest.v0",
+  "decision": "NOT READY — two-tier detector gate failed",
+  "objective": "Recover checkpoint recall with NEEDS_REVIEW while preserving low-recovery precision with CONFIRMED_STUCK.",
+  "freeze_provenance": {
+    "development_contract_commit": "a291cf6",
+    "contract_path": "artifacts/official/two-tier-detector-v2/development-contract-v0.json",
+    "contract_sha256": "e1dd4332386a9b41f7753220361e26f772eda94b1bc9e985bf012d30e3af4d61",
+    "frozen_before_real_data_scoring": true
+  },
+  "detectors": {
+    "v0": {
+      "path": "src/horizon_supervisor/stuck_detector.py",
+      "sha256": "c3319c93d823455076fd294ac16e28748a2b2ebcab10e1b81760d174088f4ffe",
+      "unchanged": true
+    },
+    "v1": {
+      "path": "src/horizon_supervisor/stuck_detector_v1.py",
+      "sha256": "220f5faade081cd22d283ee68c23647b37e843458afb72dec3a2833ab8b0475c",
+      "unchanged": true
+    },
+    "v2": {
+      "path": "src/horizon_supervisor/stuck_detector_v2.py",
+      "sha256": "9adeed04a87cced6850e26de8168d1cfc93082814464717994599198e2c420ea",
+      "separately_versioned": true,
+      "selected_config": {
+        "name": "review-t5-confirm-t6-w2-e2",
+        "review_minimum_turn": 5,
+        "review_signal_threshold": 2,
+        "confirmation_minimum_turn": 6,
+        "confirmation_window": 2,
+        "confirmation_failure_turns": 2,
+        "confirmation_productive_turns": 1,
+        "minimum_remaining_turns": 2
+      }
+    }
+  },
+  "development_report": {
+    "path": "artifacts/official/two-tier-detector-v2/development-report-v0.json",
+    "sha256": "ede9a82417ee999db30c2bb2a2b40ad1f7c7f09a8cbee75aa87bfea8c82a24f7",
+    "gate_passed": false
+  },
+  "phase_status": {
+    "detector_development": "completed_failed_gate",
+    "fresh_task_source": "not_run",
+    "shadow_pilot": "not_run",
+    "snapshot_rehydration": "not_run",
+    "intervention_collection": "forbidden",
+    "intervention_training": "forbidden"
+  },
+  "models_if_shadow_pilot_had_opened": [
+    "deepseek/deepseek-v4-flash-0731",
+    "qwen/qwen3.8-27b"
+  ],
+  "budget": {
+    "additional_openrouter_ceiling_usd": 5.0,
+    "authorized_after_gate_usd": 0.0,
+    "exact_incremental_openrouter_spend_usd": 0.0
+  },
+  "stop_rule_applied": "Any failed offline gate stops the milestone before fresh task sourcing and paid calls."
+}

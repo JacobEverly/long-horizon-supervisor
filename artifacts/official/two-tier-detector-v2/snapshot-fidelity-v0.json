@@ -1,0 +1,11 @@
+{
+  "schema_version": "two-tier-detector-snapshot-fidelity.v0",
+  "status": "not_run",
+  "reason": "two_tier_detector_development_gate_failed",
+  "accepted_snapshots": 0,
+  "rehydration_attempts": 0,
+  "rehydration_passes": 0,
+  "validation_environments_created": 0,
+  "remaining_validation_environments": 0,
+  "note": "No checkpoint bank or snapshot was permitted after the offline gate failed."
+}

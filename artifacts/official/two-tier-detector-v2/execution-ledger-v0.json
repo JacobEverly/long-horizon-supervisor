@@ -1,0 +1,38 @@
+{
+  "schema_version": "two-tier-detector-execution-ledger.v0",
+  "status": "stopped_before_paid_shadow_pilot",
+  "stop_reason": "two_tier_detector_development_gate_failed",
+  "openrouter": {
+    "dedicated_key_created": false,
+    "dedicated_key_usage_before_usd": null,
+    "dedicated_key_usage_after_usd": null,
+    "account_wide_usage_before_usd": null,
+    "account_wide_usage_after_usd": null,
+    "account_usage_not_sampled_reason": "No paid phase was opened.",
+    "authorized_incremental_ceiling_usd": 5.0,
+    "exact_incremental_project_spend_usd": 0.0,
+    "project_openrouter_spend_before_usd": 49.257980597,
+    "project_openrouter_spend_after_usd": 49.257980597
+  },
+  "daytona": {
+    "environments_created": 0,
+    "charges_usd": 0.0,
+    "charge_basis": "No Daytona operation was performed in this milestone."
+  },
+  "execution": {
+    "fresh_task_source_searches": 0,
+    "model_scouts_run": 0,
+    "intervention_branches_run": 0,
+    "models_called": [],
+    "policy_training_runs": 0
+  },
+  "credentials": {
+    "temporary_credentials_created": 0,
+    "credentials_written_to_artifacts": false
+  },
+  "cleanup": {
+    "new_daytona_environments_remaining": 0,
+    "benchmark_processes_remaining": 0,
+    "temporary_credentials_remaining": 0
+  }
+}
