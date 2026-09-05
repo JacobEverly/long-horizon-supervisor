@@ -1,0 +1,45 @@
+{
+  "schema_version": "continuation-calibration-structural-failure.v0",
+  "decision": "NOT READY — structural harness baseline contaminated the process-reproducibility check",
+  "manifest_sha256": "6b542b96882bd95611548fade83b55075a4c636e83f4be227af705bdba50b2d6",
+  "runner_commit": "89a645d7ce8a896bcce52af0fc0d9aeeb3a36019",
+  "attempted_trajectory_count": 1,
+  "terminal_outcome_count": 0,
+  "checkpoint_count": 0,
+  "first_observation": {
+    "turn": 1,
+    "status": "STRUCTURAL_FAILURE",
+    "rule": "structural_failure:snapshot_not_reproducible,external_state_not_reproducible"
+  },
+  "diagnosis": {
+    "decision_time_only": true,
+    "observed_workspace_process_names": [
+      "bash",
+      "cat",
+      "daytona",
+      "python3",
+      "sh",
+      "sleep",
+      "tail",
+      "tmux: server"
+    ],
+    "root_cause": "The absolute process rule treated Daytona and terminal-service processes already resident in /app as task-created external state.",
+    "model_stuck_evidence": false,
+    "model_outcome_observed": false,
+    "minimal_revision": "Compare process identity immediately before and after each agent action, carry forward only newly created persistent non-harness processes, and leave detector thresholds unchanged."
+  },
+  "spend": {
+    "initial_interrupt_query_incremental_usd": 0.000152626,
+    "settled_incremental_openrouter_usd": 0.001024781,
+    "settlement_observed_at": "2026-09-05T14:54:37Z",
+    "project_spend_before_usd": 49.257980597,
+    "project_spend_after_usd": 49.259005378
+  },
+  "private_provenance": {
+    "raw_record_path": "artifacts/official/two-tier-continuation-calibration-v0/records/continuation-01-flash-20260905T143753787380Z.jsonl",
+    "raw_record_sha256": "3a575190e83a2fdd0db3bf2b85a2e31dbc0d48bbaeeae419ab30899ed2514fe3",
+    "execution_ledger_path": "artifacts/official/two-tier-continuation-calibration-v0/execution-ledger-v0.json",
+    "execution_ledger_sha256": "1a679b56e6888abbb80c2fa574a66dc5cbde7609c40553f571441a56e127521b"
+  },
+  "preservation_rule": "This v0 failure is immutable and is not eligible for model-stuck labels, checkpoint analysis, or threshold tuning."
+}

@@ -146,6 +146,12 @@ def test_outcome_row_excludes_a_structural_trajectory_checkpoint(
 
 def test_frozen_manifest_reloads_with_all_hashes(monkeypatch, tmp_path: Path) -> None:
     monkeypatch.setattr(freezer, "fetch_model_catalog", _catalog)
+    select_task_pool = freezer.select_task_pool
+    monkeypatch.setattr(
+        freezer,
+        "select_task_pool",
+        lambda: select_task_pool(official_root=tmp_path / "empty-official"),
+    )
     result = freezer.freeze(tmp_path)
 
     manifest, digest = validate_manifest(Path(result["manifest_path"]))

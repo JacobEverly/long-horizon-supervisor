@@ -1,0 +1,22 @@
+{
+  "schema_version": "continuation-calibration-replacement-lock.v1",
+  "selection_seed": "continuation-calibration-v1|2026-09-05",
+  "outcome_blind_rank": "49ffa1486d3a96325e121ba98077c4e3b5dd2f9a5caff9f9ec133282d74a9a9a",
+  "source": {
+    "dataset_id": "alibabagroup/terminal-bench-pro",
+    "file": "Terminal_Bench_Pro_Public-200.parquet",
+    "license": "apache-2.0",
+    "revision": "b79dec3e67acd466f90127cde0d24516d9132e74",
+    "source_id": "terminal-bench-pro-public"
+  },
+  "task_id": "normalize-invoice-pdfs-to-csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "instruction_sha256": "3a9f8870b972af9808104cc49d8b6f3f5a5ed706056865369652b3d39956b40a",
+  "config_sha256": "abf092100fa0c9b15f7b0a106f9a50c330fd49d3d3ec00c5471eaccb4086404c",
+  "archive_sha256": "8e0d35139a7bfe821be91ecd823c6e51c4e04bf9d6bd1b16a2ea34f7283c7916",
+  "task_tree_sha256": "317f447152b002fe64704fdda9b9e550f7e00a320160d2289fa5e59dd15db4b3",
+  "task_root": "data/supervisor/terminal-bench-pro-continuation-v1/tasks/normalize-invoice-pdfs-to-csv",
+  "prior_72_task_panel_overlap": false,
+  "prior_official_outcome_overlap": false
+}

@@ -41,6 +41,12 @@ def test_wave_four_selection_is_fresh_balanced_and_statically_safe(
 
 def test_freeze_writes_outcome_blind_contract(monkeypatch, tmp_path: Path) -> None:
     monkeypatch.setattr(module, "fetch_model_catalog", _catalog)
+    select_task_pool = module.select_task_pool
+    monkeypatch.setattr(
+        module,
+        "select_task_pool",
+        lambda: select_task_pool(official_root=tmp_path / "empty-official"),
+    )
 
     result = module.freeze(tmp_path)
     manifest_path = Path(result["manifest_path"])

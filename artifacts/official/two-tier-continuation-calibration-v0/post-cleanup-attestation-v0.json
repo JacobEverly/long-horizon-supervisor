@@ -1,0 +1,10 @@
+{
+  "schema_version": "continuation-calibration-cleanup-attestation.v0",
+  "observed_at": "2026-09-05T14:43:03Z",
+  "manifest_sha256": "6b542b96882bd95611548fade83b55075a4c636e83f4be227af705bdba50b2d6",
+  "daytona_remaining_sandbox_count": 0,
+  "local_harbor_process_count": 0,
+  "local_switchyard_process_count": 0,
+  "cleanup_complete": true,
+  "note": "The live deletion API was eventually consistent; this follow-up observation supersedes only the stale remaining-sandbox snapshot in the interrupted execution ledger and does not modify it."
+}
