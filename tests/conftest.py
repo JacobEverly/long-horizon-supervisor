@@ -27,7 +27,15 @@ EXPERIMENT_DATA_SUITES = {
 
 
 def pytest_collection_modifyitems(items: list[pytest.Item]) -> None:
-    has_private_corpus = (ROOT / "data").is_dir() and (ROOT / "artifacts").is_dir()
+    has_private_corpus = all(
+        path.is_file()
+        for path in (
+            ROOT / "data/supervisor/terminal-bench-pro-panel-v0.jsonl",
+            ROOT
+            / "artifacts/official/gate8-proportional-30-task-checkpoint/"
+            "matched-outcomes-140-v1.jsonl",
+        )
+    )
     if has_private_corpus:
         return
 
