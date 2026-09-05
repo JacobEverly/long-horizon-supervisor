@@ -1,0 +1,412 @@
+{
+  "schema_version": "two-tier-continuation-calibration-manifest.v0",
+  "frozen_at": "2026-09-05T14:25:50.026888+00:00",
+  "frozen_before_model_outcomes": true,
+  "objective": "Measure natural review-to-confirmation transitions and continuation recovery without any intervention.",
+  "models": {
+    "routes": {
+      "gate7/fixed-flash": "deepseek/deepseek-v4-flash-0731",
+      "gate7/fixed-qwen": "qwen/qwen3.8-27b"
+    },
+    "catalog_path": "artifacts/official/two-tier-continuation-calibration-v0/frozen-model-catalog-v0.json",
+    "catalog_sha256": "52ddbb673968c62831a449c8a5a13acc5f0ff824daa71488a20b11b8c5776806"
+  },
+  "detector": {
+    "schema_version": "two-tier-stuck-detector.v2",
+    "config": {
+      "name": "review-t5-confirm-t6-w2-e2",
+      "review_minimum_turn": 5,
+      "review_signal_threshold": 2,
+      "confirmation_minimum_turn": 6,
+      "confirmation_window": 2,
+      "confirmation_failure_turns": 2,
+      "confirmation_productive_turns": 1,
+      "minimum_remaining_turns": 2
+    },
+    "candidate_family": [
+      {
+        "name": "review-t5-confirm-t6-w2-e2",
+        "review_minimum_turn": 5,
+        "review_signal_threshold": 2,
+        "confirmation_minimum_turn": 6,
+        "confirmation_window": 2,
+        "confirmation_failure_turns": 2,
+        "confirmation_productive_turns": 1,
+        "minimum_remaining_turns": 2
+      },
+      {
+        "name": "review-t5-confirm-t6-w3-e2",
+        "review_minimum_turn": 5,
+        "review_signal_threshold": 2,
+        "confirmation_minimum_turn": 6,
+        "confirmation_window": 3,
+        "confirmation_failure_turns": 2,
+        "confirmation_productive_turns": 1,
+        "minimum_remaining_turns": 2
+      },
+      {
+        "name": "review-t5-confirm-t7-w3-e2",
+        "review_minimum_turn": 5,
+        "review_signal_threshold": 2,
+        "confirmation_minimum_turn": 7,
+        "confirmation_window": 3,
+        "confirmation_failure_turns": 2,
+        "confirmation_productive_turns": 1,
+        "minimum_remaining_turns": 2
+      },
+      {
+        "name": "review-t6-confirm-t7-w3-e2",
+        "review_minimum_turn": 6,
+        "review_signal_threshold": 2,
+        "confirmation_minimum_turn": 7,
+        "confirmation_window": 3,
+        "confirmation_failure_turns": 2,
+        "confirmation_productive_turns": 1,
+        "minimum_remaining_turns": 2
+      }
+    ],
+    "states": [
+      "HEALTHY",
+      "NEEDS_REVIEW",
+      "CONFIRMED_STUCK",
+      "STRUCTURAL_FAILURE"
+    ],
+    "healthy_checkpoint": "turn 4 while status is HEALTHY",
+    "needs_review": "broad persistent non-progress or repeated action/error evidence after the configured minimum turn",
+    "confirmed_stuck": "a later needs-review state with repeated observable failures and at least one productive action in the frozen confirmation window",
+    "structural_failure": "protocol, provider, harness, snapshot, and external-state failures are never model-stuck labels",
+    "forbidden_inputs": [
+      "hidden verifier output",
+      "terminal success",
+      "future observations",
+      "private model reasoning",
+      "sibling outcomes",
+      "task identity",
+      "post-hoc intervention results"
+    ]
+  },
+  "task_selection": {
+    "eligibility_path": "artifacts/official/two-tier-continuation-calibration-v0/task-eligibility-report-v0.json",
+    "eligibility_sha256": "b7dc760ba7fdea641002c87134162888d8ec6b76dcf5d646f4e6d988913e63b1",
+    "ordered_pool": [
+      {
+        "task_id": "jq-github-contributor-report",
+        "task_category": "data-processing",
+        "difficulty": "medium",
+        "wave": 4,
+        "instruction_sha256": "35988b3e250a2a0852d17dca2eaa792b32956c457a919e30724b8e2430f4abb8",
+        "task_root": "data/supervisor/terminal-bench-pro-wave-4/tasks/jq-github-contributor-report",
+        "task_tree_sha256": "305326ee11d30201984d20504608c72ed170bdef4963f2c1bc0a94fb24a57c9d",
+        "selection_rank": "3cb238d7185a7c1b4457919d15839efbb756baed53c23162693c3c9acfb70021",
+        "prior_official_reference_count": 0,
+        "snapshot_compatibility": "task-workdir state only; live relevant processes are rejected online",
+        "position": 1,
+        "tranche": 1
+      },
+      {
+        "task_id": "detect-corrupted-blockchain-transaction",
+        "task_category": "debugging",
+        "difficulty": "medium",
+        "wave": 4,
+        "instruction_sha256": "1f7cf804d3a7504cb4071e98c46913a059f1e29d6ffccdc6b7445466c94b3e67",
+        "task_root": "data/supervisor/terminal-bench-pro-wave-4/tasks/detect-corrupted-blockchain-transaction",
+        "task_tree_sha256": "adaf957f2dc975cdb62dacb7a11ef1751cd596f75c491f09205649c54e1ae1d7",
+        "selection_rank": "42d7f0fa70f60db2dacfbf7831dcf653543951ffeba42737ac63c4ef5c966d34",
+        "prior_official_reference_count": 0,
+        "snapshot_compatibility": "task-workdir state only; live relevant processes are rejected online",
+        "position": 2,
+        "tranche": 1
+      },
+      {
+        "task_id": "go-board-legal-move-capture-analysis",
+        "task_category": "games",
+        "difficulty": "medium",
+        "wave": 4,
+        "instruction_sha256": "0906e2c2a5f230828478c282f4950fbd550764c62af31d02b0fa343f07380593",
+        "task_root": "data/supervisor/terminal-bench-pro-wave-4/tasks/go-board-legal-move-capture-analysis",
+        "task_tree_sha256": "a542e1c1a77ca5c86f5dff3b1fe6056fbbb0e54986677ec98779c255516f4c7d",
+        "selection_rank": "76c180cc2194360b99418ddb760a9c8c40697f78a189a55a8166dfebfe6307fb",
+        "prior_official_reference_count": 0,
+        "snapshot_compatibility": "task-workdir state only; live relevant processes are rejected online",
+        "position": 3,
+        "tranche": 1
+      },
+      {
+        "task_id": "train-matrix-factorization-embeddings",
+        "task_category": "machine-learning",
+        "difficulty": "medium",
+        "wave": 4,
+        "instruction_sha256": "56385ce44d4b086c9d1b129ec1afc45830feffc6e059275737c921ea96ee1367",
+        "task_root": "data/supervisor/terminal-bench-pro-wave-4/tasks/train-matrix-factorization-embeddings",
+        "task_tree_sha256": "9c4b4101e8f312dabe83d2a87e63187784689f229f548fdab12d8936ed36c71f",
+        "selection_rank": "b01b4b60e5635bce929881703ab36abf643d4ca44b7eb7c5a94ca9d973ba77d5",
+        "prior_official_reference_count": 0,
+        "snapshot_compatibility": "task-workdir state only; live relevant processes are rejected online",
+        "position": 4,
+        "tranche": 1
+      },
+      {
+        "task_id": "implement-bivariate-gibbs-sampler",
+        "task_category": "scientific-computing",
+        "difficulty": "medium",
+        "wave": 4,
+        "instruction_sha256": "30dd8388c16e8ea00809cc8113443e7116d581a67bfb65463ced32a6cf46e051",
+        "task_root": "data/supervisor/terminal-bench-pro-wave-4/tasks/implement-bivariate-gibbs-sampler",
+        "task_tree_sha256": "36eacdf6688c8c941d1b0c28b02964e53dbb27cf4ff409b7bbd798d878414877",
+        "selection_rank": "5b232f2642da28116602f486f92974850504510c29d38b6419bfc25be158d708",
+        "prior_official_reference_count": 0,
+        "snapshot_compatibility": "task-workdir state only; live relevant processes are rejected online",
+        "position": 5,
+        "tranche": 1
+      },
+      {
+        "task_id": "decrypt-mia-agents-rendezvous-point",
+        "task_category": "security",
+        "difficulty": "medium",
+        "wave": 4,
+        "instruction_sha256": "a26a735dd879555c99ebceee79eeb51522b72f6625c3867fe2c4c7c0a8ce186c",
+        "task_root": "data/supervisor/terminal-bench-pro-wave-4/tasks/decrypt-mia-agents-rendezvous-point",
+        "task_tree_sha256": "bbd14941d911291a980fabce0759d51ee167685a92863c3a48040358801df9de",
+        "selection_rank": "39fdd9aec973726f4907f1884caee14c52687572b3a6d6d51f7136f70e1428c4",
+        "prior_official_reference_count": 0,
+        "snapshot_compatibility": "task-workdir state only; live relevant processes are rejected online",
+        "position": 6,
+        "tranche": 1
+      },
+      {
+        "task_id": "implement-go-board-analyzer",
+        "task_category": "software-engineering",
+        "difficulty": "medium",
+        "wave": 4,
+        "instruction_sha256": "31e7b68062f00453c2434ec04b77590916c522cb1eef1f64b255d94e817844f5",
+        "task_root": "data/supervisor/terminal-bench-pro-wave-4/tasks/implement-go-board-analyzer",
+        "task_tree_sha256": "a9df7b73bd752c32269f0d158bb150d6592445951aa8274d5563a651cb18a069",
+        "selection_rank": "0c02008a14fa5c5480de63940b31989c36769f45e0827e0b5ef05a5b71bec23d",
+        "prior_official_reference_count": 0,
+        "snapshot_compatibility": "task-workdir state only; live relevant processes are rejected online",
+        "position": 7,
+        "tranche": 1
+      },
+      {
+        "task_id": "implement-depgraph-dependency-resolver",
+        "task_category": "system-administration",
+        "difficulty": "hard",
+        "wave": 4,
+        "instruction_sha256": "386131dcc299d8558016a835517172112c9ba63374b2de8f3385ef85ea8cf90d",
+        "task_root": "data/supervisor/terminal-bench-pro-wave-4/tasks/implement-depgraph-dependency-resolver",
+        "task_tree_sha256": "b0306bc4c947ce1fe84b50d58e5555033d8300357ed523872cbeb777849cc225",
+        "selection_rank": "9e934777ce7588dbbc2b05f51709a88e9bebae8db4ddead034251ab02d40cdcf",
+        "prior_official_reference_count": 0,
+        "snapshot_compatibility": "task-workdir state only; live relevant processes are rejected online",
+        "position": 8,
+        "tranche": 1
+      },
+      {
+        "task_id": "fix-nested-transform-independence-matrix",
+        "task_category": "debugging",
+        "difficulty": "medium",
+        "wave": 4,
+        "instruction_sha256": "bebe49ff7bb1d13abda068aeec48b4079732d69e124af7695e9b22bc825f83ef",
+        "task_root": "data/supervisor/terminal-bench-pro-wave-4/tasks/fix-nested-transform-independence-matrix",
+        "task_tree_sha256": "319d1ee2d7db1afd8ed010f97457b6389bbb6a91dd18925d8ab2d22e142c7484",
+        "selection_rank": "ebb6c16919fcf346883822cf4eab857affc53511247030aee972e72b712d5b7e",
+        "prior_official_reference_count": 0,
+        "snapshot_compatibility": "task-workdir state only; live relevant processes are rejected online",
+        "position": 9,
+        "tranche": 2
+      },
+      {
+        "task_id": "ner-eval-conll2003",
+        "task_category": "machine-learning",
+        "difficulty": "hard",
+        "wave": 4,
+        "instruction_sha256": "e36e0c1325cae261baf10a5c2a953735902d6ecb371b0207b933a767ff0b250d",
+        "task_root": "data/supervisor/terminal-bench-pro-wave-4/tasks/ner-eval-conll2003",
+        "task_tree_sha256": "81d2c68b81ee839860dde2f9860b6bab849064ecf5c3666016b019cbad5c442d",
+        "selection_rank": "f9785119814da3a5a57bff1224d21258b557f8f302e0527a93ea8a312b804619",
+        "prior_official_reference_count": 0,
+        "snapshot_compatibility": "task-workdir state only; live relevant processes are rejected online",
+        "position": 10,
+        "tranche": 2
+      },
+      {
+        "task_id": "implement-portfolio-optimization-engine",
+        "task_category": "scientific-computing",
+        "difficulty": "hard",
+        "wave": 4,
+        "instruction_sha256": "3c14eeceeb8d2d0cb3afd3e9f4a79b2e48f5dbaa05e229a77160f51a7602eb9e",
+        "task_root": "data/supervisor/terminal-bench-pro-wave-4/tasks/implement-portfolio-optimization-engine",
+        "task_tree_sha256": "99a60c5111a6b6c907f2bad8217e7303e28f0ff63a52372d43fe885b67fb41ad",
+        "selection_rank": "da037684234b8a99c4cc900441d44bd4ea677346b141cb5ee587017d01ae69af",
+        "prior_official_reference_count": 0,
+        "snapshot_compatibility": "task-workdir state only; live relevant processes are rejected online",
+        "position": 11,
+        "tranche": 2
+      },
+      {
+        "task_id": "sanitize-dclm-repo-secrets",
+        "task_category": "security",
+        "difficulty": "hard",
+        "wave": 4,
+        "instruction_sha256": "b43e768a1194e34910e35b997cd6023afc48837d00f7e9813b7c8213f31e0406",
+        "task_root": "data/supervisor/terminal-bench-pro-wave-4/tasks/sanitize-dclm-repo-secrets",
+        "task_tree_sha256": "b963014bc50965b8bf788a03c34261f7f0257ede1a9fa0bad4c54fac4dd71792",
+        "selection_rank": "8fe082cdae1fcd7985cb2fa1fed74fdf4a420fcdd491d258dfc368d445439cf4",
+        "prior_official_reference_count": 0,
+        "snapshot_compatibility": "task-workdir state only; live relevant processes are rejected online",
+        "position": 12,
+        "tranche": 2
+      },
+      {
+        "task_id": "implement-idcard-flask-api",
+        "task_category": "software-engineering",
+        "difficulty": "medium",
+        "wave": 4,
+        "instruction_sha256": "541b4e322db598cd3ccacc2a9f31f532d36af42de5b6fe76f81faf6ed08e4a99",
+        "task_root": "data/supervisor/terminal-bench-pro-wave-4/tasks/implement-idcard-flask-api",
+        "task_tree_sha256": "584efb8c0b020a884e9fa0ca019bec9d67ede49dd6302a5bff060c8939ee0cea",
+        "selection_rank": "7b696f67e7e5a57f8e978984908f7efc0cc95b517c63c7de6bb2afe7a5a779b3",
+        "prior_official_reference_count": 0,
+        "snapshot_compatibility": "task-workdir state only; live relevant processes are rejected online",
+        "position": 13,
+        "tranche": 2
+      },
+      {
+        "task_id": "detect-and-mitigate-ssti",
+        "task_category": "security",
+        "difficulty": "medium",
+        "wave": 4,
+        "instruction_sha256": "5e637cf5be095941e99b362a88ea3135882d295181e998c92c64f08fba71410d",
+        "task_root": "data/supervisor/terminal-bench-pro-wave-4/tasks/detect-and-mitigate-ssti",
+        "task_tree_sha256": "0402c1027cf0f699a868f479808759c072c7c164a4e459e48988a80cea176f72",
+        "selection_rank": "bc03d17166ec3637bb20dd68ac45c5df87fb961d542770a1784511d9ea267b47",
+        "prior_official_reference_count": 0,
+        "snapshot_compatibility": "task-workdir state only; live relevant processes are rejected online",
+        "position": 14,
+        "tranche": 2
+      },
+      {
+        "task_id": "advanced-poker-hand-classifier",
+        "task_category": "software-engineering",
+        "difficulty": "hard",
+        "wave": 4,
+        "instruction_sha256": "f61b1d80670d5f3270b8121d456b178b3c6e6d5bfba1b97517399af1b9e47c62",
+        "task_root": "data/supervisor/terminal-bench-pro-wave-4/tasks/advanced-poker-hand-classifier",
+        "task_tree_sha256": "8c5ba5e49d2a4ea7035c129ee5676d93e215d2b297982f108519de4259d7dbb8",
+        "selection_rank": "81dbeb724755264585beccc21028939ab8fac4d0737996d0e0758a79bea36fe1",
+        "prior_official_reference_count": 0,
+        "snapshot_compatibility": "task-workdir state only; live relevant processes are rejected online",
+        "position": 15,
+        "tranche": 2
+      },
+      {
+        "task_id": "polyglot-bash-python-config-validator",
+        "task_category": "software-engineering",
+        "difficulty": "hard",
+        "wave": 4,
+        "instruction_sha256": "f291647156b7caefe46b9eaab158897baf37bda5d74bd08f20994ad04cfaa129",
+        "task_root": "data/supervisor/terminal-bench-pro-wave-4/tasks/polyglot-bash-python-config-validator",
+        "task_tree_sha256": "95b9cb84ebe8f22b6f6f7e2b2340c18ac0fb271311188378f6c156dc1879166d",
+        "selection_rank": "c1b2b1d1b071cbf26cc4cfbfd753a52ed42d865ab72f0545ed1fa959f2f299eb",
+        "prior_official_reference_count": 0,
+        "snapshot_compatibility": "task-workdir state only; live relevant processes are rejected online",
+        "position": 16,
+        "tranche": 2
+      }
+    ],
+    "maximum_tasks": 16
+  },
+  "execution": {
+    "agent": "ContinuationTerminus2",
+    "max_turns": 12,
+    "healthy_checkpoint_turn": 4,
+    "natural_continuation_only": true,
+    "interventions_forbidden": true,
+    "infrastructure_retries_per_trial": 1,
+    "state_fidelity": "fresh SeededDaytonaEnvironment rehydration per checkpoint"
+  },
+  "sampling": {
+    "tranches": [
+      {
+        "tranche": 1,
+        "task_positions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      {
+        "tranche": 2,
+        "task_positions": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    ],
+    "rule": "Run tranche 1, stop early only if every readiness gate passes; otherwise run tranche 2 if the frozen budget remains.",
+    "outcome_blind_task_order": true
+  },
+  "analysis": {
+    "bootstrap_unit": "task",
+    "bootstrap_seed": 20260905,
+    "bootstrap_samples": 10000,
+    "gates": {
+      "healthy_minus_confirmed_recovery": 0.2,
+      "clustered_interval_excludes_zero": true,
+      "direction_positive_both_models": true,
+      "leave_one_task_out_difference_positive": true,
+      "maximum_single_task_confirmed_share": 0.25,
+      "needs_review_checkpoints": 12,
+      "needs_review_tasks": 8,
+      "confirmed_checkpoints": 6,
+      "confirmed_tasks": 4,
+      "healthy_checkpoints": 12,
+      "healthy_tasks": 8,
+      "both_models_each_tier": true,
+      "minimum_confirmed_remaining_turns": 2,
+      "all_counted_snapshots_rehydrated": true,
+      "structural_failures_separate": true,
+      "leakage_controls": true
+    }
+  },
+  "budget": {
+    "project_openrouter_spend_before_usd": 49.257980597,
+    "project_cumulative_ceiling_usd": 200.0,
+    "phase_a_incremental_ceiling_usd": 5.0,
+    "tranche_1_incremental_ceiling_usd": 2.5,
+    "per_trial_incremental_ceiling_usd": 0.5,
+    "request_reserve_usd": 0.05,
+    "provider_key_baseline": "record immediately before first paid call",
+    "provider_hard_limit_rule": "hard key limit must be no more than baseline usage plus $5.02"
+  },
+  "integrity": {
+    "switchyard_sha256": "72ed4b85ed485787279361c31abebf75a911f59c0ff68724c1e33ab91f09343b",
+    "code_sha256": {
+      "src/horizon_supervisor/stuck_detector_v2.py": "9adeed04a87cced6850e26de8168d1cfc93082814464717994599198e2c420ea",
+      "src/horizon_supervisor/benchmark/continuation_harbor.py": "c1849204d5e7f9cb60d4de8b5d7d6cb0141d8064879aea1569b1d718abf4356e",
+      "src/horizon_supervisor/benchmark/pilot_harbor.py": "825ccad4fa89f163b4a6a48c5b08a828f16b2b280ef9589d92c105331fe12db2",
+      "src/horizon_supervisor/training/freeze_continuation_calibration.py": "c8dc4538a403de8071adce124685307f9a8d75f1746235de22283c49941aecb7",
+      "src/horizon_supervisor/training/run_continuation_calibration.py": "0e3f5ef4aa2076b14b87384543df25966aab722dde33980d485fcebc54dc4398",
+      "src/horizon_supervisor/training/analyze_continuation_calibration.py": "7956fe84219ea68f32c5f5edb32574074b7338401f5f7822ecbe80769c027d22"
+    }
+  },
+  "forbidden": [
+    "model intervention",
+    "restart",
+    "post-outcome threshold tuning",
+    "hidden verifier input",
+    "private reasoning input",
+    "sibling outcome input"
+  ]
+}
