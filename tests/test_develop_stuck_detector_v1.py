@@ -16,6 +16,16 @@ from horizon_supervisor.training.develop_stuck_detector_v1 import (
 )
 
 ROOT = Path(__file__).parents[1]
+PRIVATE_INPUTS = (
+    ROOT / DEFAULT_CHECKPOINTS,
+    ROOT / DEFAULT_STATE,
+    ROOT / DEFAULT_MANIFEST,
+    ROOT / DEFAULT_OUTCOMES,
+)
+pytestmark = pytest.mark.skipif(
+    not all(path.exists() for path in PRIVATE_INPUTS),
+    reason="private development evidence is not included in the public checkout",
+)
 
 
 def test_development_inputs_are_task_grouped_and_flash_qwen_only() -> None:
