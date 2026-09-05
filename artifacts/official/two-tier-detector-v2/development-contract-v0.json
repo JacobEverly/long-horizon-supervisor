@@ -1,0 +1,88 @@
+{
+  "schema_version": "two-tier-detector-development-contract.v0",
+  "status": "frozen_before_real_data_scoring",
+  "objective": "Recover checkpoint recall with NEEDS_REVIEW while preserving low-recovery precision with CONFIRMED_STUCK.",
+  "candidate_family": [
+    {
+      "name": "review-t5-confirm-t6-w2-e2",
+      "review_minimum_turn": 5,
+      "review_signal_threshold": 2,
+      "confirmation_minimum_turn": 6,
+      "confirmation_window": 2,
+      "confirmation_failure_turns": 2,
+      "confirmation_productive_turns": 1,
+      "minimum_remaining_turns": 2
+    },
+    {
+      "name": "review-t5-confirm-t6-w3-e2",
+      "review_minimum_turn": 5,
+      "review_signal_threshold": 2,
+      "confirmation_minimum_turn": 6,
+      "confirmation_window": 3,
+      "confirmation_failure_turns": 2,
+      "confirmation_productive_turns": 1,
+      "minimum_remaining_turns": 2
+    },
+    {
+      "name": "review-t5-confirm-t7-w3-e2",
+      "review_minimum_turn": 5,
+      "review_signal_threshold": 2,
+      "confirmation_minimum_turn": 7,
+      "confirmation_window": 3,
+      "confirmation_failure_turns": 2,
+      "confirmation_productive_turns": 1,
+      "minimum_remaining_turns": 2
+    },
+    {
+      "name": "review-t6-confirm-t7-w3-e2",
+      "review_minimum_turn": 6,
+      "review_signal_threshold": 2,
+      "confirmation_minimum_turn": 7,
+      "confirmation_window": 3,
+      "confirmation_failure_turns": 2,
+      "confirmation_productive_turns": 1,
+      "minimum_remaining_turns": 2
+    }
+  ],
+  "evaluation": {
+    "task_grouped_folds": 5,
+    "task_clustered_bootstrap_samples": 10000,
+    "seed": 23,
+    "candidate_selection": "Within each development fold, maximize healthy-minus-confirmed continuation recovery among candidates meeting minimum tier, task, base-model, and remaining-turn coverage.",
+    "development_interpretation": "Candidate design and evaluation use development evidence and are not independent confirmation.",
+    "exact_replay": "Replay the final development candidate on all 84 frozen prior scout slots using full pre-outcome observations."
+  },
+  "gate_thresholds": {
+    "healthy_minus_confirmed_recovery_difference": 0.2,
+    "task_clustered_interval_lower_bound_strictly_above": 0.0,
+    "directionally_consistent_both_models": true,
+    "leave_one_task_out_direction_positive": true,
+    "maximum_single_task_share": 0.25,
+    "needs_review_replay_checkpoints": 12,
+    "needs_review_replay_tasks": 8,
+    "confirmed_replay_checkpoints": 6,
+    "confirmed_replay_tasks": 4,
+    "confirmed_replay_requires_both_models": true,
+    "healthy_replay_checkpoints": 12,
+    "minimum_remaining_turns": 2,
+    "structural_failures_separate": true,
+    "leakage_controls_required": true
+  },
+  "integrity": {
+    "v0_source_sha256": "c3319c93d823455076fd294ac16e28748a2b2ebcab10e1b81760d174088f4ffe",
+    "v1_source_sha256": "220f5faade081cd22d283ee68c23647b37e843458afb72dec3a2833ab8b0475c",
+    "v2_source_sha256": "9adeed04a87cced6850e26de8168d1cfc93082814464717994599198e2c420ea",
+    "evaluator_source_sha256": "e76e08c58da8ebfaef4eddf08fefbed283eee67f30b67c17fb4431dcabaeaaca",
+    "development_checkpoints_sha256": "5e085e4c3bfa9f3b72adde90778a53af5a9daa38fa1e138e209fdc4a0b49b7b5",
+    "prior_state_sha256": "8513c720f45ce46b7bcd2da100fc622e300176334d026fa44fb093beb48c6292",
+    "prior_manifest_sha256": "1617ad8e827caa33348749d16cbf7c1eedd6895c91cb14cb59aa9368c5c1700c",
+    "prior_outcomes_sha256": "b42d0e7be03f3a42e52899be0adfd87e1e8c907d2b28e876690f2da0595883a1"
+  },
+  "stop_rule": "If any development gate fails, stop before fresh task sourcing and paid model calls.",
+  "forbidden": [
+    "post-score threshold changes",
+    "held-out task use",
+    "intervention branches",
+    "intervention-policy training"
+  ]
+}
