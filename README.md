@@ -18,9 +18,9 @@ optimized among policies with comparable completion, rather than traded against
 success through an arbitrary hidden score.
 
 > **Research status:** model portfolios work; learned live intervention is not
-> yet proven. A frozen confirmatory experiment exhausted its task pool with too
-> few reproducible checkpoints and did not show a completion gain from live
-> escalation over continuing.
+> yet proven. A stricter detector separated low-recovery states offline, but
+> reduced checkpoint yield and failed the frozen feasibility gate. No new paid
+> collection or intervention training was launched.
 
 ## Why this exists
 
@@ -113,7 +113,21 @@ learned intervention policy is justified.
 See [`docs/stuck-confirmatory-v1-final.md`](docs/stuck-confirmatory-v1-final.md)
 and [`docs/stuck-intervention-pilot-v0-final.md`](docs/stuck-intervention-pilot-v0-final.md).
 
-### 4. The first learned baselines did not beat simple rules
+### 4. A more precise detector still failed the coverage gate
+
+Detector v1 stopped treating unchanged workspaces during normal inspection as
+stuck. Across task-grouped development folds, its projected stuck checkpoints
+had 23.5% continuation recovery versus 44.8% at healthy checkpoints—a 21.3
+point difference whose task-clustered interval excluded zero.
+
+But exact replay on the prior scouts found only 3 stuck hits with v1 versus 22
+with v0. Total healthy-plus-stuck hits fell from 33 to 22. Because the frozen
+gate required both better discrimination and better checkpoint yield, the
+result is **NOT READY**. Task sourcing and paid collection were skipped.
+
+See [`docs/checkpoint-coverage-v1-final.md`](docs/checkpoint-coverage-v1-final.md).
+
+### 5. The first learned baselines did not beat simple rules
 
 - A development-only task-start router matched the fixed cascade but did not
   improve its order on held-out tasks.
@@ -136,7 +150,8 @@ See [`docs/initial-supervisor-policy-v0.md`](docs/initial-supervisor-policy-v0.m
 | A verifier-gated clean-start cascade improves completion | **Supported** |
 | The best route is a universal quality ladder | **Rejected by observed jaggedness** |
 | A small learned task-start router beats fixed order | **Not supported** |
-| The current detector reliably recognizes stuck states | **Not supported by the confirmatory sample** |
+| Repeated failures identify lower-recovery states | **Supported in development** |
+| The current detector can populate a balanced checkpoint bank | **Not supported** |
 | Kimi should always replace a stuck model | **Not supported** |
 | A learned live supervisor is ready to deploy | **Not yet** |
 
@@ -198,6 +213,8 @@ Start here:
    — frozen confirmatory result and coverage failure.
 7. [`docs/initial-supervisor-policy-v0.md`](docs/initial-supervisor-policy-v0.md)
    — learned baselines and why they are not deployed.
+8. [`docs/checkpoint-coverage-v1-final.md`](docs/checkpoint-coverage-v1-final.md)
+   — detector v1's offline separation, coverage failure, and zero-spend stop.
 
 Large downloaded datasets, third-party benchmark fixtures, raw model
 trajectories, paid-run artifacts, and credentials are intentionally excluded
@@ -209,13 +226,13 @@ publishing provider data or hidden benchmark material.
 
 ## Next milestone
 
-The next milestone is a checkpoint-coverage feasibility gate, not model
-training. On a fresh, outcome-blind task source, the project must first bank at
-least 12 reproducible stuck and 12 reproducible healthy snapshots across at
-least eight tasks. Only after that coverage exists should matched interventions
-run. If adequate coverage cannot be produced, live switching should be
-deprioritized in favor of the already-supported verifier-gated clean-start
-cascade.
+The next iteration should recover checkpoint recall without giving up v1's
+useful recovery separation. The leading design is a two-tier detector: a broad
+“needs review” state followed by a stricter stuck confirmation. It must be
+evaluated on full pre-outcome observations and pass the same frozen coverage
+gate before any fresh paid scouting. Intervention training still waits for a
+reproducible checkpoint bank and matched continuation-versus-intervention
+labels.
 
 ## License
 

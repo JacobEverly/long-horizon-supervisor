@@ -1,0 +1,11 @@
+{
+  "schema_version": "checkpoint-coverage-task-eligibility.v0",
+  "status": "not_run",
+  "reason": "detector_development_gate_failed",
+  "fresh_task_source_selected": false,
+  "tasks_inspected": 0,
+  "tasks_frozen": 0,
+  "model_outcomes_inspected": false,
+  "paid_calls_made": false,
+  "note": "The predeclared sequential gate forbids task sourcing and paid collection after detector-development failure."
+}

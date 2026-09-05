@@ -1,0 +1,62 @@
+{
+  "schema_version": "checkpoint-coverage-manifest.v0",
+  "decision": "NOT READY — detector development gate failed",
+  "objective": "Determine whether reproducible stuck and healthy checkpoint coverage is feasible before another matched intervention experiment.",
+  "phase_completed": "detector_development",
+  "phase_stop_reason": "detector_development_gate_failed",
+  "detector": {
+    "v0": {
+      "path": "src/horizon_supervisor/stuck_detector.py",
+      "sha256": "c3319c93d823455076fd294ac16e28748a2b2ebcab10e1b81760d174088f4ffe",
+      "unchanged": true
+    },
+    "v1": {
+      "path": "src/horizon_supervisor/stuck_detector_v1.py",
+      "sha256": "220f5faade081cd22d283ee68c23647b37e843458afb72dec3a2833ab8b0475c",
+      "frozen_after_development": true
+    }
+  },
+  "development_evidence": {
+    "checkpoint_dataset": "data/supervisor/gate8-development-checkpoints-v0.jsonl",
+    "checkpoint_dataset_sha256": "5e085e4c3bfa9f3b72adde90778a53af5a9daa38fa1e138e209fdc4a0b49b7b5",
+    "previous_manifest": "artifacts/official/stuck-confirmatory-v1/frozen-manifest-v3.json",
+    "previous_manifest_sha256": "1617ad8e827caa33348749d16cbf7c1eedd6895c91cb14cb59aa9368c5c1700c",
+    "previous_execution_state": "artifacts/official/stuck-confirmatory-v1/execution-state-v0.json",
+    "previous_execution_state_sha256": "8513c720f45ce46b7bcd2da100fc622e300176334d026fa44fb093beb48c6292",
+    "previous_matched_outcomes": "artifacts/official/stuck-confirmatory-v1/matched-outcomes-v0.jsonl",
+    "previous_matched_outcomes_sha256": "b42d0e7be03f3a42e52899be0adfd87e1e8c907d2b28e876690f2da0595883a1"
+  },
+  "detector_development_report": {
+    "path": "artifacts/official/checkpoint-coverage-v1/detector-development-report-v1.json",
+    "sha256": "be0318c82bc529940368e48e15fc2c14a133bc0482f8addc80ad0cabe0bef459"
+  },
+  "models_if_collection_had_opened": [
+    "deepseek/deepseek-v4-flash-0731",
+    "qwen/qwen3.8-27b"
+  ],
+  "forbidden_during_this_milestone": [
+    "intervention outcomes",
+    "Kimi or GLM scouting",
+    "intervention-policy training",
+    "held-out task reuse",
+    "post-result gate changes"
+  ],
+  "task_pool": {
+    "status": "not_frozen",
+    "reason": "detector_development_gate_failed"
+  },
+  "checkpoint_bank": {
+    "status": "not_run",
+    "target": {
+      "healthy": 12,
+      "suspected_stuck": 12,
+      "total": 24
+    }
+  },
+  "budget": {
+    "additional_openrouter_ceiling_usd": 10.0,
+    "authorized_spend_usd": 0.0,
+    "actual_incremental_openrouter_spend_usd": 0.0
+  },
+  "stopping_rule_applied": "Stop before task sourcing and paid collection when any offline detector gate fails."
+}

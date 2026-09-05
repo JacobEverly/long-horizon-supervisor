@@ -1,0 +1,1150 @@
+{
+  "candidate_development": {
+    "development_candidate_family": [
+      {
+        "minimum_turn": 5,
+        "name": "persistent-error-t5-w2-e2",
+        "required_error_turns": 2,
+        "window": 2
+      },
+      {
+        "minimum_turn": 6,
+        "name": "persistent-error-t6-w2-e2",
+        "required_error_turns": 2,
+        "window": 2
+      },
+      {
+        "minimum_turn": 7,
+        "name": "persistent-error-t7-w2-e2",
+        "required_error_turns": 2,
+        "window": 2
+      },
+      {
+        "minimum_turn": 8,
+        "name": "persistent-error-t8-w2-e2",
+        "required_error_turns": 2,
+        "window": 2
+      },
+      {
+        "minimum_turn": 6,
+        "name": "persistent-error-t6-w3-e2",
+        "required_error_turns": 2,
+        "window": 3
+      },
+      {
+        "minimum_turn": 6,
+        "name": "persistent-error-t6-w3-e3",
+        "required_error_turns": 3,
+        "window": 3
+      },
+      {
+        "minimum_turn": 8,
+        "name": "persistent-error-t8-w3-e2",
+        "required_error_turns": 2,
+        "window": 3
+      },
+      {
+        "minimum_turn": 8,
+        "name": "persistent-error-t8-w3-e3",
+        "required_error_turns": 3,
+        "window": 3
+      }
+    ],
+    "final_candidate_for_future_use": {
+      "minimum_turn": 6,
+      "name": "persistent-error-t6-w2-e2",
+      "required_error_turns": 2,
+      "window": 2
+    },
+    "final_candidate_in_sample_only": {
+      "healthy": {
+        "by_base_route": {
+          "gate7/fixed-flash": {
+            "checkpoint_count": 28,
+            "completed": 14,
+            "continuation_recovery_rate": 0.5,
+            "task_count": 28
+          },
+          "gate7/fixed-qwen": {
+            "checkpoint_count": 30,
+            "completed": 12,
+            "continuation_recovery_rate": 0.4,
+            "task_count": 30
+          }
+        },
+        "checkpoint_count": 58,
+        "completed": 26,
+        "continuation_recovery_rate": 0.4482758620689655,
+        "task_count": 32,
+        "turn_distribution": {
+          "4": 58
+        }
+      },
+      "not_used_for_gate": true,
+      "recovery_difference": 0.2129817444219067,
+      "stuck": {
+        "by_base_route": {
+          "gate7/fixed-flash": {
+            "checkpoint_count": 10,
+            "completed": 3,
+            "continuation_recovery_rate": 0.3,
+            "task_count": 10
+          },
+          "gate7/fixed-qwen": {
+            "checkpoint_count": 7,
+            "completed": 1,
+            "continuation_recovery_rate": 0.14285714285714285,
+            "task_count": 7
+          }
+        },
+        "checkpoint_count": 17,
+        "completed": 4,
+        "continuation_recovery_rate": 0.23529411764705882,
+        "task_count": 14,
+        "turn_distribution": {
+          "10": 1,
+          "11": 1,
+          "6": 10,
+          "7": 1,
+          "8": 3,
+          "9": 1
+        }
+      }
+    },
+    "interpretation": "This is task-grouped development evaluation, not independent confirmation; the candidate family was designed using the same development corpus.",
+    "selection_rule": "Within each training fold maximize healthy-minus-stuck recovery difference among candidates meeting minimum task/base coverage; evaluate only on the held-out task fold.",
+    "task_grouped_fold_results": [
+      {
+        "development_task_count": 28,
+        "evaluation_task_count": 7,
+        "fold": 0,
+        "healthy_checkpoints": 11,
+        "selected_candidate": "persistent-error-t6-w2-e2",
+        "stuck_checkpoints": 2
+      },
+      {
+        "development_task_count": 28,
+        "evaluation_task_count": 7,
+        "fold": 1,
+        "healthy_checkpoints": 11,
+        "selected_candidate": "persistent-error-t6-w2-e2",
+        "stuck_checkpoints": 5
+      },
+      {
+        "development_task_count": 28,
+        "evaluation_task_count": 7,
+        "fold": 2,
+        "healthy_checkpoints": 11,
+        "selected_candidate": "persistent-error-t6-w2-e2",
+        "stuck_checkpoints": 2
+      },
+      {
+        "development_task_count": 28,
+        "evaluation_task_count": 7,
+        "fold": 3,
+        "healthy_checkpoints": 12,
+        "selected_candidate": "persistent-error-t6-w2-e2",
+        "stuck_checkpoints": 4
+      },
+      {
+        "development_task_count": 28,
+        "evaluation_task_count": 7,
+        "fold": 4,
+        "healthy_checkpoints": 13,
+        "selected_candidate": "persistent-error-t6-w2-e2",
+        "stuck_checkpoints": 4
+      }
+    ]
+  },
+  "cross_fitted_results": {
+    "healthy": {
+      "by_base_route": {
+        "gate7/fixed-flash": {
+          "checkpoint_count": 28,
+          "completed": 14,
+          "continuation_recovery_rate": 0.5,
+          "task_count": 28
+        },
+        "gate7/fixed-qwen": {
+          "checkpoint_count": 30,
+          "completed": 12,
+          "continuation_recovery_rate": 0.4,
+          "task_count": 30
+        }
+      },
+      "checkpoint_count": 58,
+      "completed": 26,
+      "continuation_recovery_rate": 0.4482758620689655,
+      "task_count": 32,
+      "turn_distribution": {
+        "4": 58
+      }
+    },
+    "healthy_minus_stuck_recovery_difference": 0.2129817444219067,
+    "robustness": {
+      "by_base_route": {
+        "gate7/fixed-flash": {
+          "difference": 0.2,
+          "healthy_recovery_rate": 0.5,
+          "stuck_recovery_rate": 0.3
+        },
+        "gate7/fixed-qwen": {
+          "difference": 0.2571428571428572,
+          "healthy_recovery_rate": 0.4,
+          "stuck_recovery_rate": 0.14285714285714285
+        }
+      },
+      "leave_one_task_out_max_difference": 0.24107142857142855,
+      "leave_one_task_out_min_difference": 0.19327731092436973,
+      "maximum_single_task_share_of_stuck_checkpoints": 0.11764705882352941,
+      "not_driven_by_one_task_or_base": true
+    },
+    "stuck": {
+      "by_base_route": {
+        "gate7/fixed-flash": {
+          "checkpoint_count": 10,
+          "completed": 3,
+          "continuation_recovery_rate": 0.3,
+          "task_count": 10
+        },
+        "gate7/fixed-qwen": {
+          "checkpoint_count": 7,
+          "completed": 1,
+          "continuation_recovery_rate": 0.14285714285714285,
+          "task_count": 7
+        }
+      },
+      "checkpoint_count": 17,
+      "completed": 4,
+      "continuation_recovery_rate": 0.23529411764705882,
+      "task_count": 14,
+      "turn_distribution": {
+        "10": 1,
+        "11": 1,
+        "6": 10,
+        "7": 1,
+        "8": 3,
+        "9": 1
+      }
+    },
+    "task_clustered_interval_95": [
+      0.03013182674199627,
+      0.37958532695374797
+    ]
+  },
+  "decision": "NOT READY \u2014 detector development gate failed",
+  "detector_versions": {
+    "v0": {
+      "path": "src/horizon_supervisor/stuck_detector.py",
+      "sha256": "c3319c93d823455076fd294ac16e28748a2b2ebcab10e1b81760d174088f4ffe",
+      "unchanged": true
+    },
+    "v1": {
+      "path": "src/horizon_supervisor/stuck_detector_v1.py",
+      "sha256": "220f5faade081cd22d283ee68c23647b37e843458afb72dec3a2833ab8b0475c",
+      "spec": {
+        "decision_rule": "SUSPECTED_STUCK at or after turn 6 only when productive failure evidence persists for two consecutive observed turns; read-only inspection and unchanged workspace state are insufficient",
+        "explicitly_insufficient": [
+          "unchanged workspace during inspection",
+          "workspace digest cycle alone",
+          "token use alone",
+          "protocol failure"
+        ],
+        "failure_persistence_turns": 2,
+        "forbidden_inputs": [
+          "hidden verifier output",
+          "future trajectory information",
+          "final task success",
+          "private model reasoning",
+          "sibling branch outcomes",
+          "task identity"
+        ],
+        "healthy_checkpoint_turn": 4,
+        "minimum_stuck_turn": 6,
+        "required_stuck_evidence": [
+          "productive action",
+          "observable error or failing public test",
+          "no new public progress",
+          "two consecutive observed turns"
+        ],
+        "schema_version": "suspected-stuck.v1",
+        "structural_failure_rule": "protocol failures are STRUCTURAL_FAILURE, never SUSPECTED_STUCK",
+        "substantial_budget_fraction": 0.6
+      }
+    }
+  },
+  "development_data": {
+    "all_flash_qwen_trajectories": 70,
+    "natural_verified_trajectories": 58,
+    "path": "data/supervisor/gate8-development-checkpoints-v0.jsonl",
+    "rows": 615,
+    "sha256": "5e085e4c3bfa9f3b72adde90778a53af5a9daa38fa1e138e209fdc4a0b49b7b5",
+    "structural_failures_excluded_from_recovery_labels": true,
+    "structural_or_protocol_failure_trajectories": 12,
+    "task_count": 35
+  },
+  "gate_passed": false,
+  "limitations": [
+    "The shared development checkpoints are pre-turn summaries, not complete v0/v1 live observations.",
+    "Candidate design and task-grouped evaluation reuse the development corpus, so the separation estimate is not independent confirmation.",
+    "They omit workspace digests, commands, exact public-test state, and reproducibility state.",
+    "Continuation recovery is known only for the route that actually ran; intervention actions remain unlabeled.",
+    "Stopped confirmatory scouts are not used as recovery labels because stopping induced their terminal outcome.",
+    "The cross-fitted separation misses the predeclared 20-point threshold."
+  ],
+  "next_phase": {
+    "intervention_collection": "forbidden",
+    "paid_checkpoint_collection": "not_run",
+    "reason": "detector_development_gate_failed",
+    "task_source_search": "not_run",
+    "training": "forbidden"
+  },
+  "offline_gate": {
+    "improves_checkpoint_yield_over_v0": {
+      "by_checkpoint_kind": {
+        "healthy": {
+          "planned": 42,
+          "records_available": 39,
+          "v0_checkpoint_hits": 11,
+          "v1_checkpoint_hits": 19
+        },
+        "suspected_stuck": {
+          "planned": 42,
+          "records_available": 40,
+          "v0_checkpoint_hits": 22,
+          "v1_checkpoint_hits": 3
+        }
+      },
+      "caveat": "This measures detector checkpoint availability, not snapshot eligibility or matched-branch validity.",
+      "comparison_scope": "Exact replay of v1 on the same frozen, full pre-outcome observations used by recorded v0 scout assessments.",
+      "improves_over_v0": false,
+      "passed": false,
+      "planned_schedule_items": 84,
+      "reason": "v1 produces fewer checkpoint hits than v0 on exact same-scout replay.",
+      "records_available": 79,
+      "v0_checkpoint_hits": 33,
+      "v0_hit_rate": 0.39285714285714285,
+      "v1_checkpoint_hits": 22,
+      "v1_hit_rate": 0.2619047619047619
+    },
+    "no_feature_or_task_leakage": {
+      "controls": [
+        "development rows only",
+        "task-grouped outer folds",
+        "online-safe observation allowlist",
+        "task identity excluded from detector features",
+        "hidden verifier, future observations, reasoning, and sibling outcomes excluded"
+      ],
+      "passed": true
+    },
+    "not_driven_by_one_task_or_base": {
+      "passed": true
+    },
+    "preserves_useful_healthy_checkpoints": {
+      "healthy_checkpoints": 58,
+      "healthy_tasks": 32,
+      "passed": true
+    },
+    "recovery_difference_at_least_20_points": {
+      "observed_difference": 0.2129817444219067,
+      "passed": true,
+      "threshold": 0.2
+    },
+    "task_clustered_interval_excludes_zero": {
+      "interval_95": [
+        0.03013182674199627,
+        0.37958532695374797
+      ],
+      "passed": true
+    }
+  },
+  "previous_coverage_failure_audit": {
+    "accepted_continuation_by_turn_and_outcome": [
+      {
+        "checkpoint_kind": "healthy",
+        "checkpoint_turn": 4,
+        "count": 2,
+        "verified_completion": false
+      },
+      {
+        "checkpoint_kind": "healthy",
+        "checkpoint_turn": 4,
+        "count": 1,
+        "verified_completion": true
+      },
+      {
+        "checkpoint_kind": "suspected_stuck",
+        "checkpoint_turn": 3,
+        "count": 1,
+        "verified_completion": true
+      },
+      {
+        "checkpoint_kind": "suspected_stuck",
+        "checkpoint_turn": 6,
+        "count": 1,
+        "verified_completion": false
+      },
+      {
+        "checkpoint_kind": "suspected_stuck",
+        "checkpoint_turn": 8,
+        "count": 1,
+        "verified_completion": false
+      }
+    ],
+    "accepted_continuation_outcomes": [
+      {
+        "checkpoint_kind": "suspected_stuck",
+        "checkpoint_turn": 3,
+        "model_id": "qwen/qwen3.8-27b",
+        "protocol_error": false,
+        "provider_error": false,
+        "task_category": "data-processing",
+        "task_id": "bash-ddos-traffic-analyzer",
+        "verified_completion": true
+      },
+      {
+        "checkpoint_kind": "healthy",
+        "checkpoint_turn": 4,
+        "model_id": "qwen/qwen3.8-27b",
+        "protocol_error": false,
+        "provider_error": false,
+        "task_category": "machine-learning",
+        "task_id": "tabular-q-learning-mountaincar-agent",
+        "verified_completion": true
+      },
+      {
+        "checkpoint_kind": "healthy",
+        "checkpoint_turn": 4,
+        "model_id": "qwen/qwen3.8-27b",
+        "protocol_error": false,
+        "provider_error": false,
+        "task_category": "security",
+        "task_id": "secure-model-pipeline-deployment",
+        "verified_completion": false
+      },
+      {
+        "checkpoint_kind": "suspected_stuck",
+        "checkpoint_turn": 8,
+        "model_id": "deepseek/deepseek-v4-flash-0731",
+        "protocol_error": false,
+        "provider_error": false,
+        "task_category": "software-engineering",
+        "task_id": "cube-grid-cross-expansion",
+        "verified_completion": false
+      },
+      {
+        "checkpoint_kind": "healthy",
+        "checkpoint_turn": 4,
+        "model_id": "deepseek/deepseek-v4-flash-0731",
+        "protocol_error": false,
+        "provider_error": false,
+        "task_category": "software-engineering",
+        "task_id": "cube-grid-cross-expansion",
+        "verified_completion": false
+      },
+      {
+        "checkpoint_kind": "suspected_stuck",
+        "checkpoint_turn": 6,
+        "model_id": "qwen/qwen3.8-27b",
+        "protocol_error": false,
+        "provider_error": false,
+        "task_category": "software-engineering",
+        "task_id": "cube-grid-cross-expansion",
+        "verified_completion": false
+      }
+    ],
+    "accepted_groups": {
+      "healthy": 3,
+      "suspected_stuck": 3
+    },
+    "by_checkpoint_kind": [
+      {
+        "checkpoint_kind": "healthy",
+        "count": 3,
+        "disposition": "accepted"
+      },
+      {
+        "checkpoint_kind": "healthy",
+        "count": 28,
+        "disposition": "healthy_checkpoint_missed"
+      },
+      {
+        "checkpoint_kind": "healthy",
+        "count": 1,
+        "disposition": "selection_cap_reached"
+      },
+      {
+        "checkpoint_kind": "healthy",
+        "count": 2,
+        "disposition": "task_finished_before_checkpoint"
+      },
+      {
+        "checkpoint_kind": "healthy",
+        "count": 8,
+        "disposition": "unmanaged_process_state"
+      },
+      {
+        "checkpoint_kind": "suspected_stuck",
+        "count": 3,
+        "disposition": "accepted"
+      },
+      {
+        "checkpoint_kind": "suspected_stuck",
+        "count": 18,
+        "disposition": "detector_never_triggered"
+      },
+      {
+        "checkpoint_kind": "suspected_stuck",
+        "count": 5,
+        "disposition": "matched_branch_invalidity"
+      },
+      {
+        "checkpoint_kind": "suspected_stuck",
+        "count": 1,
+        "disposition": "no_remaining_turns"
+      },
+      {
+        "checkpoint_kind": "suspected_stuck",
+        "count": 1,
+        "disposition": "task_finished_before_checkpoint"
+      },
+      {
+        "checkpoint_kind": "suspected_stuck",
+        "count": 14,
+        "disposition": "unmanaged_process_state"
+      }
+    ],
+    "by_external_state_eligibility": [
+      {
+        "count": 62,
+        "external_state_eligibility": "eligible_or_not_reached"
+      },
+      {
+        "count": 22,
+        "external_state_eligibility": "ineligible"
+      }
+    ],
+    "by_model": [
+      {
+        "count": 2,
+        "disposition": "accepted",
+        "model_id": "deepseek/deepseek-v4-flash-0731"
+      },
+      {
+        "count": 13,
+        "disposition": "detector_never_triggered",
+        "model_id": "deepseek/deepseek-v4-flash-0731"
+      },
+      {
+        "count": 16,
+        "disposition": "healthy_checkpoint_missed",
+        "model_id": "deepseek/deepseek-v4-flash-0731"
+      },
+      {
+        "count": 2,
+        "disposition": "matched_branch_invalidity",
+        "model_id": "deepseek/deepseek-v4-flash-0731"
+      },
+      {
+        "count": 1,
+        "disposition": "task_finished_before_checkpoint",
+        "model_id": "deepseek/deepseek-v4-flash-0731"
+      },
+      {
+        "count": 8,
+        "disposition": "unmanaged_process_state",
+        "model_id": "deepseek/deepseek-v4-flash-0731"
+      },
+      {
+        "count": 4,
+        "disposition": "accepted",
+        "model_id": "qwen/qwen3.8-27b"
+      },
+      {
+        "count": 5,
+        "disposition": "detector_never_triggered",
+        "model_id": "qwen/qwen3.8-27b"
+      },
+      {
+        "count": 12,
+        "disposition": "healthy_checkpoint_missed",
+        "model_id": "qwen/qwen3.8-27b"
+      },
+      {
+        "count": 3,
+        "disposition": "matched_branch_invalidity",
+        "model_id": "qwen/qwen3.8-27b"
+      },
+      {
+        "count": 1,
+        "disposition": "no_remaining_turns",
+        "model_id": "qwen/qwen3.8-27b"
+      },
+      {
+        "count": 1,
+        "disposition": "selection_cap_reached",
+        "model_id": "qwen/qwen3.8-27b"
+      },
+      {
+        "count": 2,
+        "disposition": "task_finished_before_checkpoint",
+        "model_id": "qwen/qwen3.8-27b"
+      },
+      {
+        "count": 14,
+        "disposition": "unmanaged_process_state",
+        "model_id": "qwen/qwen3.8-27b"
+      }
+    ],
+    "by_protocol_status": [
+      {
+        "count": 5,
+        "protocol_status": "no_detector_record"
+      },
+      {
+        "count": 79,
+        "protocol_status": "no_recorded_protocol_failure"
+      }
+    ],
+    "by_provider_status": [
+      {
+        "count": 1,
+        "provider_status": "no_attempt"
+      },
+      {
+        "count": 83,
+        "provider_status": "no_recorded_provider_failure"
+      }
+    ],
+    "by_task": [
+      {
+        "count": 1,
+        "disposition": "detector_never_triggered",
+        "task_id": "analyze-and-run-encoded-payload"
+      },
+      {
+        "count": 3,
+        "disposition": "unmanaged_process_state",
+        "task_id": "analyze-and-run-encoded-payload"
+      },
+      {
+        "count": 1,
+        "disposition": "accepted",
+        "task_id": "bash-ddos-traffic-analyzer"
+      },
+      {
+        "count": 2,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "bash-ddos-traffic-analyzer"
+      },
+      {
+        "count": 1,
+        "disposition": "matched_branch_invalidity",
+        "task_id": "bash-ddos-traffic-analyzer"
+      },
+      {
+        "count": 2,
+        "disposition": "detector_never_triggered",
+        "task_id": "compute-best-chess-move-san"
+      },
+      {
+        "count": 1,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "compute-best-chess-move-san"
+      },
+      {
+        "count": 1,
+        "disposition": "task_finished_before_checkpoint",
+        "task_id": "compute-best-chess-move-san"
+      },
+      {
+        "count": 1,
+        "disposition": "detector_never_triggered",
+        "task_id": "consolidate-valid-prod-credentials"
+      },
+      {
+        "count": 1,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "consolidate-valid-prod-credentials"
+      },
+      {
+        "count": 2,
+        "disposition": "unmanaged_process_state",
+        "task_id": "consolidate-valid-prod-credentials"
+      },
+      {
+        "count": 3,
+        "disposition": "accepted",
+        "task_id": "cube-grid-cross-expansion"
+      },
+      {
+        "count": 1,
+        "disposition": "selection_cap_reached",
+        "task_id": "cube-grid-cross-expansion"
+      },
+      {
+        "count": 1,
+        "disposition": "detector_never_triggered",
+        "task_id": "decode-go-ctf-credentials"
+      },
+      {
+        "count": 2,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "decode-go-ctf-credentials"
+      },
+      {
+        "count": 1,
+        "disposition": "unmanaged_process_state",
+        "task_id": "decode-go-ctf-credentials"
+      },
+      {
+        "count": 1,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "fix-jni-unsatisfiedlinkerror-path"
+      },
+      {
+        "count": 3,
+        "disposition": "unmanaged_process_state",
+        "task_id": "fix-jni-unsatisfiedlinkerror-path"
+      },
+      {
+        "count": 1,
+        "disposition": "detector_never_triggered",
+        "task_id": "linear-sem-causal-discovery-intervention"
+      },
+      {
+        "count": 2,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "linear-sem-causal-discovery-intervention"
+      },
+      {
+        "count": 1,
+        "disposition": "matched_branch_invalidity",
+        "task_id": "linear-sem-causal-discovery-intervention"
+      },
+      {
+        "count": 1,
+        "disposition": "detector_never_triggered",
+        "task_id": "mcts-solver-for-15-puzzle"
+      },
+      {
+        "count": 2,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "mcts-solver-for-15-puzzle"
+      },
+      {
+        "count": 1,
+        "disposition": "matched_branch_invalidity",
+        "task_id": "mcts-solver-for-15-puzzle"
+      },
+      {
+        "count": 1,
+        "disposition": "detector_never_triggered",
+        "task_id": "migrate-make-to-cmake-build"
+      },
+      {
+        "count": 1,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "migrate-make-to-cmake-build"
+      },
+      {
+        "count": 2,
+        "disposition": "unmanaged_process_state",
+        "task_id": "migrate-make-to-cmake-build"
+      },
+      {
+        "count": 2,
+        "disposition": "detector_never_triggered",
+        "task_id": "optimal-2x2x2-cube-solver"
+      },
+      {
+        "count": 2,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "optimal-2x2x2-cube-solver"
+      },
+      {
+        "count": 1,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "optimize-urdf-robot-for-pybullet"
+      },
+      {
+        "count": 3,
+        "disposition": "unmanaged_process_state",
+        "task_id": "optimize-urdf-robot-for-pybullet"
+      },
+      {
+        "count": 2,
+        "disposition": "detector_never_triggered",
+        "task_id": "polyglot-bash-python-config-parser"
+      },
+      {
+        "count": 2,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "polyglot-bash-python-config-parser"
+      },
+      {
+        "count": 4,
+        "disposition": "unmanaged_process_state",
+        "task_id": "recover-encrypted-db-credentials"
+      },
+      {
+        "count": 1,
+        "disposition": "detector_never_triggered",
+        "task_id": "recover-git-history-secrets"
+      },
+      {
+        "count": 2,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "recover-git-history-secrets"
+      },
+      {
+        "count": 1,
+        "disposition": "unmanaged_process_state",
+        "task_id": "recover-git-history-secrets"
+      },
+      {
+        "count": 1,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "reproducible-latex-pdf-build-script"
+      },
+      {
+        "count": 2,
+        "disposition": "task_finished_before_checkpoint",
+        "task_id": "reproducible-latex-pdf-build-script"
+      },
+      {
+        "count": 1,
+        "disposition": "unmanaged_process_state",
+        "task_id": "reproducible-latex-pdf-build-script"
+      },
+      {
+        "count": 1,
+        "disposition": "detector_never_triggered",
+        "task_id": "reverse-engineer-physics-simulator"
+      },
+      {
+        "count": 2,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "reverse-engineer-physics-simulator"
+      },
+      {
+        "count": 1,
+        "disposition": "unmanaged_process_state",
+        "task_id": "reverse-engineer-physics-simulator"
+      },
+      {
+        "count": 1,
+        "disposition": "accepted",
+        "task_id": "secure-model-pipeline-deployment"
+      },
+      {
+        "count": 1,
+        "disposition": "detector_never_triggered",
+        "task_id": "secure-model-pipeline-deployment"
+      },
+      {
+        "count": 1,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "secure-model-pipeline-deployment"
+      },
+      {
+        "count": 1,
+        "disposition": "matched_branch_invalidity",
+        "task_id": "secure-model-pipeline-deployment"
+      },
+      {
+        "count": 1,
+        "disposition": "detector_never_triggered",
+        "task_id": "sokoban-bfs-move-with-fallback"
+      },
+      {
+        "count": 2,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "sokoban-bfs-move-with-fallback"
+      },
+      {
+        "count": 1,
+        "disposition": "unmanaged_process_state",
+        "task_id": "sokoban-bfs-move-with-fallback"
+      },
+      {
+        "count": 1,
+        "disposition": "detector_never_triggered",
+        "task_id": "solve-chemical-equilibrium-system"
+      },
+      {
+        "count": 2,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "solve-chemical-equilibrium-system"
+      },
+      {
+        "count": 1,
+        "disposition": "matched_branch_invalidity",
+        "task_id": "solve-chemical-equilibrium-system"
+      },
+      {
+        "count": 1,
+        "disposition": "accepted",
+        "task_id": "tabular-q-learning-mountaincar-agent"
+      },
+      {
+        "count": 1,
+        "disposition": "detector_never_triggered",
+        "task_id": "tabular-q-learning-mountaincar-agent"
+      },
+      {
+        "count": 1,
+        "disposition": "healthy_checkpoint_missed",
+        "task_id": "tabular-q-learning-mountaincar-agent"
+      },
+      {
+        "count": 1,
+        "disposition": "no_remaining_turns",
+        "task_id": "tabular-q-learning-mountaincar-agent"
+      }
+    ],
+    "by_task_category": [
+      {
+        "count": 1,
+        "disposition": "accepted",
+        "task_category": "data-processing"
+      },
+      {
+        "count": 2,
+        "disposition": "healthy_checkpoint_missed",
+        "task_category": "data-processing"
+      },
+      {
+        "count": 1,
+        "disposition": "matched_branch_invalidity",
+        "task_category": "data-processing"
+      },
+      {
+        "count": 4,
+        "disposition": "unmanaged_process_state",
+        "task_category": "data-processing"
+      },
+      {
+        "count": 1,
+        "disposition": "detector_never_triggered",
+        "task_category": "debugging"
+      },
+      {
+        "count": 3,
+        "disposition": "healthy_checkpoint_missed",
+        "task_category": "debugging"
+      },
+      {
+        "count": 4,
+        "disposition": "unmanaged_process_state",
+        "task_category": "debugging"
+      },
+      {
+        "count": 3,
+        "disposition": "detector_never_triggered",
+        "task_category": "games"
+      },
+      {
+        "count": 3,
+        "disposition": "healthy_checkpoint_missed",
+        "task_category": "games"
+      },
+      {
+        "count": 1,
+        "disposition": "task_finished_before_checkpoint",
+        "task_category": "games"
+      },
+      {
+        "count": 1,
+        "disposition": "unmanaged_process_state",
+        "task_category": "games"
+      },
+      {
+        "count": 1,
+        "disposition": "accepted",
+        "task_category": "machine-learning"
+      },
+      {
+        "count": 2,
+        "disposition": "detector_never_triggered",
+        "task_category": "machine-learning"
+      },
+      {
+        "count": 3,
+        "disposition": "healthy_checkpoint_missed",
+        "task_category": "machine-learning"
+      },
+      {
+        "count": 1,
+        "disposition": "matched_branch_invalidity",
+        "task_category": "machine-learning"
+      },
+      {
+        "count": 1,
+        "disposition": "no_remaining_turns",
+        "task_category": "machine-learning"
+      },
+      {
+        "count": 1,
+        "disposition": "detector_never_triggered",
+        "task_category": "scientific-computing"
+      },
+      {
+        "count": 3,
+        "disposition": "healthy_checkpoint_missed",
+        "task_category": "scientific-computing"
+      },
+      {
+        "count": 1,
+        "disposition": "matched_branch_invalidity",
+        "task_category": "scientific-computing"
+      },
+      {
+        "count": 3,
+        "disposition": "unmanaged_process_state",
+        "task_category": "scientific-computing"
+      },
+      {
+        "count": 1,
+        "disposition": "accepted",
+        "task_category": "security"
+      },
+      {
+        "count": 4,
+        "disposition": "detector_never_triggered",
+        "task_category": "security"
+      },
+      {
+        "count": 4,
+        "disposition": "healthy_checkpoint_missed",
+        "task_category": "security"
+      },
+      {
+        "count": 1,
+        "disposition": "matched_branch_invalidity",
+        "task_category": "security"
+      },
+      {
+        "count": 6,
+        "disposition": "unmanaged_process_state",
+        "task_category": "security"
+      },
+      {
+        "count": 3,
+        "disposition": "accepted",
+        "task_category": "software-engineering"
+      },
+      {
+        "count": 5,
+        "disposition": "detector_never_triggered",
+        "task_category": "software-engineering"
+      },
+      {
+        "count": 6,
+        "disposition": "healthy_checkpoint_missed",
+        "task_category": "software-engineering"
+      },
+      {
+        "count": 1,
+        "disposition": "matched_branch_invalidity",
+        "task_category": "software-engineering"
+      },
+      {
+        "count": 1,
+        "disposition": "selection_cap_reached",
+        "task_category": "software-engineering"
+      },
+      {
+        "count": 2,
+        "disposition": "detector_never_triggered",
+        "task_category": "system-administration"
+      },
+      {
+        "count": 4,
+        "disposition": "healthy_checkpoint_missed",
+        "task_category": "system-administration"
+      },
+      {
+        "count": 2,
+        "disposition": "task_finished_before_checkpoint",
+        "task_category": "system-administration"
+      },
+      {
+        "count": 4,
+        "disposition": "unmanaged_process_state",
+        "task_category": "system-administration"
+      }
+    ],
+    "checkpoint_candidate_yield": {
+      "accepted": 6,
+      "accepted_rate": 0.07142857142857142,
+      "planned": 84,
+      "produced": 12,
+      "rate": 0.14285714285714285
+    },
+    "development_reuse_rule": "All prior experiment tasks and the six accepted confirmatory groups are development-only and ineligible for fresh confirmation.",
+    "failure_mode_notes": {
+      "detector_never_triggered": "stuck checkpoint was requested but never emitted",
+      "healthy_checkpoint_missed": "turn-4 healthy checkpoint was not banked",
+      "matched_branch_invalidity": 5,
+      "protocol_failure": 0,
+      "provider_or_invalid_trial_failure": 0,
+      "snapshot_or_rehydration_failure": 0,
+      "task_finished_before_checkpoint": 3
+    },
+    "frozen_ledger_reason_counts": {
+      "accepted matched group": 6,
+      "checkpoint has no remaining agent turns": 1,
+      "one or more branches remained invalid after retry": 5,
+      "predeclared maximum of three groups per task reached": 1,
+      "requested checkpoint did not occur": 49,
+      "unmanaged process state has no frozen rehydration recipe": 22
+    },
+    "planned_schedule_items": 84,
+    "primary_disposition_counts": {
+      "accepted": 6,
+      "detector_never_triggered": 18,
+      "healthy_checkpoint_missed": 28,
+      "matched_branch_invalidity": 5,
+      "no_remaining_turns": 1,
+      "selection_cap_reached": 1,
+      "task_finished_before_checkpoint": 3,
+      "unmanaged_process_state": 22
+    },
+    "source": {
+      "execution_state": "artifacts/official/stuck-confirmatory-v1/execution-state-v0.json",
+      "execution_state_sha256": "8513c720f45ce46b7bcd2da100fc622e300176334d026fa44fb093beb48c6292",
+      "manifest": "artifacts/official/stuck-confirmatory-v1/frozen-manifest-v3.json",
+      "manifest_sha256": "1617ad8e827caa33348749d16cbf7c1eedd6895c91cb14cb59aa9368c5c1700c",
+      "matched_outcomes": "artifacts/official/stuck-confirmatory-v1/matched-outcomes-v0.jsonl",
+      "matched_outcomes_sha256": "b42d0e7be03f3a42e52899be0adfd87e1e8c907d2b28e876690f2da0595883a1"
+    },
+    "valid_outcomes": 24
+  },
+  "same_scout_detector_yield_replay": {
+    "by_checkpoint_kind": {
+      "healthy": {
+        "planned": 42,
+        "records_available": 39,
+        "v0_checkpoint_hits": 11,
+        "v1_checkpoint_hits": 19
+      },
+      "suspected_stuck": {
+        "planned": 42,
+        "records_available": 40,
+        "v0_checkpoint_hits": 22,
+        "v1_checkpoint_hits": 3
+      }
+    },
+    "caveat": "This measures detector checkpoint availability, not snapshot eligibility or matched-branch validity.",
+    "comparison_scope": "Exact replay of v1 on the same frozen, full pre-outcome observations used by recorded v0 scout assessments.",
+    "improves_over_v0": false,
+    "planned_schedule_items": 84,
+    "records_available": 79,
+    "v0_checkpoint_hits": 33,
+    "v0_hit_rate": 0.39285714285714285,
+    "v1_checkpoint_hits": 22,
+    "v1_hit_rate": 0.2619047619047619
+  },
+  "schema_version": "checkpoint-coverage-detector-development-report.v1"
+}
