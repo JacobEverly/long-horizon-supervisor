@@ -30,7 +30,7 @@ from horizon_supervisor.training.run_stuck_pilot import (
 
 ROOT = Path(__file__).resolve().parents[3]
 OUTPUT_ROOT = ROOT / "artifacts/official/stuck-confirmatory-v1"
-MANIFEST = OUTPUT_ROOT / "frozen-manifest-v2.json"
+MANIFEST = OUTPUT_ROOT / "frozen-manifest-v3.json"
 STATE_PATH = OUTPUT_ROOT / "execution-state-v0.json"
 OUTCOMES_PATH = OUTPUT_ROOT / "matched-outcomes-v0.jsonl"
 LEDGER_PATH = OUTPUT_ROOT / "execution-ledger-v0.json"
@@ -68,7 +68,7 @@ def _validate_frozen_inputs(manifest_path: Path, manifest: dict[str, Any]) -> st
     expected_manifest_hash = sidecar.read_text(encoding="utf-8").split()[0]
     if _sha256(manifest_path) != expected_manifest_hash:
         raise RuntimeError("frozen confirmatory manifest hash mismatch")
-    if manifest.get("schema_version") != "stuck-confirmatory-manifest.v2":
+    if manifest.get("schema_version") != "stuck-confirmatory-manifest.v3":
         raise RuntimeError("unexpected confirmatory manifest schema")
     amendment = manifest.get("amendment") or {}
     if amendment.get("id") != "explicit-four-way-snapshot-branching-v1":
@@ -84,6 +84,13 @@ def _validate_frozen_inputs(manifest_path: Path, manifest: dict[str, Any]) -> st
         raise RuntimeError("unexpected scout-efficiency amendment scope")
     if efficiency_amendment.get("accepted_outcomes_before_amendment") != 4:
         raise RuntimeError("scout-efficiency amendment outcome boundary changed")
+    window_amendment = manifest.get("healthy_window_efficiency_amendment") or {}
+    if window_amendment.get("id") != "stop-impossible-healthy-scout-v3":
+        raise RuntimeError("required healthy-window efficiency amendment is missing")
+    if window_amendment.get("scope") != "orchestration_only":
+        raise RuntimeError("unexpected healthy-window amendment scope")
+    if window_amendment.get("accepted_outcomes_before_amendment") != 4:
+        raise RuntimeError("healthy-window amendment outcome boundary changed")
     if manifest["models"]["routes"] != {
         **BASE_ROUTE_TO_MODEL,
         KIMI_ROUTE: KIMI_MODEL,
@@ -131,6 +138,10 @@ def _validate_frozen_inputs(manifest_path: Path, manifest: dict[str, Any]) -> st
     fixed_files[
         ROOT / "src/horizon_supervisor/training/amend_stuck_confirmatory_efficiency.py"
     ] = integrity["efficiency_amendment_script_sha256"]
+    fixed_files[
+        ROOT
+        / "src/horizon_supervisor/training/amend_stuck_confirmatory_healthy_window.py"
+    ] = integrity["healthy_window_amendment_script_sha256"]
     for path, expected in fixed_files.items():
         if not path.is_file() or _sha256(path) != expected:
             raise RuntimeError(f"frozen input hash mismatch: {path}")
@@ -581,6 +592,7 @@ def run(manifest_path: Path = MANIFEST) -> dict[str, Any]:
                             capture_healthy=kind == "healthy",
                             capture_stuck=kind == "suspected_stuck",
                             stop_after_checkpoint=True,
+                            stop_after_healthy_window=kind == "healthy",
                             enforce_branch_budget=False,
                         )
                         _record_attempts(state, attempts)

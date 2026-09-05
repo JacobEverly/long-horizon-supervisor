@@ -41,6 +41,22 @@ _SAFE_PROCESS_NAMES = {
     "timeout",
     "tini",
 }
+
+
+def _healthy_checkpoint_window_exhausted(
+    *,
+    enabled: bool,
+    capture_healthy: bool,
+    healthy_captured: bool,
+    observation_turn: int,
+    healthy_turn: int,
+) -> bool:
+    return (
+        enabled
+        and capture_healthy
+        and not healthy_captured
+        and observation_turn >= healthy_turn
+    )
 _WORKSPACE_DIGEST_COMMAND = (
     "python3 - <<'PY'\n"
     "import hashlib,json,os,stat\n"
@@ -167,6 +183,7 @@ class PilotTerminus2(Terminus2):
         pilot_capture_healthy: bool = True,
         pilot_capture_stuck: bool = True,
         pilot_stop_after_checkpoint: bool = False,
+        pilot_stop_after_healthy_window: bool = False,
         pilot_healthy_turn: int = 4,
         pilot_output_token_budget: int = 49_152,
         pilot_spend_budget_usd: float = 0.5,
@@ -182,6 +199,7 @@ class PilotTerminus2(Terminus2):
         self._pilot_capture_healthy = pilot_capture_healthy
         self._pilot_capture_stuck = pilot_capture_stuck
         self._pilot_stop_after_checkpoint = pilot_stop_after_checkpoint
+        self._pilot_stop_after_healthy_window = pilot_stop_after_healthy_window
         self._pilot_healthy_turn = pilot_healthy_turn
         self._pilot_output_token_budget = pilot_output_token_budget
         self._pilot_spend_budget_usd = pilot_spend_budget_usd
@@ -560,15 +578,35 @@ class PilotTerminus2(Terminus2):
             )
             self._pilot_stuck_captured = True
             checkpoint_captured = True
-        if (
-            checkpoint_captured
-            and self._pilot_stop_after_checkpoint
-            and self._pilot_environment is not None
-        ):
+        healthy_window_exhausted = _healthy_checkpoint_window_exhausted(
+            enabled=self._pilot_stop_after_healthy_window,
+            capture_healthy=self._pilot_capture_healthy,
+            healthy_captured=self._pilot_healthy_captured,
+            observation_turn=observation.turn,
+            healthy_turn=self._pilot_healthy_turn,
+        )
+        should_stop_scout = (
+            checkpoint_captured and self._pilot_stop_after_checkpoint
+        ) or healthy_window_exhausted
+        if should_stop_scout and self._pilot_environment is not None:
             # The checkpoint archive and public handoff are already sealed.  Ending
             # the scout's tmux session prevents unused post-checkpoint model calls;
             # the verifier may still run, but its result is not used for checkpoint
             # eligibility or any matched branch outcome.
+            event = {
+                "schema_version": "pilot-scout-stop.v0",
+                "created_at": datetime.now(UTC).isoformat(),
+                "kind": "scout_stop",
+                "reason": (
+                    "checkpoint_sealed"
+                    if checkpoint_captured
+                    else "healthy_checkpoint_window_exhausted"
+                ),
+                "observation_turn": observation.turn,
+                "healthy_checkpoint_turn": self._pilot_healthy_turn,
+            }
+            with self._pilot_record_path.open("a", encoding="utf-8") as handle:
+                handle.write(json.dumps(event, sort_keys=True) + "\n")
             await self._pilot_environment.exec(
                 command=f"tmux kill-session -t {shlex.quote(self.name())}",
                 timeout_sec=10,

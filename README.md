@@ -18,9 +18,9 @@ optimized among policies with comparable completion, rather than traded against
 success through an arbitrary hidden score.
 
 > **Research status:** model portfolios work; learned live intervention is not
-> yet proven. The current confirmatory experiment is testing whether a frozen
-> stuck detector identifies the moments where reasoning escalation actually
-> helps.
+> yet proven. A frozen confirmatory experiment exhausted its task pool with too
+> few reproducible checkpoints and did not show a completion gain from live
+> escalation over continuing.
 
 ## Why this exists
 
@@ -87,7 +87,7 @@ solving work before expensive routes ran.
 
 See [`docs/swiss-cheese-replication-v0-final.md`](docs/swiss-cheese-replication-v0-final.md).
 
-### 3. Escalating a stuck state is promising, not proven
+### 3. Live stuck-state escalation remains unproven
 
 In the first matched-state pilot, every intervention started from an identical
 saved workspace:
@@ -103,11 +103,15 @@ Kimi produced two unique rescues, suggesting that some stuck states need more
 reasoning rather than merely a different model. The sample was too small and
 had too few independent healthy controls to train or deploy a policy.
 
-The active confirmatory experiment freezes the detector, task order, four
-matched actions, budget, and analysis before inspecting new outcomes. It targets
-12 stuck and 12 healthy groups across at least eight tasks.
+The confirmatory experiment froze the detector, task order, four matched
+actions, budget, and analysis before inspecting new outcomes. Its 21-task pool
+produced only 3 stuck and 3 healthy groups across 4 tasks. Continuing and Kimi
+each completed 1/3 stuck groups, but they solved the same group, so Kimi had no
+unique rescue over continuing. The proper result is **inconclusive** and no
+learned intervention policy is justified.
 
-See [`docs/stuck-intervention-pilot-v0-final.md`](docs/stuck-intervention-pilot-v0-final.md).
+See [`docs/stuck-confirmatory-v1-final.md`](docs/stuck-confirmatory-v1-final.md)
+and [`docs/stuck-intervention-pilot-v0-final.md`](docs/stuck-intervention-pilot-v0-final.md).
 
 ### 4. The first learned baselines did not beat simple rules
 
@@ -132,7 +136,7 @@ See [`docs/initial-supervisor-policy-v0.md`](docs/initial-supervisor-policy-v0.m
 | A verifier-gated clean-start cascade improves completion | **Supported** |
 | The best route is a universal quality ladder | **Rejected by observed jaggedness** |
 | A small learned task-start router beats fixed order | **Not supported** |
-| The current detector reliably recognizes stuck states | **Under confirmation** |
+| The current detector reliably recognizes stuck states | **Not supported by the confirmatory sample** |
 | Kimi should always replace a stuck model | **Not supported** |
 | A learned live supervisor is ready to deploy | **Not yet** |
 
@@ -190,7 +194,9 @@ Start here:
    — replicated model-complementarity study.
 5. [`docs/stuck-intervention-pilot-v0-final.md`](docs/stuck-intervention-pilot-v0-final.md)
    — first matched-state intervention pilot.
-6. [`docs/initial-supervisor-policy-v0.md`](docs/initial-supervisor-policy-v0.md)
+6. [`docs/stuck-confirmatory-v1-final.md`](docs/stuck-confirmatory-v1-final.md)
+   — frozen confirmatory result and coverage failure.
+7. [`docs/initial-supervisor-policy-v0.md`](docs/initial-supervisor-policy-v0.md)
    — learned baselines and why they are not deployed.
 
 Large downloaded datasets, third-party benchmark fixtures, raw model
@@ -203,17 +209,13 @@ publishing provider data or hidden benchmark material.
 
 ## Next milestone
 
-The project is currently trying to answer two causal questions:
-
-1. Does the frozen detector identify states with meaningfully lower natural
-   recovery than healthy turn-four controls?
-2. At those states, does preserved-state reasoning escalation outperform both
-   continuing and clean restart?
-
-If both gates pass, the next milestone is a training-sized matched-state dataset
-and the first learned intervention policy. If either gate fails, the correct
-next step is to improve checkpoint coverage or revise the detector—not to train
-on weak labels.
+The next milestone is a checkpoint-coverage feasibility gate, not model
+training. On a fresh, outcome-blind task source, the project must first bank at
+least 12 reproducible stuck and 12 reproducible healthy snapshots across at
+least eight tasks. Only after that coverage exists should matched interventions
+run. If adequate coverage cannot be produced, live switching should be
+deprioritized in favor of the already-supported verifier-gated clean-start
+cascade.
 
 ## License
 

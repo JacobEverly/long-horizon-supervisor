@@ -88,6 +88,7 @@ def test_base_command_has_global_cap_but_no_premature_branch_cap() -> None:
     assert "pilot_capture_stuck=true" in rendered
     assert "pilot_capture_healthy=false" in rendered
     assert "pilot_stop_after_checkpoint=false" in rendered
+    assert "pilot_stop_after_healthy_window=false" in rendered
     assert "--agent-timeout-multiplier\n1.0" in rendered
 
 
@@ -108,6 +109,7 @@ def test_state_branch_uses_seed_adapter_and_public_handoff() -> None:
         capture_healthy=False,
         capture_stuck=False,
         stop_after_checkpoint=True,
+        stop_after_healthy_window=True,
         workspace_seed=Path("/tmp/anchor"),
         expected_workspace_digest="digest",
         handoff_path=Path("/tmp/handoff.md"),
@@ -118,6 +120,7 @@ def test_state_branch_uses_seed_adapter_and_public_handoff() -> None:
     assert "expected_workspace_digest=digest" in rendered
     assert "pilot_provider_usage_start=1.25" in rendered
     assert "pilot_stop_after_checkpoint=true" in rendered
+    assert "pilot_stop_after_healthy_window=true" in rendered
     assert "--extra-instruction-path\n/tmp/handoff.md" in rendered
 
 
