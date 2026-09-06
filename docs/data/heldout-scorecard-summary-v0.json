@@ -1,0 +1,59 @@
+{
+  "schema_version": "public-heldout-scorecard-summary.v0",
+  "source": {
+    "local_artifact": "artifacts/official/gate8-wave3-18-task-checkpoint/frozen-policy-scorecard-18-task-v0.json",
+    "sha256": "36f81c626a807c54178ef315bb69d59d5004741d8c129854f8b1377c6b7ef713",
+    "evaluation_role": "final held-out Wave 3 evaluation"
+  },
+  "evaluation": {
+    "tasks": 18,
+    "routes": 4,
+    "learning_valid_outcomes": 72,
+    "held_out_policy_tuning": false,
+    "cascade_stop_signal": "verifier-confirmed success",
+    "discriminating_tasks": 10,
+    "all_model_failures": 6
+  },
+  "policies": [
+    {
+      "strategy": "always:gate7/fixed-flash",
+      "successes": 6,
+      "success_rate": 0.3333333333333333,
+      "replayed_cost_usd": 0.120773336,
+      "pareto_optimal": true
+    },
+    {
+      "strategy": "always:gate7/fixed-kimi",
+      "successes": 7,
+      "success_rate": 0.3888888888888889,
+      "replayed_cost_usd": 4.0558788,
+      "pareto_optimal": false
+    },
+    {
+      "strategy": "frozen-cascade:flash>qwen",
+      "successes": 9,
+      "success_rate": 0.5,
+      "replayed_cost_usd": 1.118682431,
+      "pareto_optimal": true
+    },
+    {
+      "strategy": "frozen-cascade:flash>qwen>glm",
+      "successes": 10,
+      "success_rate": 0.5555555555555556,
+      "replayed_cost_usd": 2.3749035110000003,
+      "pareto_optimal": true
+    },
+    {
+      "strategy": "frozen-cascade:flash>qwen>glm>kimi",
+      "successes": 12,
+      "success_rate": 0.6666666666666666,
+      "replayed_cost_usd": 3.847546211,
+      "pareto_optimal": true
+    }
+  ],
+  "spend": {
+    "basis": "dedicated OpenRouter key usage delta",
+    "exact_incremental_provider_spend_usd": 4.100633491
+  },
+  "interpretation_guard": "Observed clean-start portfolio result; not evidence that a learned mid-run intervention policy is ready."
+}

@@ -139,7 +139,7 @@ here are:
 ## Reproduce and inspect
 
 - [Held-out methodology and complete scorecard](docs/gate8-wave3-18-task-final-scorecard.md)
-- [Frozen machine-readable scorecard](artifacts/official/gate8-wave3-18-task-checkpoint/frozen-policy-scorecard-18-task-v0.json)
+- [Public machine-readable scorecard summary](docs/data/heldout-scorecard-summary-v0.json)
 - [Replication study](docs/swiss-cheese-replication-v0-final.md)
 - [First matched-state intervention pilot](docs/stuck-intervention-pilot-v0-final.md)
 - [Why the current learned baselines are insufficient](docs/initial-supervisor-policy-v0.md)
