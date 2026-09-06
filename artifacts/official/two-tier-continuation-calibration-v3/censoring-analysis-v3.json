@@ -1,0 +1,24 @@
+{
+  "schema_version": "continuation-censoring-analysis.v3",
+  "trajectory_count": 48,
+  "learning_valid_trajectory_count": 18,
+  "structural_or_invalid_trajectory_count": 30,
+  "invalid_without_verifier_outcome_count": 27,
+  "invalid_exception_types": {
+    "OutputLengthExceeded": 25,
+    "DaytonaBadRequestError": 2
+  },
+  "valid_but_external_state_unreproducible_count": 3,
+  "output_length_configuration": {
+    "per_response_output_tokens": 4096,
+    "total_run_output_token_budget": 49152,
+    "bounded_corrective_retries": 1
+  },
+  "diagnosis": {
+    "primary_censoring_mechanism": "per-response output truncation",
+    "provider_failure_count": 0,
+    "protocol_failure_count": 0,
+    "detector_threshold_change_justified": false,
+    "minimal_runtime_revision": "raise only the per-response cap from 4096 to 8192 tokens while preserving the 49152-token total run budget"
+  }
+}

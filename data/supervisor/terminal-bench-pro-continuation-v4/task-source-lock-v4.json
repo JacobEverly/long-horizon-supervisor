@@ -1,0 +1,528 @@
+{
+  "schema_version": "continuation-calibration-task-source-lock.v4",
+  "selection_seed": "continuation-calibration-v4|2026-09-05",
+  "category_quotas": {
+    "data-processing": 5,
+    "debugging": 5,
+    "games": 5,
+    "machine-learning": 2,
+    "scientific-computing": 4,
+    "security": 3
+  },
+  "static_compatibility": {
+    "maximum_cpus": 2,
+    "maximum_memory_mb": 4096,
+    "gpus": 0,
+    "disallowed_tags": [
+      "distributed-training",
+      "mongodb",
+      "qemu"
+    ]
+  },
+  "source": {
+    "dataset_id": "alibabagroup/terminal-bench-pro",
+    "file": "Terminal_Bench_Pro_Public-200.parquet",
+    "license": "apache-2.0",
+    "revision": "b79dec3e67acd466f90127cde0d24516d9132e74",
+    "source_id": "terminal-bench-pro-public",
+    "source_task_count": 200,
+    "prior_exposure_count": 83,
+    "static_eligible_count": 28,
+    "selected_count": 24
+  },
+  "tasks": [
+    {
+      "task_id": "build-uci-chess-engine-to-beat-multiple-bots",
+      "difficulty": "hard",
+      "category": "games",
+      "tags": [
+        "python",
+        "chess",
+        "uci-protocol",
+        "minimax",
+        "alpha-beta-pruning"
+      ],
+      "outcome_blind_rank": "06900c096bd7a0fb39ffe96acd731c0b15dc7294357e35c493da6ce9aa056080",
+      "instruction_sha256": "80628e3df8ff1c00e4041426e13b96d0aecb54dedfc1d5b701b92c5e9d1e9484",
+      "config_sha256": "9b057f3dba8dedba40400f7f2fd63b4dda23119336d535b8ebb0660a5ac4b080",
+      "archive_sha256": "c51db91e3aa7937b89b304a12724b25ef6ef7f0574445da5615925bb223caf2e",
+      "task_tree_sha256": "10ae8c5923e51ad293ca38239e896971adf4852041335d5eb60528319e1427c6",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/build-uci-chess-engine-to-beat-multiple-bots",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "flood-escape-path-planner",
+      "difficulty": "hard",
+      "category": "games",
+      "tags": [
+        "pathfinding",
+        "simulation",
+        "json-processing",
+        "file-io"
+      ],
+      "outcome_blind_rank": "0a4447bda4165b69c36141abc35ab719846857ca9abb66407e890d9a3e82c74e",
+      "instruction_sha256": "44a8d4968ff99fa377ed99ba8369e6041b4e3d442d8340ca7e74953beb8a0cac",
+      "config_sha256": "eab1a12c87da9d631b16f2869cd424c73b76890a37f8d315f9af0ffe6ef952f5",
+      "archive_sha256": "7ce9a37dc0f26eefa56395f4f99545a005567682b1b6f2fe0dfe19011896e161",
+      "task_tree_sha256": "9809d4ac5ea662c354530b4af584c62b7b2a09f18c94cd4d66b8db3b6316bd49",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/flood-escape-path-planner",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "implement-lz77-file-compressor",
+      "difficulty": "hard",
+      "category": "data-processing",
+      "tags": [
+        "python",
+        "compression",
+        "binary-parsing",
+        "file-io"
+      ],
+      "outcome_blind_rank": "0afde8e007cbfa2d0645cf56cccd97440676489734f657f3b4e1ebaf6f048f4e",
+      "instruction_sha256": "63492679ffe4ecc89559202a2a75943b546240542a0f1bdec1d8830930bfd8c2",
+      "config_sha256": "96e0fc0203b9269f71296cfc7fee687c2f7f89e61277c805d4e29185e073254d",
+      "archive_sha256": "26f42f82951067de4c594c977869a1dd2772c7b22f8c91b1702205a7f8d73ea0",
+      "task_tree_sha256": "86db60153500da45187642e8699f75eca634dd81e28e001e8cba35a90455806b",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/implement-lz77-file-compressor",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "recover-and-sanitize-git-db-credential",
+      "difficulty": "hard",
+      "category": "security",
+      "tags": [
+        "git",
+        "credential-management",
+        "data-cleaning",
+        "refactoring",
+        "security"
+      ],
+      "outcome_blind_rank": "0bbe89ed70389cc4170347d0d6ce0e2220282706770f48560628af52ed365ce5",
+      "instruction_sha256": "24c42327154418a071cf563fc580d108f3d91ea44bd2db9d3afc3920a4668da6",
+      "config_sha256": "b9e05d7c3133064584041589d770bc0592bf0aeb7ad272f07b7302811ec8d792",
+      "archive_sha256": "c2bcf237cb70d9f73a93de1ceb6360bf51344113ab91cd9e41d82b688af6ca36",
+      "task_tree_sha256": "05fe29e20b3eef3ad69d8ebc3e62768524d50747a2c72fd93457ddf8b854dc66",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/recover-and-sanitize-git-db-credential",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "solve-colossal-cave-350-score",
+      "difficulty": "hard",
+      "category": "games",
+      "tags": [
+        "python",
+        "puzzle",
+        "automation",
+        "scripting",
+        "sha256"
+      ],
+      "outcome_blind_rank": "1100aca1dc1316251dd07ef2126d51d37fe8ed4394ad0ab8c9f931da0ce95edd",
+      "instruction_sha256": "75aec65f3781086a4be27998d7fef6b8a839e51e186a53ef0c31fc2021f18cdd",
+      "config_sha256": "11e8ffc737007e3b781aa6a57d45fe50533a45485e378dd1c9eebffbe20b5abc",
+      "archive_sha256": "fd3a117987bec173d9e9f218af5610316f60d81336939f615ef855d74d3b8da0",
+      "task_tree_sha256": "db0cc7b9b4f1040131e9cb8341e3093795bb31b53b1655d203c0880826167580",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/solve-colossal-cave-350-score",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "debug-bst-segfault-with-gdb",
+      "difficulty": "hard",
+      "category": "debugging",
+      "tags": [
+        "c",
+        "gdb",
+        "memory-access-violation",
+        "null-pointer-dereference",
+        "stack-trace"
+      ],
+      "outcome_blind_rank": "120fedcc034a6fe49c0de40fdc9a5a8cc674925cc59a24abeca479dd9eed9588",
+      "instruction_sha256": "287102525bcc87f43c66acba1aaf8c1595f100d73b5dc03ec66c09f013bb8a91",
+      "config_sha256": "3c848f8cc34905dabca796530207b2e242c3db0038efaca47869397cb389063d",
+      "archive_sha256": "e2c1f0edfbe98e14d4c895f7469c08babda976f7f70db4a017d77a117cc572c5",
+      "task_tree_sha256": "e9d661ab32939527e28bf6aaa641199c5bab1f8e26d1bab4b9bcf49f20f4ceae",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/debug-bst-segfault-with-gdb",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "rush-hour-bfs-solver",
+      "difficulty": "hard",
+      "category": "games",
+      "tags": [
+        "python",
+        "puzzle",
+        "search-algorithms",
+        "json"
+      ],
+      "outcome_blind_rank": "1d841e1eaf8a2643506f5813ba2906313e7366e819c086ed977d66dfcee17bdc",
+      "instruction_sha256": "35891103e9d8f1baf2069315c37f93c68d6f1f1503502f030c664f834875a111",
+      "config_sha256": "383a815a0afc7f8986e022ec8f6c38114851e1f7bc8684652d0db50dbd9b84b9",
+      "archive_sha256": "864e14653aca2a2430f7f381ab18c9954dea2cf0125353737fa0c7dab27c159a",
+      "task_tree_sha256": "eeda80435f2f964a5574d4b7e3fb2ae3a02908809c31b1f6d53a1ceb20cb65ff",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/rush-hour-bfs-solver",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "advanced-json-to-rfc4180-csv-converter",
+      "difficulty": "hard",
+      "category": "data-processing",
+      "tags": [
+        "python",
+        "json",
+        "csv",
+        "parsing",
+        "data-transformation"
+      ],
+      "outcome_blind_rank": "2100c3a41216a652debae4706518ea1d6815a3312e3a2182df42f65d33677235",
+      "instruction_sha256": "fd5e71365bb489c1e8f27fb66f045b88afbd54962cbefa095bbf1d2f80d2c733",
+      "config_sha256": "d28681bb5e6a824fda1b473e8943c3bf605cf305fa069ef2b75c2b24446b9d02",
+      "archive_sha256": "f8637e9225d198782c8fdec0c92eceeb1b2bc291fed5eb8ec96b546559078646",
+      "task_tree_sha256": "ff60e0bbc73cfc95e3341de643febab0514b67bef38feebd92ffaad3f70a2092",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/advanced-json-to-rfc4180-csv-converter",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "convert-matlab-tiff-loader",
+      "difficulty": "hard",
+      "category": "data-processing",
+      "tags": [
+        "python",
+        "image-processing",
+        "tif",
+        "numpy",
+        "file-processing"
+      ],
+      "outcome_blind_rank": "2ae78c01abb75243f61ec2f1b7ebed1de1319cc15fcab45fa35514c64f24f957",
+      "instruction_sha256": "f2050949d07bbe4835d69d28240b5eb0edf98b86a0d8295ea3efe07436386e5e",
+      "config_sha256": "decc9601c8e0eb1c1d8b061f26de7a9c0ca50f56c9455c934ad4f97416136adb",
+      "archive_sha256": "db290ea8d6c38c887b26fa57654e9de94c21b4cfa027647f11d245bc920f0128",
+      "task_tree_sha256": "d43c70f88241efc5fe6ccff999a4249705bf8b1985258aaad7d2aea18c0253dd",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/convert-matlab-tiff-loader",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "regex-bitcoin-p2pkh-extraction",
+      "difficulty": "hard",
+      "category": "data-processing",
+      "tags": [
+        "regex",
+        "parsing",
+        "file-io",
+        "bitcoin"
+      ],
+      "outcome_blind_rank": "3254e04b82f484a8556a037b692140b3a3ac4f830021d7e9d7663c7af16c98eb",
+      "instruction_sha256": "42c269349ee955291e2aaaba49a4f8f1d8f1d97d79d403a17033b8c993267d0a",
+      "config_sha256": "a97f29b55d47ecab3ab3ce64a6cd8159a0235231a04ac6c1224ccbbd7ed7ab5f",
+      "archive_sha256": "6505bf25b3caf386ef4f16d9a1b20d9e508ba6671d8d601d4f230705477f187d",
+      "task_tree_sha256": "2d1e94e234d963954401300d4011a3f366c13ed5dfb4e93f6809e14195789820",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/regex-bitcoin-p2pkh-extraction",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "train-fasttext-style-subword-embeddings",
+      "difficulty": "hard",
+      "category": "machine-learning",
+      "tags": [
+        "machine-learning",
+        "embedding",
+        "n-grams",
+        "fasttext",
+        "python"
+      ],
+      "outcome_blind_rank": "344f77e6973233fc1bf848ad1d4b8277cb25f22de7ffbe43203f8c586a021d04",
+      "instruction_sha256": "5f0c83826e99faeaf828f251d47909650be16c06ff3af1a1309f9b4de22d3f84",
+      "config_sha256": "35940c2d2dd1a0f6040b81ec8f0c0972a6819b289dce3cdfbd5b2350b92ce841",
+      "archive_sha256": "1bd499ca7962cd7eb55abd920bb98228c4a96fa0598879ac92b8cf48981d0228",
+      "task_tree_sha256": "028c453273f2c758c00ed860f44d931cd5022737e23e2e37c115104b2e93d2c6",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/train-fasttext-style-subword-embeddings",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "recover-stream-cipher-key",
+      "difficulty": "hard",
+      "category": "security",
+      "tags": [
+        "cryptography",
+        "python",
+        "numpy",
+        "scripting",
+        "reverse-engineering"
+      ],
+      "outcome_blind_rank": "4173925fda7b45706f286b2ff8f839aa592bf4e37da88c00a1cccbf5dbf47e22",
+      "instruction_sha256": "483a575bc9e04f9038f599e69e9f02bcba2ed267b06a0d14eae251cd8c25cf05",
+      "config_sha256": "1ecd189a3bd1419b31b3a46a5d906275bc93ae28c82872c778fcf09e003e95b0",
+      "archive_sha256": "a348204099e697af29c2b1b84cfce82610068ef85dda68167fa295aca7c01c9b",
+      "task_tree_sha256": "2396a7503f8450929081e9d45c3220f3d20b0e862c20d6a0cb76c21d262593ed",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/recover-stream-cipher-key",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "merge-org-csv-to-schema-json",
+      "difficulty": "hard",
+      "category": "data-processing",
+      "tags": [
+        "csv",
+        "json",
+        "data-transformation",
+        "statistics"
+      ],
+      "outcome_blind_rank": "50773022c0fec0e89f2ee42758013c98d085713625c165cff97a96430790b795",
+      "instruction_sha256": "584d5c9ff01d2296d23b35105af7e946c08d7233453e42bd121a725496311621",
+      "config_sha256": "102c7cfb64dcb8f447ff2f1dde4525f2c4fa32a71e70501009a9e9997e2dccf6",
+      "archive_sha256": "becb40b8b7f33c64438627b08d13dc6fafcaa1d65f3bc31c6368ac94f2a60173",
+      "task_tree_sha256": "e6769b56e4ad54602c597fba785a21bbfd50a3fbc340f0314c38dec015f3ce49",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/merge-org-csv-to-schema-json",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "c-audio-waveform-reconstruction",
+      "difficulty": "hard",
+      "category": "scientific-computing",
+      "tags": [
+        "c",
+        "signal-processing",
+        "audio",
+        "waveform-analysis",
+        "numerical-optimization"
+      ],
+      "outcome_blind_rank": "58968c14121cdde85ecb1291867058263fdb1b09104604c30473a864188954d6",
+      "instruction_sha256": "4e5a07e563f540079829c4186a4a89470170f6f97d9968ee92119c0758648e67",
+      "config_sha256": "ad6f918af401c519db4782dab6dc5f66c6572731758f7da3d465281df2476939",
+      "archive_sha256": "de09075b2083dcf75c181b166eb0b8e59b0b503d95f2d654b535326f557abce8",
+      "task_tree_sha256": "53041318a98dde5bffc651e44e60299f2bb9fbac622f90b7d3b51d96ebc54ae9",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/c-audio-waveform-reconstruction",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "fix-web-app-security-vulnerability",
+      "difficulty": "hard",
+      "category": "security",
+      "tags": [
+        "vulnerability",
+        "cwe-id",
+        "jsonl",
+        "documentation"
+      ],
+      "outcome_blind_rank": "6a0c090db056560b677569ab666f1cc835fe70edb1608b8417f7cfb26ccd1f95",
+      "instruction_sha256": "0c7c04981aa3a92d3b37fad55bf37173f0f2c3d5b8a0fe468fcb343e19c45ca5",
+      "config_sha256": "ea2f07e529f4f60451b943734831bcaac6d588cca42d6bc26bb73bc6b1f4ae54",
+      "archive_sha256": "a6a3213b11400701a8aab2036770be6c3c44bcd8cfd0cf2e3e51516a8b847dd6",
+      "task_tree_sha256": "99dbb4b89573da7373a76669a885c87d606372e7d458da8e9ffcc8ee9c720395",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/fix-web-app-security-vulnerability",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "optimize-product-search-query",
+      "difficulty": "hard",
+      "category": "debugging",
+      "tags": [
+        "performance",
+        "query-optimization",
+        "python"
+      ],
+      "outcome_blind_rank": "7fd537cb9d8c415aabb961e2b0a0e01c93da0162e7411ac34502af2e52b2dce6",
+      "instruction_sha256": "93e3061eecd2b0032d0223b13b17c40837f581481cf36b32b487eceb0672f03f",
+      "config_sha256": "71dea00781b4dccb154eae9985cffdec28ec0157109782015c01f060fb519734",
+      "archive_sha256": "41aa28112c0a38e4b8becf784ec356d0ab174fe2cc38a87edb31888efe7090dc",
+      "task_tree_sha256": "5213701184a015551496bb8408cf5a187e7d8cff6ef05388e1a8a5719fdefd4d",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/optimize-product-search-query",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "complete-sql-tutorial-game",
+      "difficulty": "hard",
+      "category": "games",
+      "tags": [
+        "sql",
+        "interactive",
+        "puzzle",
+        "sqlite",
+        "terminal"
+      ],
+      "outcome_blind_rank": "806d2385e433b25f9541b6854a9acbe001a3a3c5525ffdb3c47cdb425892854d",
+      "instruction_sha256": "254ff1006ea39d62a18f1248631ebb8589f71f2e41ab1cdd5466c897d7f7c623",
+      "config_sha256": "32afaac0c54dcb1e4955e3d61a8c0c9bf797505e438d2b70d00521f0bb145db9",
+      "archive_sha256": "7c7014353e13d223942c1d85a52b43a12e7f4db22804dff526bbef76793edebb",
+      "task_tree_sha256": "ab2860533ec42a579973ea892d9b37af0d691ade34fa7cff2f8d693e379321ef",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/complete-sql-tutorial-game",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "detect-c-feature-flags",
+      "difficulty": "hard",
+      "category": "debugging",
+      "tags": [
+        "binary-parsing",
+        "static-analysis",
+        "crc32",
+        "xor-decryption",
+        "elf"
+      ],
+      "outcome_blind_rank": "92306ec76d9cb25c332326ede789b8ed83372a29b38bb3b79aca4a07d2ad4fbb",
+      "instruction_sha256": "6440cc2c8401c775b87a7af107a37e441502f153b2c5cd5a461390f67120e9fb",
+      "config_sha256": "64734568843a440b231f1850c61c5bd61709f45be3385e304d6dd83806e296d8",
+      "archive_sha256": "df0148cac93484ee97d5b533f52b85151500ee64f0cc06d76e5ddf29805a8f38",
+      "task_tree_sha256": "203e3a28e6fde2c23a60f4f958d1e391bbf4d7355e60da141aa7245ee57d7934",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/detect-c-feature-flags",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "implement-hmc-sampler-with-jax",
+      "difficulty": "hard",
+      "category": "scientific-computing",
+      "tags": [
+        "jax",
+        "monte-carlo",
+        "sampling",
+        "probability-distribution",
+        "numerical"
+      ],
+      "outcome_blind_rank": "9f0d8c535f108333a09c0ab5e153bbbf62f7d74ff92eb48cd549e8d99e452bc1",
+      "instruction_sha256": "17ad5facc9e2328c1cceb1cf9110bf4b210cc42f4aa8303687564da8546739cc",
+      "config_sha256": "5418fe22c6efa88777bdb9096cf45ceb6cc31fb2fc2424c7af014f3dc77bb139",
+      "archive_sha256": "da6e33b4fdab2bc50783f74cc964aebff43738a63b808f6960b4dc7d10842bfb",
+      "task_tree_sha256": "108a701a799c775107d9be23ac6d36f00dab03b78573c35ab5bd51211528f7fd",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/implement-hmc-sampler-with-jax",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "portfolio-risk-analyzer-script",
+      "difficulty": "hard",
+      "category": "scientific-computing",
+      "tags": [
+        "python",
+        "statistics",
+        "data-analysis",
+        "risk-metrics"
+      ],
+      "outcome_blind_rank": "b5cff61a0eb7e9862f0f1fc0704023364daee8afaedd87aa3325ac8337ad2593",
+      "instruction_sha256": "ad572a5967959fadfe8b9802df26933b4152177e16668b40ef32ea845b1ca991",
+      "config_sha256": "86f9e4f50f37003415e69bc2a9c5614edddec877fb1e018966d5085faca9e7d7",
+      "archive_sha256": "d7d57c2c0f1eeb51643ec5710ad72f90e1efd1de015191ed6f20a3a849a98353",
+      "task_tree_sha256": "63b80d838a35c36d5ebc621ab65f211499a8319b108f1fec52e9c93f124c28f2",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/portfolio-risk-analyzer-script",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "capture-iot-firmware-boot-message",
+      "difficulty": "hard",
+      "category": "debugging",
+      "tags": [
+        "log-analysis",
+        "file-io",
+        "iot",
+        "cli"
+      ],
+      "outcome_blind_rank": "b61b749336e3e074741d6c248c4bca67b907c1fb7072b63b08c84b524f85964d",
+      "instruction_sha256": "cfbd1451a63b9bc105e1071a9abcd307fac70b3f95fe0e70c0f8027612c75964",
+      "config_sha256": "edb27ead88541a4e341c846e4d5a04a5d20262ac2bfc7d823a37daad58dbf919",
+      "archive_sha256": "51b477a0cec4e3d5fa5f74097317182b46533fdbe57a933c45d474cea15fbb95",
+      "task_tree_sha256": "54b6acfd13e8584ae76632eee2d5fbebde8e5524e7f6d228f6f43dc0009bbcee",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/capture-iot-firmware-boot-message",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "symbolic-ode-solution-chemical-reaction",
+      "difficulty": "hard",
+      "category": "scientific-computing",
+      "tags": [
+        "python",
+        "sympy",
+        "ode",
+        "symbolic-computation"
+      ],
+      "outcome_blind_rank": "ba0dcf9a447a2aae006f4a76cffa70032e32f5ee29aeb69a17c9cc9f5880dea2",
+      "instruction_sha256": "0c393977e73d2cea7c837bd4e3fb0d7af71275c441574bbf2871a7a5d3da9a79",
+      "config_sha256": "aadd0d854933c3b519f8744da9933bcd035c8d286c779c9d13238f37c8707fdc",
+      "archive_sha256": "caeda53d4ad07d0103ff360ca431984af36d0d05c7dbeb2ec2e2effc9a6350f4",
+      "task_tree_sha256": "ccd86f4ecf4c52bf06f350cf3ddc890aa4751c2276d9879c02a4238b009fbc18",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/symbolic-ode-solution-chemical-reaction",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "extract-binary-symbol-table",
+      "difficulty": "hard",
+      "category": "debugging",
+      "tags": [
+        "binary-parsing",
+        "json",
+        "symbol-extraction",
+        "address-resolution"
+      ],
+      "outcome_blind_rank": "d8a23cbc10342ada6fac4bb563a163dd610a50cef990bfc27b75c5c9e699cd59",
+      "instruction_sha256": "ace420e9f76ea90f96daee2a1714c8811448438f5a00c56ccb18ea80d70e336e",
+      "config_sha256": "371b067351ac9a0573560d7ae55267e2f66f85df1d5a58c37ccc54dcb68238d7",
+      "archive_sha256": "b729bb51a69e7fbebcb7ed2a63a56c58dc72ca2d1c08ba4fbb79135cd62cc247",
+      "task_tree_sha256": "1b3d3c24e1bebcc99889a6ac331242effa089221532a4e288da9922efc324778",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/extract-binary-symbol-table",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    },
+    {
+      "task_id": "train-sarsa-taxi-agent",
+      "difficulty": "hard",
+      "category": "machine-learning",
+      "tags": [
+        "reinforcement-learning",
+        "python",
+        "gymnasium",
+        "sarsa",
+        "q-table"
+      ],
+      "outcome_blind_rank": "fea1135575b9569e1e058c6170f963165bdfd681cf9a7dfbecb5210075d2bfaa",
+      "instruction_sha256": "a8d51cb48d4c8d24f542f9a71dca85018c0c1909a2ef4c69aee09586c76d2afd",
+      "config_sha256": "7795c7cb746021573e726d6255587e30503801723c9e829dfb97d1ccaae224fc",
+      "archive_sha256": "78de51c471e4e6a3c52bc875f6a3d0f8f7fde055e9831c4d639c31abbbcb1e24",
+      "task_tree_sha256": "86db20c9b362e88c89eaa12ffb5d69ce1847352107bc21718d89dca25d91a2b9",
+      "task_root": "data/supervisor/terminal-bench-pro-continuation-v4/tasks/train-sarsa-taxi-agent",
+      "prior_public_panel_overlap": false,
+      "prior_continuation_exposure": false,
+      "static_checkpoint_compatible": true
+    }
+  ],
+  "excluded_task_count": 172
+}
