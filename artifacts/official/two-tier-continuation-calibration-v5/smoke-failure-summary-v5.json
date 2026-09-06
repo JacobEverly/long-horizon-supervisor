@@ -1,0 +1,18 @@
+{
+  "schema_version": "continuation-calibration-preflight-failure.v5",
+  "recorded_at": "2026-09-06T23:03:36Z",
+  "decision": "v5 calibration execution forbidden",
+  "manifest_sha256": "3c3e5b1b2b06461a0ac9a617208e55eeaff837e1ae87cbbd9ddf7f4895c8cea8",
+  "permission_transport_smoke_sha256": "cb5529e5339a6c255d39abc76a6874fe1e33ecd8da56ec86f0003f02fb2185aa",
+  "provider_model_calls": 0,
+  "model_outcomes_observed": false,
+  "transport_evidence": {
+    "remote_to_local_digest_match": true,
+    "local_to_remote_digest_match": true,
+    "read_only_git_object_mode_preserved": true
+  },
+  "failed_gate": "cleanup complete before smoke report",
+  "diagnosis": "Daytona sandbox deletion was still in progress when the smoke report performed its immediate final check. A later read-only check found zero sandboxes.",
+  "minimum_justified_revision": "Wait for asynchronous Daytona deletion to settle before finalizing the otherwise unchanged zero-model transport smoke.",
+  "v5_may_be_overwritten_or_reinterpreted": false
+}
