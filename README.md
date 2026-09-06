@@ -166,6 +166,20 @@ a model on the sparse stuck class.
 See
 [`docs/continuation-calibration-v3-final.md`](docs/continuation-calibration-v3-final.md).
 
+A fresh 48-trajectory successor then filled the aggregate coverage deficit.
+Across v3 and v4, confirmed-stuck checkpoints recovered 14.3% of the time
+versus 47.9% for healthy controls, a 33.6-point gap with a task-clustered 95%
+interval above zero. Both model-specific directions were positive.
+
+V4 still failed correctly: two of 65 fresh checkpoint replays changed Git
+object permission bits during safe archive extraction. The transport bug is
+fixed, but the frozen result remains failed and cannot authorize intervention.
+The next independent cohort changes only checkpoint transport and evaluation
+provenance; it does not tune the detector on these outcomes.
+
+See
+[`docs/continuation-calibration-v4-final.md`](docs/continuation-calibration-v4-final.md).
+
 ### 5. The first learned baselines did not beat simple rules
 
 - A development-only task-start router matched the fixed cascade but did not
@@ -260,6 +274,9 @@ Start here:
 10. [`docs/continuation-calibration-v3-final.md`](docs/continuation-calibration-v3-final.md)
     — 48-trajectory live calibration, positive recovery separation, and the
     remaining confirmed-stuck coverage blocker.
+11. [`docs/continuation-calibration-v4-final.md`](docs/continuation-calibration-v4-final.md)
+    — 96-trajectory aggregate calibration, a positive detector result, and the
+    exact checkpoint-fidelity failure that blocks intervention.
 
 Large downloaded datasets, third-party benchmark fixtures, raw model
 trajectories, paid-run artifacts, and credentials are intentionally excluded

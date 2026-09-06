@@ -1,0 +1,76 @@
+{
+  "schema_version": "two-tier-continuation-calibration-report.v4",
+  "decision": "NOT READY \u2014 continuation calibration gate failed",
+  "gate_passed": false,
+  "checkpoint_feasibility_passed": false,
+  "trajectory_count": 96,
+  "valid_natural_trajectory_count": 55,
+  "structural_trajectory_count": 41,
+  "tiers": {
+    "healthy": {
+      "checkpoint_count": 48,
+      "task_count": 30,
+      "by_route": {
+        "gate7/fixed-flash": 23,
+        "gate7/fixed-qwen": 25
+      },
+      "completed": 23,
+      "natural_recovery_rate": 0.4791666666666667,
+      "minimum_remaining_turns": 8
+    },
+    "needs_review": {
+      "checkpoint_count": 36,
+      "task_count": 26,
+      "by_route": {
+        "gate7/fixed-flash": 18,
+        "gate7/fixed-qwen": 18
+      },
+      "completed": 16,
+      "natural_recovery_rate": 0.4444444444444444,
+      "minimum_remaining_turns": 2
+    },
+    "confirmed_stuck": {
+      "checkpoint_count": 7,
+      "task_count": 7,
+      "by_route": {
+        "gate7/fixed-flash": 5,
+        "gate7/fixed-qwen": 2
+      },
+      "completed": 1,
+      "natural_recovery_rate": 0.14285714285714285,
+      "minimum_remaining_turns": 3
+    }
+  },
+  "review_to_confirmation_transition_rate": 0.19444444444444445,
+  "healthy_minus_confirmed_recovery": 0.33630952380952384,
+  "task_clustered_interval_95": [
+    0.028368794326241176,
+    0.5777777777777777
+  ],
+  "differences_by_route": {
+    "gate7/fixed-flash": 0.23478260869565215,
+    "gate7/fixed-qwen": 0.52
+  },
+  "leave_one_task_out_min_difference": 0.3115942028985508,
+  "maximum_single_task_confirmed_share": 0.14285714285714285,
+  "gates": {
+    "healthy_minus_confirmed_at_least_20pp": true,
+    "task_clustered_interval_excludes_zero": true,
+    "direction_positive_both_models": true,
+    "not_driven_by_one_task": true,
+    "needs_review_coverage": true,
+    "confirmed_stuck_coverage": true,
+    "healthy_coverage": true,
+    "confirmed_has_two_remaining_turns": true,
+    "all_counted_snapshots_rehydrated": false,
+    "structural_failures_separate": true,
+    "leakage_controls": true
+  },
+  "bootstrap": {
+    "unit": "task",
+    "seed": 20260905,
+    "samples": 10000
+  },
+  "base_v3_trajectory_count": 48,
+  "new_v4_trajectory_count": 48
+}

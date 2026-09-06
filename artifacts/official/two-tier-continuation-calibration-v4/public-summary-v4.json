@@ -1,0 +1,83 @@
+{
+  "schema_version": "continuation-calibration-public-summary.v4",
+  "decision": "NOT READY — continuation calibration gate failed",
+  "gate_passed": false,
+  "scope": {
+    "base_v3_trajectories": 48,
+    "fresh_v4_trajectories": 48,
+    "aggregate_trajectories": 96,
+    "fresh_v4_protocol_valid_trajectories": 39,
+    "fresh_v4_learning_valid_nonstructural_trajectories": 37,
+    "fresh_v4_structural_trajectories": 11,
+    "fresh_v4_checkpoint_replays": 65,
+    "fresh_v4_checkpoint_replays_passed": 63
+  },
+  "aggregate_calibration": {
+    "healthy": {
+      "checkpoints": 48,
+      "tasks": 30,
+      "natural_completion_rate": 0.4791666666666667
+    },
+    "needs_review": {
+      "checkpoints": 36,
+      "tasks": 26,
+      "natural_completion_rate": 0.4444444444444444
+    },
+    "confirmed_stuck": {
+      "checkpoints": 7,
+      "tasks": 7,
+      "natural_completion_rate": 0.14285714285714285
+    },
+    "healthy_minus_confirmed_recovery": 0.33630952380952384,
+    "task_clustered_interval_95": [
+      0.028368794326241176,
+      0.5777777777777777
+    ],
+    "differences_by_route": {
+      "gate7/fixed-flash": 0.23478260869565215,
+      "gate7/fixed-qwen": 0.52
+    }
+  },
+  "gates": {
+    "behavioral_and_coverage_gates_passed": true,
+    "all_counted_snapshots_rehydrated": false,
+    "structural_failures_separate": true,
+    "leakage_controls": true
+  },
+  "fidelity_failure": {
+    "failed_checkpoint_replays": 2,
+    "affected_tasks": 1,
+    "checkpoint_kinds": [
+      "healthy",
+      "needs_review"
+    ],
+    "diagnosis": "The safe archive extraction path normalized read-only Git object modes from 0444 to 0644, changing the workspace digest.",
+    "gate_policy": "The fidelity gate remains failed; the two checkpoints are not treated as intervention-ready."
+  },
+  "fresh_v4_diagnostic_not_used_for_tuning": {
+    "healthy_minus_confirmed_recovery": 0.3,
+    "task_clustered_interval_95": [
+      -0.09999999999999998,
+      0.6129032258064516
+    ],
+    "confirmed_stuck_checkpoints": 5,
+    "confirmed_stuck_tasks": 5,
+    "interpretation": "The fresh cohort points in the same direction but is not independently conclusive. It will not be reused to fit or tune the next detector."
+  },
+  "spend": {
+    "exact_incremental_openrouter_usd": 2.532378529,
+    "tracked_project_total_after_usd": 53.269355918,
+    "authorized_project_ceiling_usd": 200.0
+  },
+  "cleanup": {
+    "execution_error": null,
+    "remaining_daytona_environments": 0
+  },
+  "integrity": {
+    "frozen_manifest_sha256": "7a3b661a296f2b8ceaa3a9234b6b76d8fc0e0d161a73163fe21575c25903b260",
+    "calibration_report_sha256": "56505afe6dbb22789855f8f153ef388957e484f38e2c8dbb394bfe184f4cd7b9",
+    "snapshot_fidelity_report_sha256": "128526e01fc2f690e16e8d6f9150a6fe88bd7d8b3a774a363348e6a6c1972534",
+    "execution_ledger_sha256": "d020de59ae3318dc0997e982ca25709d15e84f82f6f3d55c5819282112314ac5"
+  },
+  "next_step": "Freeze an independent V5 cohort before new outcomes. Change only the permission-preserving checkpoint transport and fresh-cohort evaluation provenance; keep the detector, routes, thresholds, actions, and success-first gates unchanged."
+}

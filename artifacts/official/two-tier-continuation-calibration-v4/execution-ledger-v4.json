@@ -1,0 +1,29 @@
+{
+  "schema_version": "continuation-calibration-execution-ledger.v4",
+  "status": "complete",
+  "stop_reason": "frozen_task_pool_exhausted",
+  "execution_error": null,
+  "manifest_sha256": "7a3b661a296f2b8ceaa3a9234b6b76d8fc0e0d161a73163fe21575c25903b260",
+  "completed_schedule_items": 48,
+  "base_v3_trajectory_count": 48,
+  "new_v4_trajectory_count": 48,
+  "aggregate_trajectory_count": 96,
+  "new_v4_checkpoint_count": 65,
+  "pending_trial": false,
+  "decision": "NOT READY \u2014 continuation calibration gate failed",
+  "gate_passed": false,
+  "openrouter": {
+    "usage_before_usd": 1.479693331,
+    "usage_after_usd": 4.01207186,
+    "exact_incremental_spend_usd": 2.532378529,
+    "project_spend_before_usd": 50.736977389,
+    "project_spend_after_usd": 53.269355918,
+    "final_query_error": null
+  },
+  "cleanup": {
+    "initial_sandbox_count": 0,
+    "removed_new_sandbox_ids": [],
+    "cleanup_errors": [],
+    "remaining_new_sandbox_ids": []
+  }
+}
