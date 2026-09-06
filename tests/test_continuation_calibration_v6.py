@@ -1,6 +1,8 @@
 
 from pathlib import Path
 
+import pytest
+
 from horizon_supervisor.training import (
     run_permission_transport_smoke_v6 as smoke,
 )
@@ -8,6 +10,7 @@ from horizon_supervisor.training.freeze_continuation_calibration_v6 import (
     EXPECTED_V5_FAILURE_SHA256,
     EXPECTED_V5_MANIFEST_SHA256,
     EXPECTED_V5_SMOKE_SHA256,
+    ROOT,
     _v5_inputs,
     freeze,
 )
@@ -28,6 +31,10 @@ def test_v6_accepts_only_the_sealed_zero_model_v5_failure() -> None:
 
 
 def test_v6_freeze_is_reloadable_without_changing_experiment(tmp_path: Path) -> None:
+    v5 = _v5_inputs()
+    first_task_root = ROOT / v5["task_selection"]["ordered_pool"][0]["task_root"]
+    if not first_task_root.is_dir():
+        pytest.skip("private benchmark task trees are not published")
     frozen = freeze(tmp_path)
     manifest, digest = validate_manifest(Path(frozen["manifest_path"]))
 
