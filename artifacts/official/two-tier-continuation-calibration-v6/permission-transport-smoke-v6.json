@@ -1,0 +1,20 @@
+{
+  "schema_version": "permission-transport-smoke.v6",
+  "passed": true,
+  "manifest_sha256": "0f412bee4bef70d3e65a80961c52d87955f03d9f61955b59f2f17b101331b5cc",
+  "provider_model_calls": 0,
+  "remote_to_local_digest_match": true,
+  "local_to_remote_digest_match": true,
+  "read_only_git_object_mode_preserved": true,
+  "local_git_object_mode": "0o444",
+  "rehydrated_git_object_mode": "0o444",
+  "source_workspace_digest": "01fcac0c85ff44868928e93de33f5e6f7e5aa58b5cde663e7af61d31200f30d3",
+  "local_workspace_digest": "01fcac0c85ff44868928e93de33f5e6f7e5aa58b5cde663e7af61d31200f30d3",
+  "rehydrated_workspace_digest": "01fcac0c85ff44868928e93de33f5e6f7e5aa58b5cde663e7af61d31200f30d3",
+  "transient_cleanup_errors": [
+    "3597ea55-bafa-4138-9e22-bf2ee74ef57d: DaytonaConflictError: Failed to remove sandbox: Sandbox state change in progress"
+  ],
+  "cleanup_errors": [],
+  "remaining_daytona_environments": 0,
+  "error": null
+}
