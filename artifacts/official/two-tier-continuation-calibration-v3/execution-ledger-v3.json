@@ -1,0 +1,29 @@
+{
+  "schema_version": "continuation-calibration-execution-ledger.v3",
+  "status": "complete",
+  "stop_reason": "frozen_task_pool_exhausted",
+  "execution_error": null,
+  "manifest_sha256": "ed056a2a9fbaad3354a43ee2113a49c877b0d5c9bbbe35069426787dc996964e",
+  "completed_schedule_items": 48,
+  "trajectory_count": 48,
+  "checkpoint_count": 28,
+  "pending_trial": false,
+  "decision": "NOT READY \u2014 continuation calibration gate failed",
+  "gate_passed": false,
+  "openrouter": {
+    "usage_before_usd": 0.051497234,
+    "usage_after_usd": 1.479693331,
+    "exact_incremental_spend_usd": 1.428196097,
+    "project_spend_before_usd": 49.308781292,
+    "project_spend_after_usd": 50.736977388999996,
+    "final_query_error": null
+  },
+  "cleanup": {
+    "initial_sandbox_count": 0,
+    "removed_new_sandbox_ids": [],
+    "cleanup_errors": [
+      "b58e3fe7-0dbd-478e-b287-022d94888476: DaytonaNotFoundError: Failed to remove sandbox: Sandbox with ID or name b58e3fe7-0dbd-478e-b287-022d94888476 not found"
+    ],
+    "remaining_new_sandbox_ids": []
+  }
+}

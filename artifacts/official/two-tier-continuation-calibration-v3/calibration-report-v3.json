@@ -1,0 +1,74 @@
+{
+  "schema_version": "two-tier-continuation-calibration-report.v3",
+  "decision": "NOT READY \u2014 continuation calibration gate failed",
+  "gate_passed": false,
+  "checkpoint_feasibility_passed": false,
+  "trajectory_count": 48,
+  "valid_natural_trajectory_count": 18,
+  "structural_trajectory_count": 30,
+  "tiers": {
+    "healthy": {
+      "checkpoint_count": 16,
+      "task_count": 11,
+      "by_route": {
+        "gate7/fixed-flash": 6,
+        "gate7/fixed-qwen": 10
+      },
+      "completed": 7,
+      "natural_recovery_rate": 0.4375,
+      "minimum_remaining_turns": 8
+    },
+    "needs_review": {
+      "checkpoint_count": 10,
+      "task_count": 8,
+      "by_route": {
+        "gate7/fixed-flash": 3,
+        "gate7/fixed-qwen": 7
+      },
+      "completed": 3,
+      "natural_recovery_rate": 0.3,
+      "minimum_remaining_turns": 2
+    },
+    "confirmed_stuck": {
+      "checkpoint_count": 2,
+      "task_count": 2,
+      "by_route": {
+        "gate7/fixed-flash": 1,
+        "gate7/fixed-qwen": 1
+      },
+      "completed": 0,
+      "natural_recovery_rate": 0.0,
+      "minimum_remaining_turns": 3
+    }
+  },
+  "review_to_confirmation_transition_rate": 0.2,
+  "healthy_minus_confirmed_recovery": 0.4375,
+  "task_clustered_interval_95": [
+    0.14285714285714285,
+    0.7058823529411765
+  ],
+  "differences_by_route": {
+    "gate7/fixed-flash": 0.3333333333333333,
+    "gate7/fixed-qwen": 0.5
+  },
+  "leave_one_task_out_min_difference": 0.35714285714285715,
+  "maximum_single_task_confirmed_share": 0.5,
+  "gates": {
+    "healthy_minus_confirmed_at_least_20pp": true,
+    "task_clustered_interval_excludes_zero": true,
+    "direction_positive_both_models": true,
+    "not_driven_by_one_task": false,
+    "needs_review_coverage": false,
+    "confirmed_stuck_coverage": false,
+    "healthy_coverage": true,
+    "confirmed_has_two_remaining_turns": true,
+    "all_counted_snapshots_rehydrated": true,
+    "structural_failures_separate": true,
+    "leakage_controls": true
+  },
+  "bootstrap": {
+    "unit": "task",
+    "seed": 20260905,
+    "samples": 10000
+  }
+}

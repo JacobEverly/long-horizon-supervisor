@@ -18,9 +18,10 @@ optimized among policies with comparable completion, rather than traded against
 success through an arbitrary hidden score.
 
 > **Research status:** model portfolios work; learned live intervention is not
-> yet proven. Two frozen detector-development gates found promising recovery
-> separation but insufficient checkpoint coverage. No new paid collection or
-> intervention training was launched.
+> yet proven. A 48-trajectory continuation calibration found a large,
+> task-clustered recovery gap between healthy and confirmed-stuck states, but
+> only two independent confirmed-stuck tasks. Training remains blocked on
+> targeted checkpoint coverage rather than model implementation.
 
 ## Why this exists
 
@@ -52,6 +53,12 @@ flowchart LR
 The supervisor is deliberately independent of any one agent framework. A
 harness adapter owns terminals, sandboxes, and provider APIs; the policy sees a
 small versioned observation and emits a normalized action.
+
+The point of the project is not proficiency with a particular sandbox, model
+API, or design tool. Those are replaceable. The durable work is choosing a
+valuable decision problem, defining what evidence would change the product,
+separating model behavior from infrastructure failure, preventing leakage, and
+refusing to train until the counterfactual data is credible.
 
 ## What the experiments show
 
@@ -136,6 +143,22 @@ stopped before a second-tier decision could occur. The gate again stopped at
 $0.
 
 See [`docs/two-tier-detector-v2-final.md`](docs/two-tier-detector-v2-final.md).
+
+A live continuation-only calibration then ran both Flash and Qwen naturally on
+24 preselected tasks. Among 48 trajectories, 18 were learning-valid and all 28
+counted snapshots rehydrated successfully. Healthy checkpoints completed 43.8%
+of the time, review checkpoints 30.0%, and confirmed-stuck checkpoints 0.0%.
+The healthy-minus-confirmed gap was 43.8 points with a positive task-clustered
+95% interval, and the direction was positive for both models.
+
+The gate still failed correctly: only two confirmed-stuck checkpoints from two
+tasks were observed, so the result cannot establish broad, task-independent
+intervention value. The next collection should target fresh, statically
+checkpoint-compatible hard tasks; it should not tune detector thresholds or fit
+a model on the sparse stuck class.
+
+See
+[`docs/continuation-calibration-v3-final.md`](docs/continuation-calibration-v3-final.md).
 
 ### 5. The first learned baselines did not beat simple rules
 
@@ -228,6 +251,9 @@ Start here:
    — detector v1's offline separation, coverage failure, and zero-spend stop.
 9. [`docs/two-tier-detector-v2-final.md`](docs/two-tier-detector-v2-final.md)
    — frozen two-tier detector result and the missing continuation evidence.
+10. [`docs/continuation-calibration-v3-final.md`](docs/continuation-calibration-v3-final.md)
+    — 48-trajectory live calibration, positive recovery separation, and the
+    remaining confirmed-stuck coverage blocker.
 
 Large downloaded datasets, third-party benchmark fixtures, raw model
 trajectories, paid-run artifacts, and credentials are intentionally excluded
@@ -239,13 +265,13 @@ publishing provider data or hidden benchmark material.
 
 ## Next milestone
 
-The next experiment should collect a small continuation-only calibration set.
-Scouts should save a `NEEDS_REVIEW` snapshot without stopping, continue the same
-model, save any later `CONFIRMED_STUCK` snapshot, and run to a verifier outcome.
-That is the missing evidence required to measure the two-tier transition on one
-complete observation schema. Intervention training still waits for a
-reproducible checkpoint bank and matched continuation-versus-intervention
-labels.
+Freeze a fresh, outcome-blind collection focused on statically
+checkpoint-compatible hard tasks. Its purpose is narrow: add enough independent
+`CONFIRMED_STUCK` states to test whether the positive recovery gap survives
+across tasks and both models. Only after the continuation-calibration gate
+passes should those frozen states be branched into matched continue, switch,
+escalate, and clean-restart interventions. Training still waits for those
+matched counterfactual labels.
 
 ## License
 
