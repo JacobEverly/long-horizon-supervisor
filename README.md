@@ -23,6 +23,12 @@ success through an arbitrary hidden score.
 > only two independent confirmed-stuck tasks. Training remains blocked on
 > targeted checkpoint coverage rather than model implementation.
 
+> **Reviewing this as a portfolio project?** Start with the
+> [two-minute case study](CASE_STUDY.md): a frozen four-model cascade raised
+> verified completion from **38.9% to 66.7%** on 18 sealed long-horizon tasks,
+> and the negative results explain why live switching is not yet a product
+> claim.
+
 ## Why this exists
 
 Long-running agents fail in different ways. A nominally stronger model is not
