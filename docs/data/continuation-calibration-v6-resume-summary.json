@@ -1,0 +1,13 @@
+{
+  "schema_version": "continuation-calibration-resume-public-summary.v1",
+  "parent_report": "continuation-calibration-v6-final",
+  "resume_schedule_items_attempted": 7,
+  "resume_learning_valid_trajectories": 0,
+  "resume_structural_trajectories": 7,
+  "resume_new_checkpoints": 0,
+  "resume_incremental_spend_usd_approx": 0.485529503,
+  "provider_failure": "repeated upstream HTTP 502 responses for Qwen",
+  "remaining_daytona_environments": 0,
+  "changes_gate_a": false,
+  "interpretation": "Operational evidence only; no new model-stuck evidence was added."
+}

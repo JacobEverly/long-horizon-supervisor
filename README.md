@@ -87,12 +87,16 @@ on held-out outcomes.
   and evidence in detail.
 - [Continuation calibration v6](docs/continuation-calibration-v6-final.md) —
   the latest sealed detector result and its limits.
+- [V6 resume addendum](docs/continuation-calibration-v6-resume-addendum.md) —
+  the later provider-failure audit; no new valid evidence.
 - [Roadmap](docs/roadmap.md) — the remaining gates before training.
 - [Architecture](docs/architecture.md) — harness, supervisor, and state ownership.
 - [Machine-readable scorecard](docs/data/heldout-scorecard-summary-v0.json) —
   public aggregate evidence.
 - [Machine-readable v6 summary](docs/data/continuation-calibration-v6-summary.json)
   — credential-free detector result and gate status.
+- [Machine-readable resume summary](docs/data/continuation-calibration-v6-resume-summary.json)
+  — credential-free operational failure audit.
 
 ## Reproduce
 

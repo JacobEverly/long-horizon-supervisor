@@ -173,6 +173,19 @@ an intervention experiment. Training remains gated.
 
 Evidence: [v6 calibration result](continuation-calibration-v6-final.md).
 
+### V6 resume addendum
+
+A resume attempted seven further schedule items after the first v6 analysis
+boundary. Every added row was structural/provider failure; no new valid
+trajectory or checkpoint was produced. Repeated Qwen HTTP 502 errors caused
+multi-hour Harbor children, which were terminated at the process boundary.
+The addendum consumed approximately $0.4855 and left no Daytona environments.
+
+This does not change the v6 gate result. It identifies the next infrastructure
+requirement: a bounded provider transport contract and a fresh task cohort.
+
+Evidence: [v6 resume addendum](continuation-calibration-v6-resume-addendum.md).
+
 ## Evidence boundaries
 
 | Claim | Status |
