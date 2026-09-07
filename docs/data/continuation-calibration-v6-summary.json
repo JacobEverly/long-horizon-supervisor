@@ -1,0 +1,40 @@
+{
+  "schema_version": "continuation-calibration-public-summary.v1",
+  "cohort": "fresh_v6_only",
+  "decision": "NOT READY — continuation calibration gate failed",
+  "trajectory_count": 26,
+  "valid_natural_trajectory_count": 17,
+  "structural_trajectory_count": 9,
+  "counted_checkpoint_count": 28,
+  "incremental_provider_spend_usd": 0.982902854,
+  "cleanup": {
+    "remaining_daytona_environments": 0
+  },
+  "tiers": {
+    "healthy": {
+      "checkpoint_count": 17,
+      "task_count": 9,
+      "completed": 10,
+      "natural_recovery_rate": 0.5882352941
+    },
+    "needs_review": {
+      "checkpoint_count": 10,
+      "task_count": 8,
+      "completed": 6,
+      "natural_recovery_rate": 0.6
+    },
+    "confirmed_stuck": {
+      "checkpoint_count": 1,
+      "task_count": 1,
+      "completed": 0,
+      "natural_recovery_rate": 0.0
+    }
+  },
+  "gate_failures": [
+    "insufficient needs_review coverage",
+    "insufficient confirmed_stuck coverage",
+    "no positive directional estimate for both models",
+    "confirmed_stuck tier depends on one task"
+  ],
+  "interpretation": "Transport and provenance are credible; intervention value and training readiness are not established."
+}

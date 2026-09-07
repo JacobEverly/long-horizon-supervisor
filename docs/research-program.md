@@ -149,7 +149,7 @@ fixed, but the frozen result was preserved as failed rather than reinterpreted.
 
 Evidence: [continuation calibration v4](continuation-calibration-v4-final.md).
 
-## 7. Current independent calibration
+## 7. Natural-continuation calibration v6
 
 The active calibration changes only the corrected checkpoint transport and
 evaluation provenance. It uses a fresh, non-overlapping task cohort and the
@@ -157,8 +157,21 @@ already-frozen Flash/Qwen routes, detector, sampling rule, thresholds, budget,
 and analysis. Candidate checkpoints must rehydrate exactly, and structural or
 infrastructure failures cannot become model-stuck labels.
 
-Its result will be published whether the gate passes or fails. No intervention
-experiment begins unless the continuation-only gate passes unchanged.
+The frozen run produced 26 trajectories: 17 learning-valid natural
+continuations and 9 structural failures. All 28 counted checkpoints passed
+transport fidelity. Healthy checkpoints recovered 58.8% of the time, review
+checkpoints 60.0%, and the single confirmed-stuck checkpoint 0.0%.
+
+The gate failed because confirmed and review coverage was insufficient, the
+confirmed tier depended on one task, and there was no positive two-model
+directional estimate. Incremental provider spend was $0.9829; cleanup left no
+Daytona environments.
+
+Interpretation: the transport and provenance protocol are now credible, but the
+detector still needs one minimal, independently frozen coverage revision before
+an intervention experiment. Training remains gated.
+
+Evidence: [v6 calibration result](continuation-calibration-v6-final.md).
 
 ## Evidence boundaries
 
@@ -168,7 +181,7 @@ experiment begins unless the continuation-only gate passes unchanged.
 | A verifier-gated clean-start portfolio improves completion | Supported |
 | Model quality forms a universal ladder | Rejected by observed jaggedness |
 | A learned task-start router beats the fixed order | Not supported |
-| Repeated failure signals identify lower-recovery states | Promising |
+| Repeated failure signals identify lower-recovery states | Promising, but v6 coverage gate failed |
 | Kimi should always replace a stuck model | Not supported |
 | A learned live supervisor is ready to deploy | Not yet |
 

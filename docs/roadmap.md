@@ -6,6 +6,12 @@ choose a better action from the same saved workspace.
 
 Training is deliberately gated on evidence rather than scheduled by date.
 
+## Current position
+
+The v6 natural-continuation calibration passed transport fidelity but failed the
+coverage gate: only one confirmed-stuck checkpoint was observed. The next
+milestone is therefore detector coverage, not model fitting.
+
 ## A. Validate the intervention trigger
 
 Run Flash and Qwen naturally on a fresh, frozen task cohort. Save one healthy
@@ -23,7 +29,9 @@ The gate requires:
   counted example.
 
 If the gate fails, preserve the result and make one minimal, independently
-frozen revision. Do not tune and score a detector on the same outcomes.
+frozen revision. V6 failed this gate, so the next run must increase independent
+confirmed/review coverage without changing the decision rule after seeing its
+outcomes. Do not tune and score a detector on the same outcomes.
 
 ## B. Measure intervention value
 

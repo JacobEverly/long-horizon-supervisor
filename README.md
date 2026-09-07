@@ -63,7 +63,7 @@ matched outcomes exist across enough independent tasks.
 | Models provide complementary task coverage | Supported |
 | A verifier-gated clean-start portfolio improves completion | Supported on held-out tasks |
 | A learned task-start router improves the fixed order | Not supported |
-| Confirmed-stuck states recover less often when left alone | Promising; independent coverage is being expanded |
+| Confirmed-stuck states recover less often when left alone | Promising signal; v6 gate failed on sparse coverage |
 | A learned live intervention policy is ready | Not yet |
 
 Negative results are retained. Infrastructure failures are separated from model
@@ -85,10 +85,14 @@ on held-out outcomes.
   interpretation.
 - [Research program](docs/research-program.md) — experiments, negative results,
   and evidence in detail.
+- [Continuation calibration v6](docs/continuation-calibration-v6-final.md) —
+  the latest sealed detector result and its limits.
 - [Roadmap](docs/roadmap.md) — the remaining gates before training.
 - [Architecture](docs/architecture.md) — harness, supervisor, and state ownership.
 - [Machine-readable scorecard](docs/data/heldout-scorecard-summary-v0.json) —
   public aggregate evidence.
+- [Machine-readable v6 summary](docs/data/continuation-calibration-v6-summary.json)
+  — credential-free detector result and gate status.
 
 ## Reproduce
 

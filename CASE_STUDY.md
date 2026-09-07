@@ -105,6 +105,18 @@ reasoning, restart cleanly, or stop after verified success. The harness adapter
 owns terminals, sandboxes, model APIs, and state transfer, so adding a new model
 does not require rebuilding the supervisor.
 
+## Latest detector result
+
+The latest frozen natural-continuation calibration produced 26 trajectories:
+17 learning-valid and 9 structural failures. All 28 counted checkpoints
+rehydrated exactly. Healthy checkpoints recovered 58.8% of the time, while the
+single confirmed-stuck checkpoint recovered 0%; the gate still failed because
+confirmed coverage was too sparse and task-dependent. Incremental provider
+spend was $0.9829, and cleanup left no Daytona environments.
+
+This is useful infrastructure and detector evidence, not an intervention
+claim. See the [full v6 result](docs/continuation-calibration-v6-final.md).
+
 ## The next falsifiable milestone
 
 The next experiment starts several branches from an identical saved workspace:
@@ -144,6 +156,6 @@ here are:
 - [First matched-state intervention pilot](docs/stuck-intervention-pilot-v0-final.md)
 - [Why the current learned baselines are insufficient](docs/initial-supervisor-policy-v0.md)
 
-All headline results above come from completed, versioned artifacts. Ongoing
-continuation-detector work is intentionally excluded until its frozen run and
-analysis are complete.
+All headline results above come from completed, versioned artifacts. The v6
+detector result is included with its failed readiness gate; no intervention
+policy has been trained or claimed.
