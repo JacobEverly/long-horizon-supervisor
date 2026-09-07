@@ -42,11 +42,11 @@
     </g>
 
     <g fill="#17212b" font-size="14" font-weight="600">
-      <text x="194" y="182" text-anchor="end">Flash</text>
-      <text x="194" y="237" text-anchor="end">Qwen</text>
-      <text x="194" y="292" text-anchor="end">GLM</text>
-      <text x="194" y="347" text-anchor="end">Kimi</text>
-      <text x="194" y="417" text-anchor="end">Portfolio</text>
+      <text x="194" y="182" text-anchor="end">DeepSeek V4 Flash 0731</text>
+      <text x="194" y="237" text-anchor="end">Alibaba Qwen3.8 27B</text>
+      <text x="194" y="292" text-anchor="end">Z.ai GLM-5.3</text>
+      <text x="194" y="347" text-anchor="end">Moonshot Kimi K3</text>
+      <text x="194" y="417" text-anchor="end">Combined portfolio</text>
     </g>
 
     <g fill="#66717d" font-size="12">

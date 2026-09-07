@@ -6,7 +6,7 @@
 
   <g font-family="IBM Plex Sans, Helvetica Neue, sans-serif">
     <text x="72" y="46" fill="#17212b" font-size="24" font-weight="600">Pareto frontier: more completed tasks for each dollar spent</text>
-    <text x="72" y="73" fill="#66717d" font-size="14">18 sealed tasks · portfolios retry in order and stop at the first external-test pass</text>
+    <text x="72" y="73" fill="#66717d" font-size="14">18 sealed tasks · retry in order; stop at the first external-test pass</text>
 
     <g stroke="#d9dde1" stroke-width="1">
       <line x1="104" y1="442" x2="888" y2="442"/>
@@ -48,21 +48,23 @@
     </g>
 
     <g fill="#17212b" font-size="14">
-      <text x="140" y="272" font-weight="600">Flash</text>
+      <text x="140" y="272" font-weight="600">DeepSeek V4 Flash 0731</text>
       <text x="140" y="292" fill="#66717d">6/18 · $0.12</text>
 
-      <text x="332" y="194" font-weight="600">Flash + Qwen</text>
-      <text x="332" y="214" fill="#66717d">9/18 · $1.12</text>
+      <text x="332" y="232" font-weight="600">DeepSeek V4 Flash 0731 + Alibaba Qwen3.8 27B</text>
+      <text x="332" y="250" fill="#66717d">9/18 · $1.12</text>
 
-      <text x="548" y="150" text-anchor="end" font-weight="600">Flash + Qwen + GLM</text>
-      <text x="548" y="168" text-anchor="end" fill="#66717d">10/18 · $2.37</text>
+      <text x="548" y="139" text-anchor="end" font-weight="600">DeepSeek V4 Flash 0731 + Alibaba Qwen3.8 27B</text>
+      <text x="548" y="157" text-anchor="end" font-weight="600">+ Z.ai GLM-5.3</text>
+      <text x="548" y="175" text-anchor="end" fill="#66717d">10/18 · $2.37</text>
 
-      <text x="830" y="98" text-anchor="end" font-weight="600">Flash + Qwen + GLM + Kimi</text>
+      <text x="830" y="80" text-anchor="end" font-weight="600">DeepSeek V4 Flash 0731 + Alibaba Qwen3.8 27B</text>
+      <text x="830" y="98" text-anchor="end" font-weight="600">+ Z.ai GLM-5.3 + Moonshot Kimi K3</text>
       <text x="830" y="116" text-anchor="end" fill="#66717d">12/18 · $3.85</text>
     </g>
 
     <circle cx="884" cy="260" r="7" fill="#fbfaf7" stroke="#a65c3a" stroke-width="3"/>
-    <text x="867" y="247" text-anchor="end" fill="#17212b" font-size="14" font-weight="600">Kimi alone</text>
+    <text x="867" y="247" text-anchor="end" fill="#17212b" font-size="14" font-weight="600">Moonshot Kimi K3 alone</text>
     <text x="867" y="267" text-anchor="end" fill="#a65c3a" font-size="13">7/18 · $4.06 · dominated</text>
 
     <text x="72" y="535" fill="#7a838c" font-size="11">Replayed costs use comparable catalog prices, not provider invoices.</text>
