@@ -251,9 +251,9 @@ def freeze() -> dict[str, Any]:
     }
     manifest["budget"] |= {
         "project_openrouter_spend_before_usd": 54.738412354,
-        "phase_a_incremental_ceiling_usd": 1.8,
-        "tranche_1_incremental_ceiling_usd": 0.9,
-        "tranche_2_incremental_ceiling_usd": 1.8,
+        "phase_a_incremental_ceiling_usd": 2.03,
+        "tranche_1_incremental_ceiling_usd": 1.0,
+        "tranche_2_incremental_ceiling_usd": 2.03,
         "per_trial_incremental_ceiling_usd": 0.35,
         "provider_hard_limit_rule": "hard key limit no more than v7 baseline plus $1.82",
     }
