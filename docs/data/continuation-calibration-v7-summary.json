@@ -1,0 +1,17 @@
+{
+  "schema_version": "continuation-calibration-public-summary.v7",
+  "status": "interrupted",
+  "stop_reason": "operator_interrupt",
+  "manifest_sha256": "69a9c88a11e5e21bb710ea2b2c93c0ea38ed2f9943f560e5f62347edbf31bf30",
+  "completed_schedule_items": 1,
+  "learning_valid_trajectories": 0,
+  "structural_trajectories": 1,
+  "counted_checkpoints": 0,
+  "recorded_attempts": 2,
+  "completed_verifier_outcomes": 0,
+  "interrupted_attempts_scored": 0,
+  "incremental_provider_spend_usd": 0.02814098,
+  "remaining_daytona_environments": 0,
+  "gate_passed": false,
+  "interpretation": "Operational evidence only. No valid natural-continuation or intervention evidence was added, and training remains unauthorized."
+}

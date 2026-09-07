@@ -18,6 +18,8 @@ build/
 # Local execution and downloaded data
 artifacts/
 data/
+!docs/data/
+!docs/data/**
 *.log
 *.jsonl
 *.joblib
