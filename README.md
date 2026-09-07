@@ -91,6 +91,8 @@ on held-out outcomes.
   the later provider-failure audit; no new valid evidence.
 - [V7 transport addendum](docs/continuation-calibration-v7-transport-addendum.md) —
   the first fresh-cohort attempt stopped before any model outcome.
+- [V7 resumed-run addendum](docs/continuation-calibration-v7-resume-addendum.md) —
+  the bounded retry boundary and exact incremental spend.
 - [Roadmap](docs/roadmap.md) — the remaining gates before training.
 - [Architecture](docs/architecture.md) — harness, supervisor, and state ownership.
 - [Machine-readable scorecard](docs/data/heldout-scorecard-summary-v0.json) —
