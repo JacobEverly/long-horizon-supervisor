@@ -17,6 +17,25 @@ The product objective is **verified completion first, cost second**. Cost is
 optimized among policies with comparable completion, rather than traded against
 success through an arbitrary hidden score.
 
+## Held-out result
+
+On 18 sealed Terminal-Bench Pro tasks, the best single tested model completed
+7 tasks. A verifier-gated four-model portfolio completed 12 while using a lower
+replayed model cost than always using the best single model:
+
+| Policy | Verified completion | Replayed model cost |
+|---|---:|---:|
+| Best single model (Kimi) | 7/18 (38.9%) | $4.0559 |
+| Flash → Qwen → GLM → Kimi | **12/18 (66.7%)** | **$3.8475** |
+
+![Held-out completion-versus-cost frontier](docs/assets/heldout-completion-cost-frontier.svg)
+
+The result supports a practical claim: complementary models plus external
+verification can raise the observed probability that a long-running agent
+finishes. It does not establish that the current system can predict the best
+mid-run intervention. See the [two-minute case study](CASE_STUDY.md) for the
+frozen methodology, negative results, and next falsifiable milestone.
+
 > **Research status:** model portfolios work; learned live intervention is not
 > yet proven. A 48-trajectory continuation calibration found a large,
 > task-clustered recovery gap between healthy and confirmed-stuck states, but
