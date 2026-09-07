@@ -47,5 +47,6 @@ def test_data_card_states_release_limits() -> None:
         "## Versioning",
     ):
         assert heading in card
-    assert "The current release contains summaries, not reusable raw trajectories" in card
+    assert "715 credential-redacted" in card
+    assert "not be treated as training-valid" in card
     assert "license: other" in card

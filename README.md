@@ -3,7 +3,7 @@
 [![tests](https://github.com/JacobEverly/long-horizon-supervisor/actions/workflows/ci.yml/badge.svg)](https://github.com/JacobEverly/long-horizon-supervisor/actions/workflows/ci.yml)
 
 Experiments and open tooling for helping long-running coding agents finish more
-often—then spend less when two approaches are equally reliable.
+often and be more cost efficient
 
 ## The problem
 
@@ -18,21 +18,24 @@ This project studies two questions:
 
 ## What we found
 
-We ran four models independently on 18 sealed Terminal-Bench Pro tasks: 72 valid
-model-task outcomes. The best single model completed 7 tasks. A fixed portfolio
-that tried complementary models until an external verifier passed completed 12.
+Across the broader research program, we recorded nearly 200 hours of agent
+execution. The headline result below uses a sealed 72-run evaluation: four
+models on 18 Terminal-Bench Pro tasks. The best single model completed 7 tasks;
+a fixed portfolio that tried complementary models in sequence completed 12.
 
-| Policy | Verified completion | Replayed model cost |
+| Policy | Tasks completed | Replayed model cost |
 |---|---:|---:|
 | Best single model (Kimi) | 7/18 (38.9%) | $4.0559 |
 | Flash → Qwen → GLM → Kimi | **12/18 (66.7%)** | **$3.8475** |
 
-![Verified completion versus replayed model cost](docs/assets/heldout-completion-cost-frontier.svg)
+![Completion-cost Pareto frontier](docs/assets/heldout-completion-cost-frontier.svg)
 
 The portfolio added five completions while costing slightly less in replay.
 Smaller models also solved work that stronger models missed. Model capability
 looks less like a ladder and more like Swiss cheese: each model covers different
 failure surfaces.
+
+![Swiss-cheese task coverage across models](docs/assets/swiss-cheese-task-coverage.svg)
 
 This result supports a **verified clean-start model portfolio**. It does not yet
 show that switching models during a live run improves success.
@@ -69,10 +72,12 @@ supported result and the learned supervisor remains future work.
 
 ## Data and reproduction
 
-The repository publishes aggregate, credential-free evidence. Raw benchmark
-tasks and trajectories remain excluded until their licenses and release fields
-are audited. See the [data card](docs/data/README.md) for provenance, intended
-use, limitations, and the planned trace release.
+The repository includes
+[715 credential-redacted agent trajectories](docs/data/public-agent-traces-v0.jsonl.gz)
+representing 172 hours of execution, alongside the aggregate scorecards. The
+archive contains successful, failed, interrupted, and infrastructure-affected
+runs; it is a research record, not 715 training-valid examples. See the
+[data card](docs/data/README.md) for provenance, schema, and limitations.
 
 ```bash
 python -m venv .venv

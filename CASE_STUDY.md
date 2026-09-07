@@ -12,7 +12,7 @@ completed 7 tasks. A verifier-gated four-model cascade completed 12:
 - every point on the cascade—Flash, Flash → Qwen, + GLM, + Kimi—occupied the
   observed completion-versus-cost Pareto frontier.
 
-![Completion-versus-cost frontier](docs/assets/heldout-completion-cost-frontier.svg)
+![Completion-cost Pareto frontier](docs/assets/heldout-completion-cost-frontier.svg)
 
 This supports a practical product claim: **a verified portfolio of models can
 increase the empirical chance that a long-running agent finishes while giving
@@ -71,6 +71,8 @@ The four-model cascade cost less than Kimi alone in replay while completing five
 more tasks. Flash also uniquely covered work that other routes missed. The
 right mental model is overlapping failure surfaces—“Swiss cheese”—rather than
 small model → large model as a universal quality ordering.
+
+![Swiss-cheese task coverage across models](docs/assets/swiss-cheese-task-coverage.svg)
 
 ### Verification creates the product loop
 

@@ -79,10 +79,14 @@ def test_portfolio_chart_is_accessible_and_linked() -> None:
         encoding="utf-8"
     )
 
-    assert "![Completion-versus-cost frontier]" in case_study
+    assert "![Completion-cost Pareto frontier]" in case_study
     assert 'role="img"' in chart
     assert "<title" in chart
     assert "<desc" in chart
+
+    coverage_chart = ROOT / "docs/assets/swiss-cheese-task-coverage.svg"
+    assert coverage_chart.is_file()
+    assert "![Swiss-cheese task coverage across models]" in case_study
 
 
 def test_case_study_relative_links_exist_in_public_checkout() -> None:

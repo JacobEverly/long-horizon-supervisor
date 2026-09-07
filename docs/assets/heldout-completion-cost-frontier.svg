@@ -1,70 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
-  <title id="title">Verified completion versus replayed model cost</title>
-  <desc id="desc">On eighteen sealed tasks, a verifier-gated portfolio rises from six completions with Flash alone to twelve with four models at 3 dollars and 85 cents. Kimi alone completes seven tasks at 4 dollars and 6 cents.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="550" viewBox="0 0 960 550" role="img" aria-labelledby="title desc">
+  <title id="title">Completion-cost Pareto frontier for model portfolios</title>
+  <desc id="desc">Across eighteen sealed tasks, Flash completes six for twelve cents. Flash plus Qwen completes nine for one dollar and twelve cents. Adding GLM completes ten for two dollars and thirty-seven cents. Adding Kimi completes twelve for three dollars and eighty-five cents. Kimi alone completes seven for four dollars and six cents and is off the Pareto frontier.</desc>
 
-  <rect width="960" height="540" fill="#fbfaf7"/>
+  <rect width="960" height="550" fill="#fbfaf7"/>
 
   <g font-family="IBM Plex Sans, Helvetica Neue, sans-serif">
-    <text x="72" y="48" fill="#17212b" font-size="24" font-weight="600">Verified completion improves along the model portfolio</text>
-    <text x="72" y="76" fill="#66717d" font-size="14">18 sealed tasks · each route stops after external verification</text>
+    <text x="72" y="46" fill="#17212b" font-size="24" font-weight="600">Pareto frontier: more completed tasks for each dollar spent</text>
+    <text x="72" y="73" fill="#66717d" font-size="14">18 sealed tasks · portfolios retry in order and stop at the first external-test pass</text>
 
     <g stroke="#d9dde1" stroke-width="1">
-      <line x1="104" y1="432" x2="888" y2="432"/>
-      <line x1="104" y1="354" x2="888" y2="354"/>
-      <line x1="104" y1="276" x2="888" y2="276"/>
-      <line x1="104" y1="198" x2="888" y2="198"/>
-      <line x1="104" y1="120" x2="888" y2="120"/>
+      <line x1="104" y1="442" x2="888" y2="442"/>
+      <line x1="104" y1="364" x2="888" y2="364"/>
+      <line x1="104" y1="286" x2="888" y2="286"/>
+      <line x1="104" y1="208" x2="888" y2="208"/>
+      <line x1="104" y1="130" x2="888" y2="130"/>
     </g>
 
     <g stroke="#89939d" stroke-width="1.5">
-      <line x1="104" y1="120" x2="104" y2="432"/>
-      <line x1="104" y1="432" x2="888" y2="432"/>
+      <line x1="104" y1="130" x2="104" y2="442"/>
+      <line x1="104" y1="442" x2="888" y2="442"/>
     </g>
 
     <g fill="#66717d" font-size="13">
-      <text x="83" y="436" text-anchor="end">0%</text>
-      <text x="83" y="358" text-anchor="end">17%</text>
-      <text x="83" y="280" text-anchor="end">33%</text>
-      <text x="83" y="202" text-anchor="end">50%</text>
-      <text x="83" y="124" text-anchor="end">67%</text>
+      <text x="83" y="446" text-anchor="end">0</text>
+      <text x="83" y="368" text-anchor="end">3</text>
+      <text x="83" y="290" text-anchor="end">6</text>
+      <text x="83" y="212" text-anchor="end">9</text>
+      <text x="83" y="134" text-anchor="end">12</text>
 
-      <text x="104" y="457" text-anchor="middle">$0</text>
-      <text x="296" y="457" text-anchor="middle">$1</text>
-      <text x="488" y="457" text-anchor="middle">$2</text>
-      <text x="680" y="457" text-anchor="middle">$3</text>
-      <text x="872" y="457" text-anchor="middle">$4</text>
+      <text x="104" y="467" text-anchor="middle">$0</text>
+      <text x="296" y="467" text-anchor="middle">$1</text>
+      <text x="488" y="467" text-anchor="middle">$2</text>
+      <text x="680" y="467" text-anchor="middle">$3</text>
+      <text x="872" y="467" text-anchor="middle">$4</text>
 
-      <text x="496" y="496" text-anchor="middle" font-size="14">Replayed model cost (USD)</text>
-      <text x="27" y="276" text-anchor="middle" font-size="14" transform="rotate(-90 27 276)">Verified completion</text>
+      <text x="496" y="506" text-anchor="middle" font-size="14">Policy cost across 18 tasks (USD)</text>
+      <text x="27" y="286" text-anchor="middle" font-size="14" transform="rotate(-90 27 286)">Tasks completed (external tests passed)</text>
     </g>
 
-    <path d="M127 276 L319 198 L559 172 L843 120" fill="none" stroke="#1769aa" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M127 286 L319 208 L560 182 L843 130" fill="none" stroke="#1769aa" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
 
     <g fill="#1769aa">
-      <circle cx="127" cy="276" r="6"/>
-      <circle cx="319" cy="198" r="6"/>
-      <circle cx="559" cy="172" r="6"/>
-      <circle cx="843" cy="120" r="7"/>
+      <circle cx="127" cy="286" r="6"/>
+      <circle cx="319" cy="208" r="6"/>
+      <circle cx="560" cy="182" r="6"/>
+      <circle cx="843" cy="130" r="7"/>
     </g>
 
     <g fill="#17212b" font-size="14">
-      <text x="140" y="262" font-weight="600">Flash</text>
-      <text x="140" y="282" fill="#66717d">6/18 · $0.12</text>
+      <text x="140" y="272" font-weight="600">Flash</text>
+      <text x="140" y="292" fill="#66717d">6/18 · $0.12</text>
 
-      <text x="332" y="184" font-weight="600">+ Qwen</text>
-      <text x="332" y="204" fill="#66717d">9/18 · $1.12</text>
+      <text x="332" y="194" font-weight="600">Flash + Qwen</text>
+      <text x="332" y="214" fill="#66717d">9/18 · $1.12</text>
 
-      <text x="572" y="158" font-weight="600">+ GLM</text>
-      <text x="572" y="178" fill="#66717d">10/18 · $2.37</text>
+      <text x="548" y="150" text-anchor="end" font-weight="600">Flash + Qwen + GLM</text>
+      <text x="548" y="168" text-anchor="end" fill="#66717d">10/18 · $2.37</text>
 
-      <text x="830" y="92" text-anchor="end" font-weight="600">+ Kimi</text>
-      <text x="830" y="110" text-anchor="end" fill="#66717d">12/18 · $3.85</text>
+      <text x="830" y="98" text-anchor="end" font-weight="600">Flash + Qwen + GLM + Kimi</text>
+      <text x="830" y="116" text-anchor="end" fill="#66717d">12/18 · $3.85</text>
     </g>
 
-    <circle cx="884" cy="250" r="7" fill="#fbfaf7" stroke="#a65c3a" stroke-width="3"/>
-    <text x="867" y="238" text-anchor="end" fill="#17212b" font-size="14" font-weight="600">Kimi alone</text>
-    <text x="867" y="259" text-anchor="end" fill="#66717d" font-size="14">7/18 · $4.06</text>
+    <circle cx="884" cy="260" r="7" fill="#fbfaf7" stroke="#a65c3a" stroke-width="3"/>
+    <text x="867" y="247" text-anchor="end" fill="#17212b" font-size="14" font-weight="600">Kimi alone</text>
+    <text x="867" y="267" text-anchor="end" fill="#a65c3a" font-size="13">7/18 · $4.06 · dominated</text>
 
-    <text x="72" y="524" fill="#7a838c" font-size="11">Costs replay observed attempts at comparable catalog prices; they are not the provider invoice.</text>
+    <text x="72" y="535" fill="#7a838c" font-size="11">Replayed costs use comparable catalog prices, not provider invoices.</text>
   </g>
 </svg>

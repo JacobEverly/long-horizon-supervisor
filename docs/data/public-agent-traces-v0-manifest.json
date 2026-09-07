@@ -1,0 +1,34 @@
+{
+  "agent_execution_hours": 172.1,
+  "agent_execution_seconds": 619458.803949,
+  "archive": "public-agent-traces-v0.jsonl.gz",
+  "archive_sha256": "30eb97947e043efe3b49292ec4c46b9ab14111bdb1c2f06a535decc577bb7b08",
+  "redaction_counts": {
+    "aws_access_key": 30,
+    "bearer_token": 0,
+    "credential_assignment": 207,
+    "credential_url": 24,
+    "daytona_key": 0,
+    "email": 677,
+    "github_token": 16,
+    "huggingface_token": 13,
+    "local_home": 2,
+    "openai_style_key": 82,
+    "private_key": 33,
+    "private_key_header": 3
+  },
+  "release_guard": "Includes successful, failed, interrupted, and infrastructure-affected traces. A record is not training-valid unless a downstream audit says so.",
+  "schema_version": "public-agent-trace-manifest.v0",
+  "source": {
+    "benchmark": "alibabagroup/terminal-bench-pro",
+    "benchmark_license": "apache-2.0",
+    "benchmark_revision": "b79dec3e67acd466f90127cde0d24516d9132e74",
+    "dataset_card": "https://huggingface.co/datasets/alibabagroup/terminal-bench-pro"
+  },
+  "status_counts": {
+    "errored": 195,
+    "unverified": 15,
+    "verified": 505
+  },
+  "trajectory_count": 715
+}

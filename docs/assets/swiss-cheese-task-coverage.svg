@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Swiss-cheese model coverage across task capabilities</title>
+  <desc id="desc">A matrix of ten sealed tasks where four models disagreed. Flash solved four, Qwen three, GLM three, and Kimi five. Their combined portfolio solved all ten because each model covered holes left by the others.</desc>
+
+  <rect width="960" height="520" fill="#fbfaf7"/>
+
+  <g font-family="IBM Plex Sans, Helvetica Neue, sans-serif">
+    <text x="72" y="48" fill="#17212b" font-size="24" font-weight="600">The portfolio closes each model’s holes</text>
+    <text x="72" y="76" fill="#66717d" font-size="14">10 sealed tasks where models disagreed · filled circle = external tests passed</text>
+
+    <g fill="#66717d" font-size="11" font-weight="600" letter-spacing="0.6">
+      <text x="310" y="111" text-anchor="middle">BUILD</text>
+      <text x="526" y="111" text-anchor="middle">ANALYZE</text>
+      <text x="770" y="111" text-anchor="middle">RECOVER</text>
+    </g>
+    <g stroke="#d9dde1" stroke-width="1">
+      <line x1="226" y1="120" x2="394" y2="120"/>
+      <line x1="414" y1="120" x2="638" y2="120"/>
+      <line x1="686" y1="120" x2="854" y2="120"/>
+    </g>
+
+    <g fill="#66717d" font-size="11">
+      <text x="254" y="141" text-anchor="middle">CRC</text>
+      <text x="310" y="141" text-anchor="middle">Similarity</text>
+      <text x="366" y="141" text-anchor="middle">HTTP</text>
+      <text x="442" y="141" text-anchor="middle">Portfolio</text>
+      <text x="498" y="141" text-anchor="middle">Text</text>
+      <text x="554" y="141" text-anchor="middle">YAML</text>
+      <text x="610" y="141" text-anchor="middle">XRD</text>
+      <text x="714" y="141" text-anchor="middle">WAL</text>
+      <text x="770" y="141" text-anchor="middle">Git</text>
+      <text x="826" y="141" text-anchor="middle">Shell</text>
+    </g>
+
+    <g stroke="#e3e6e9" stroke-width="1">
+      <line x1="210" y1="177" x2="874" y2="177"/>
+      <line x1="210" y1="232" x2="874" y2="232"/>
+      <line x1="210" y1="287" x2="874" y2="287"/>
+      <line x1="210" y1="342" x2="874" y2="342"/>
+      <line x1="210" y1="377" x2="874" y2="377"/>
+      <line x1="210" y1="412" x2="874" y2="412"/>
+    </g>
+
+    <g fill="#17212b" font-size="14" font-weight="600">
+      <text x="194" y="182" text-anchor="end">Flash</text>
+      <text x="194" y="237" text-anchor="end">Qwen</text>
+      <text x="194" y="292" text-anchor="end">GLM</text>
+      <text x="194" y="347" text-anchor="end">Kimi</text>
+      <text x="194" y="417" text-anchor="end">Portfolio</text>
+    </g>
+
+    <g fill="#66717d" font-size="12">
+      <text x="892" y="182" text-anchor="end">4/10</text>
+      <text x="892" y="237" text-anchor="end">3/10</text>
+      <text x="892" y="292" text-anchor="end">3/10</text>
+      <text x="892" y="347" text-anchor="end">5/10</text>
+      <text x="892" y="417" text-anchor="end" fill="#1769aa" font-weight="600">10/10</text>
+    </g>
+
+    <g fill="#fbfaf7" stroke="#ccd2d8" stroke-width="1.5">
+      <!-- Flash misses -->
+      <circle cx="442" cy="177" r="10"/><circle cx="498" cy="177" r="10"/><circle cx="554" cy="177" r="10"/><circle cx="610" cy="177" r="10"/><circle cx="770" cy="177" r="10"/><circle cx="826" cy="177" r="10"/>
+      <!-- Qwen misses -->
+      <circle cx="254" cy="232" r="10"/><circle cx="310" cy="232" r="10"/><circle cx="366" cy="232" r="10"/><circle cx="442" cy="232" r="10"/><circle cx="554" cy="232" r="10"/><circle cx="714" cy="232" r="10"/><circle cx="826" cy="232" r="10"/>
+      <!-- GLM misses -->
+      <circle cx="254" cy="287" r="10"/><circle cx="366" cy="287" r="10"/><circle cx="442" cy="287" r="10"/><circle cx="554" cy="287" r="10"/><circle cx="610" cy="287" r="10"/><circle cx="714" cy="287" r="10"/><circle cx="770" cy="287" r="10"/>
+      <!-- Kimi misses -->
+      <circle cx="254" cy="342" r="10"/><circle cx="310" cy="342" r="10"/><circle cx="610" cy="342" r="10"/><circle cx="770" cy="342" r="10"/><circle cx="826" cy="342" r="10"/>
+    </g>
+
+    <g fill="#2d74a8">
+      <circle cx="254" cy="177" r="10"/><circle cx="310" cy="177" r="10"/><circle cx="366" cy="177" r="10"/><circle cx="714" cy="177" r="10"/>
+    </g>
+    <g fill="#398a80">
+      <circle cx="498" cy="232" r="10"/><circle cx="610" cy="232" r="10"/><circle cx="770" cy="232" r="10"/>
+    </g>
+    <g fill="#c08a35">
+      <circle cx="310" cy="287" r="10"/><circle cx="498" cy="287" r="10"/><circle cx="826" cy="287" r="10"/>
+    </g>
+    <g fill="#7d62a8">
+      <circle cx="366" cy="342" r="10"/><circle cx="442" cy="342" r="10"/><circle cx="498" cy="342" r="10"/><circle cx="554" cy="342" r="10"/><circle cx="714" cy="342" r="10"/>
+    </g>
+
+    <g fill="#1769aa">
+      <circle cx="254" cy="412" r="11"/><circle cx="310" cy="412" r="11"/><circle cx="366" cy="412" r="11"/><circle cx="442" cy="412" r="11"/><circle cx="498" cy="412" r="11"/><circle cx="554" cy="412" r="11"/><circle cx="610" cy="412" r="11"/><circle cx="714" cy="412" r="11"/><circle cx="770" cy="412" r="11"/><circle cx="826" cy="412" r="11"/>
+    </g>
+
+    <text x="72" y="478" fill="#7a838c" font-size="11">The other 8 tasks are omitted here: 2 were solved by every model; 6 were solved by none.</text>
+  </g>
+</svg>
