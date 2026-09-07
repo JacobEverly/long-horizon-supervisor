@@ -89,6 +89,8 @@ on held-out outcomes.
   the latest sealed detector result and its limits.
 - [V6 resume addendum](docs/continuation-calibration-v6-resume-addendum.md) —
   the later provider-failure audit; no new valid evidence.
+- [V7 transport addendum](docs/continuation-calibration-v7-transport-addendum.md) —
+  the first fresh-cohort attempt stopped before any model outcome.
 - [Roadmap](docs/roadmap.md) — the remaining gates before training.
 - [Architecture](docs/architecture.md) — harness, supervisor, and state ownership.
 - [Machine-readable scorecard](docs/data/heldout-scorecard-summary-v0.json) —
