@@ -20,13 +20,15 @@ This project studies two questions:
 
 Across the broader research program, we recorded nearly 200 hours of agent
 execution. The headline result below uses a sealed 72-run evaluation: four
-models on 18 Terminal-Bench Pro tasks. The best single model completed 7 tasks;
-a fixed portfolio that tried complementary models in sequence completed 12.
+models on 18 Terminal-Bench Pro tasks: DeepSeek V4 Flash 0731, Alibaba Qwen3.8
+27B, Z.ai GLM-5.3, and Moonshot Kimi K3. The best single model completed 7
+tasks; a fixed portfolio that tried complementary models in sequence completed
+12.
 
 | Policy | Tasks completed | Replayed model cost |
 |---|---:|---:|
-| Best single model (Kimi) | 7/18 (38.9%) | $4.0559 |
-| Flash → Qwen → GLM → Kimi | **12/18 (66.7%)** | **$3.8475** |
+| Best single model (Moonshot Kimi K3) | 7/18 (38.9%) | $4.0559 |
+| DeepSeek V4 Flash 0731 → Alibaba Qwen3.8 27B → Z.ai GLM-5.3 → Moonshot Kimi K3 | **12/18 (66.7%)** | **$3.8475** |
 
 ![Completion-cost Pareto frontier](docs/assets/heldout-completion-cost-frontier.svg)
 
